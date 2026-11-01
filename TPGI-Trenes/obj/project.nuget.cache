@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GLVyVJnIPvk=",
+  "dgSpecHash": "ENfVvDh53Qg=",
   "success": true,
-  "projectFilePath": "/Users/ignaciomeritano/Documents/UTN/Tpi-Grupo00x/TPGI-Trenes/TPGI-Trenes.csproj",
+  "projectFilePath": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj",
   "expectedPackageFiles": [
     "/Users/ignaciomeritano/.nuget/packages/azure.core/1.41.0/azure.core.1.41.0.nupkg.sha512",
     "/Users/ignaciomeritano/.nuget/packages/azure.identity/1.12.1/azure.identity.1.12.1.nupkg.sha512",

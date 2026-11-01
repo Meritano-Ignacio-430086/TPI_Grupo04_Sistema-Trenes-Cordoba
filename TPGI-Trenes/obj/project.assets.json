@@ -3121,11 +3121,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ignaciomeritano/Documents/UTN/Tpi-Grupo00x/TPGI-Trenes/TPGI-Trenes.csproj",
+      "projectUniqueName": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj",
       "projectName": "TPGI-Trenes",
-      "projectPath": "/Users/ignaciomeritano/Documents/UTN/Tpi-Grupo00x/TPGI-Trenes/TPGI-Trenes.csproj",
+      "projectPath": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj",
       "packagesPath": "/Users/ignaciomeritano/.nuget/packages/",
-      "outputPath": "/Users/ignaciomeritano/Documents/UTN/Tpi-Grupo00x/TPGI-Trenes/obj/",
+      "outputPath": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ignaciomeritano/.nuget/NuGet/NuGet.Config"
