@@ -7,6 +7,10 @@ Buscamos realizarlo por medio de un sistema actualizado y confiable de compra de
 ## Como solucionarla mediante la programación
 Permitiremos a los consumidores y a los administradores crear usuarios con distintos permisos que permitan:
 
+---
+Actualizar los ABMC 
+
+
 A los usuarios:
 - Darse de alta/(Baja lógica) en el sistema 
 - Solicitar tickets para un tren determinado
@@ -16,6 +20,8 @@ A los administradores:
 - Ingresar al sistema con cuentas con permisos especiales
 - Dar de alta-baja trenes
 - Colocar trenes en mantenimiento
+
+---
 
 ## Integrantes:
 - Meritano, Ignacio
