@@ -27,7 +27,7 @@ A los administradores:
 - Meritano, Ignacio
 - Dre, Juan
 - Berrotaran, Francisco
-- Lonzari, Bryan
+- Lonzari, Brian
 - Murua Marcos
 - Cacciopoli Victorio
 
