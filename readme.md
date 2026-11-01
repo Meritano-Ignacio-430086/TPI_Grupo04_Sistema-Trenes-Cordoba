@@ -40,3 +40,8 @@ HTML, CSS, JS, [Bootstrap](https://getbootstrap.com/) y Frameworks de JS([Chart]
 
 ### Arquitectura utilizada:
 Patrón Repository + DTO en backend
+
+### Ramas a utilizar:
+1. Main (no se pushea hasta que estemos por la fecha)
+2. TPI_Grupo04_Sistema-Trenes-Cordoba (Pusheamos aca cuando vamos haciendo las tareas es para no tirar todo a la main)
+3. Nombre Individual (Aca hacemos todo y pushea a la 2)
