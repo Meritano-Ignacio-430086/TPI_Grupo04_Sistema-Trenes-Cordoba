@@ -2,7 +2,7 @@ using TPGI_Trenes.Negocio;
 
 namespace TPGI_Trenes.DTO
 {
-    public class LineasDTO
+    public class RecorridosDTO
     {
         public int NroLinea { get; set; }
 

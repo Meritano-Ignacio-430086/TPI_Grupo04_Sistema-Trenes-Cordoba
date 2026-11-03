@@ -10,8 +10,8 @@ namespace TPGI_Trenes.DTO
 
         public int IdEstacion { get; set; }
 
-        public virtual Estaciones? IdEstacionNavigation { get; set; }
+        public EstacionesDTO? IdEstacionNavigation { get; set; }
 
-        public virtual Recorridos? NroLineaNavigation { get; set; }
+        public RecorridosDTO? NroLineaNavigation { get; set; }
     }
 }
