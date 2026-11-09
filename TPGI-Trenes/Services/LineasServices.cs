@@ -9,15 +9,19 @@ namespace TPGI_Trenes.Services
     public class LineasServices : ILineasServices
     {
         private readonly LineasRepository repo;
+        private readonly QueryRepository queryrepo;
 
-        public LineasServices(LineasRepository repo)
+        public LineasServices(LineasRepository repo,QueryRepository queryrepo)
         {
             this.repo = repo;
+            this.queryrepo = queryrepo;
         }
 
-        public Task<List<RecorridosDTO>> GetById(int NroLinea)
+        public async Task<List<LineasDTO>> GetById(int NroLinea)
         {
-            throw new NotImplementedException();
+            List<LineasDTO> lineas = queryrepo.GetProcedimientoLineas(NroLinea);
+
+            return lineas;
         }
     }
 }
