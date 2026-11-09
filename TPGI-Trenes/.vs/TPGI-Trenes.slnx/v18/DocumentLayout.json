@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\negocio\\trenescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:negocio\\trenescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -31,12 +35,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TicketsController.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controllers\\TicketsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TicketsController.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controllers\\TicketsController.cs",
+              "RelativeToolTip": "Controllers\\TicketsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-31T21:18:47.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TrenesContext.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Negocio\\TrenesContext.cs",
               "RelativeDocumentMoniker": "Negocio\\TrenesContext.cs",
               "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Negocio\\TrenesContext.cs",
               "RelativeToolTip": "Negocio\\TrenesContext.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAmwCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-29T19:51:03.694Z",
               "EditorCaption": ""
