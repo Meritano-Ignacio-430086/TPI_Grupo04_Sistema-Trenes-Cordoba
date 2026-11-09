@@ -6,7 +6,7 @@ namespace TPGI_Trenes.DTO
     {
         public int IdTren { get; set; }
 
-        public LineasDTO? NroUnidad { get; set; }
+        public RecorridosDTO? NroUnidad { get; set; }
 
         public string? Modelo { get; set; }
 
