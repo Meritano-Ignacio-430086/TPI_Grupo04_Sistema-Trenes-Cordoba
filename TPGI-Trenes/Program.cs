@@ -1,4 +1,6 @@
 
+using TPGI_Trenes.Negocio;
+
 namespace TPGI_Trenes
 {
     public class Program
@@ -15,6 +17,12 @@ namespace TPGI_Trenes
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            builder.Services.AddDbContext<TrenesContext>(
+                options => options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                )
+            );
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
