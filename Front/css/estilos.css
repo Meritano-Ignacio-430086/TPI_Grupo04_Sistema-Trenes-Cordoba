@@ -1,0 +1,44 @@
+
+body {
+  background-color: #f5f6f8;
+}
+
+.btn-primary,
+.bg-primary {
+  background-color: #e85d24 !important;
+  border-color: #e85d24 !important;
+}
+.btn-primary:hover {
+  background-color: #cf4f1a !important;
+}
+.text-primary {
+  color: #e85d24 !important;
+}
+.portada {
+  background-color: #1d2b3a;
+  color: white;
+  padding: 80px 0;
+}
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.numero {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #e85d24;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
