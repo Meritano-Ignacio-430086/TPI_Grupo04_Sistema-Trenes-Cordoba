@@ -1,0 +1,22 @@
+body {
+    background-color: #f4f6f9;
+}
+
+/* portada del index */
+.portada {
+    background-color: #212529;
+    color: white;
+    padding: 90px 0;
+}
+
+/* numeros grandes del dashboard */
+.numero {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
