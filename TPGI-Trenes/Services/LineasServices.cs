@@ -15,6 +15,11 @@ namespace TPGI_Trenes.Services
             this.repo = repo;
         }
 
+        public Task<List<RecorridosDTO>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<RecorridosDTO>> GetById(int NroLinea)
         {
             throw new NotImplementedException();

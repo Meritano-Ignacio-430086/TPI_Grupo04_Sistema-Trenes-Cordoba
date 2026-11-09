@@ -6,6 +6,7 @@ namespace TPGI_Trenes.Services.Interfaces
     public interface ILineasServices
     {
         Task <List<RecorridosDTO>> GetById (int NroLinea);
+        Task <List<RecorridosDTO>> GetAll ();
     }
 
 }
