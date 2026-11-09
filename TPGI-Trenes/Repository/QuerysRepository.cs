@@ -13,10 +13,10 @@ namespace TPGI_Trenes.Repository
             this.bd = bd;
         }
 
-        public List<LineasDTO> GetProcedimientoLineas(int NroLinea)
+        public async Task<List<LineasDTO>> GetProcedimientoLineas(int NroLinea)
         {
             string sql = "EXECUTE dbo.PA_ReporteAvanzadoLineaTren";
-            List<LineasDTO> linea = bd.Database.SqlQueryRaw<LineasDTO>(sql,NroLinea).ToList();
+            List<LineasDTO> linea = await bd.Database.SqlQueryRaw<LineasDTO>(sql,NroLinea).ToListAsync();
             return linea;
         }
     }

@@ -19,7 +19,7 @@ namespace TPGI_Trenes.Services
 
         public async Task<List<LineasDTO>> GetById(int NroLinea)
         {
-            List<LineasDTO> lineas = queryrepo.GetProcedimientoLineas(NroLinea);
+            List<LineasDTO> lineas = await queryrepo.GetProcedimientoLineas(NroLinea);
 
             return lineas;
         }
