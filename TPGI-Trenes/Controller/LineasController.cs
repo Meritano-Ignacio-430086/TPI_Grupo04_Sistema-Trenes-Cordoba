@@ -16,14 +16,17 @@ namespace TPGI_Trenes.Controller
             this.services = services;
         }
 
-        public async Task<ActionResult<List<LineasDTO>>> GetById(int NroLinea)
+        [HttpGet]
+        public async Task<ActionResult<List<LineasDTO>>> GetLineasByIdAsync([FromQuery]int NroLinea)
         {
-            List<LineasDTO> lineas = await services.GetById(NroLinea);
+            List<LineasDTO> lineas = await services.GetLineasByIdAsync(NroLinea);
             if(lineas == null)
             {
                 return NoContent();
             }
             return Ok(lineas);
         }
+
+        
     }
 }

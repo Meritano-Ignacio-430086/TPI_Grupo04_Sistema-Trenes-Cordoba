@@ -19,8 +19,6 @@ namespace TPGI_Trenes
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var app = builder.Build();
-
             builder.Services.AddScoped<ILineasRepository,LineasRepository>();
             builder.Services.AddScoped<ILineasServices,LineasServices>(); 
             builder.Services.AddScoped<QueryRepository>(); 
@@ -31,6 +29,8 @@ namespace TPGI_Trenes
                     builder.Configuration.GetConnectionString("Conneccion1")
                 )
             );
+
+            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
