@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fff40953db8925000fd64eb47fc79c027eb00a0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+855a172829bf69282d33f98b163e5c334bdc36e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

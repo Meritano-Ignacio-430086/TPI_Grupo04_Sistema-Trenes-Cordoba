@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj": {}
+    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj": {
+    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj",
+        "projectUniqueName": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
         "projectName": "TPGI-Trenes",
-        "projectPath": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj",
-        "packagesPath": "C:\\Users\\JUANI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\obj\\",
+        "projectPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
+        "packagesPath": "C:\\Users\\furrf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\JUANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\furrf\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,9 +52,17 @@
           "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.30, )"
+              "version": "[8.0.33, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[8.0.33, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -80,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
