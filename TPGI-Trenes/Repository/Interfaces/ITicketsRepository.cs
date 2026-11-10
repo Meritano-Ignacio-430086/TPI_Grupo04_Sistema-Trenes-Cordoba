@@ -4,6 +4,6 @@ namespace TPGI_Trenes.Repository.Interfaces
 {
     public interface ITicketsRepository
     {
-        Task<List<Tickets>> GetById(int id);
+        Task<List<Tickets>> GetByClienteId(int id);
     }
 }
