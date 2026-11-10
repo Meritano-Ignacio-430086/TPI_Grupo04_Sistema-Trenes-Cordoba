@@ -17,7 +17,8 @@ namespace TPGI_Trenes.Repository
 
         public async Task<List<Tickets>> GetById(int id)
         {
-            return await bd.Tickets.Where(p=>p.IdCliente==id).ToListAsync();
+            List<Tickets> list = await bd.Tickets.Where(p=>p.IdCliente==id).ToListAsync();
+            return list;
         }
     }
 }
