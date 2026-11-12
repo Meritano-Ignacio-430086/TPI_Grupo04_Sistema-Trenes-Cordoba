@@ -13,10 +13,11 @@ namespace TPGI_Trenes.Controller
         {
             this.services = services;
         }
-
-        // GET: HomeController
+        [HttpGet("cliente/{id}")]
+         // GET: HomeController
         public IActionResult GetByClienteID(int id)
         {
+
             return Ok(services.GetByClienteId(id));
         }
 

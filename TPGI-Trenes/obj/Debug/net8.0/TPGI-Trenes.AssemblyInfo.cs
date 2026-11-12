@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96e3eb2af8e5708ed9e1076407426df01aca1e3e")]
+=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb14ebf4c5986d4ceb3bddeaa561cf3f0cc54b44")]
+>>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
 [assembly: System.Reflection.AssemblyProductAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

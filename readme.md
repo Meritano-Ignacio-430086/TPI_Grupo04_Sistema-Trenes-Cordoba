@@ -29,7 +29,7 @@ A los administradores:
 - Berrotaran, Francisco
 - Lonzari, Brian
 - Murua Marcos
-- Cacciopoli Victorio
+- Caccioppoli, Victorio
 
 ## Tecnologías utilizadas
 ### Backend : 
