@@ -19,14 +19,21 @@ namespace TPGI_Trenes
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+
             builder.Services.AddScoped<ILineasRepository,LineasRepository>();
             builder.Services.AddScoped<ILineasServices,LineasServices>(); 
             builder.Services.AddScoped<QueryRepository>(); 
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
-                    //builder.Configuration.GetConnectionString("DefaultConnection")
-                    builder.Configuration.GetConnectionString("Conneccion1")
+                //builder.Configuration.GetConnectionString("DefaultConnection")
+                //builder.Configuration.GetConnectionString("Conneccion1")
+                builder.Configuration.GetConnectionString("Caccioppoli")
                 )
             );
 
@@ -40,6 +47,8 @@ namespace TPGI_Trenes
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

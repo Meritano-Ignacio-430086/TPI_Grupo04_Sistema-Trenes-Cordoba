@@ -1,18 +1,23 @@
 ﻿using TPGI_Trenes.Negocio;
 using TPGI_Trenes.DTO;
 using TPGI_Trenes.Repository;
+<<<<<<< HEAD
+=======
+using TPGI_Trenes.Repository.Interfaces;
+>>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
 using TPGI_Trenes.Services.Interfaces;
 
 namespace TPGI_Trenes.Services
 {
     public class TicketsServices : ITicketsServices
     {
-        private readonly TicketsRepository repo;
+        private readonly ITicketsRepository repo;
 
-        public TicketsServices(TicketsRepository repo)
+        public TicketsServices(ITicketsRepository repo)
         {
             this.repo = repo;
         }
+<<<<<<< HEAD
 
         public Task<bool> Add(TicketsDTO ticket)
         {
@@ -27,15 +32,12 @@ namespace TPGI_Trenes.Services
         }
 
         public async Task<List<Tickets>> GetById(int id)
+=======
+        public async Task<List<Tickets>> GetByClienteId(int id)
+>>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
         {
-            try
-            {
-                return await repo.GetById(id);
-            }
-            catch (System.ArgumentNullException)
-            {
-                throw;
-            }
+            List<Tickets> list = await repo.GetByClienteId(id);
+            return list;
         }
         private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
         {
