@@ -15,10 +15,16 @@ namespace TPGI_Trenes.Controller
             this.services = services;
         }
 
-        // GET: HomeController
-        public IActionResult GetByClienteID(int id)
+        [HttpGet]
+        [Route("Clientes/{id}")]
+        public async Task<ActionResult<List<Tickets>>> GetByClienteID(int id)
         {
-            return Ok(services.GetByClienteId(id));
+            List<Tickets> tickets = await services.GetByClienteId(id);
+            if(tickets == null)
+            {
+                return NoContent();
+            }
+            return Ok(tickets);
         }
 
         //// GET: HomeController/Create
