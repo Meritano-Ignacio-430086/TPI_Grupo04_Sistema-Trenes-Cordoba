@@ -37,24 +37,34 @@ namespace TPGI_Trenes.Services
                 throw;
             }
         }
-        private static List<DetalleTickets> MapToEntities(List<CreateDetalleTicketsDto> details)
+        private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
         {
-            List<DetalleTickets> detalleTickets = new List<DetalleTickets>();
+            List<DetalleTicketsDTO> detalleTickets = new List<DetalleTicketsDTO>();
+            ClientesDTO clientes = new ClientesDTO();
+            EmpleadosDTO empleados = new EmpleadosDTO();
+            List<TicketsXFormapagoDTO> ticketsXFormapagos = new List<TicketsXFormapagoDTO>();
 
-            foreach (CreateDetalleTicketsDto detail in details)
+            foreach (DetalleTickets detail in tickets.DetalleTickets)
             {
-                DetalleTickets detalleTicket = new DetalleTickets
-                {
-                    IdTicket = detail.IdTicket,
-                    IdAsiento = detail.IdAsiento,
-                    IdRecorrido = detail.IdRecorrido,
-                    Precio = detail.Precio
-                };
-
-                detalleTickets.Add(detalleTicket);
+                detalleTickets.Add(MapDetalleTicketsToDTO(detail));
             }
 
-            return detalleTickets;
+            return new TicketsDTO
+            {
+                IdCliente = tickets.IdCliente,
+                IdTren = tickets.IdTren,
+                FechaCompra = tickets.Fecha,
+                Precio = tickets.Precio,
+                DetalleTickets = detalleTickets
+                IdClienteNavigation = clientes,
+                IdEmpleadoNavigation = empleados,
+                TicketsXFormapago = ticketsXFormapagos
+            };
+        }
+
+        private static DetalleTicketsDTO MapDetalleTicketsToDTO(DetalleTickets detail)
+        {
+            throw new NotImplementedException();
         }
     }
 }

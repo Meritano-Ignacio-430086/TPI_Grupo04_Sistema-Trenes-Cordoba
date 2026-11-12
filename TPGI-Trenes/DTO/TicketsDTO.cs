@@ -9,5 +9,6 @@ namespace TPGI_Trenes.DTO
         public int IdRecorrido { get; set; }
         public DateTime FechaCompra { get; set; }
         public decimal Precio { get; set; }
+        public List<DetalleTicketsDTO> DetalleTickets { get; set; }
     }
 }
