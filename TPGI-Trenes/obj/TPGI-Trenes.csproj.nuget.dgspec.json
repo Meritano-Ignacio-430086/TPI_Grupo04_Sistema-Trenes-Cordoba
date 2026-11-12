@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj": {}
+    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {}
   },
   "projects": {
-    "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj": {
+    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj",
+        "projectUniqueName": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
         "projectName": "TPGI-Trenes",
-        "projectPath": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/TPGI-Trenes.csproj",
-        "packagesPath": "/Users/ignaciomeritano/.nuget/packages/",
-        "outputPath": "/Users/ignaciomeritano/Documents/UTN/TPI_Grupo04_Sistema-Trenes-Cordoba/TPGI-Trenes/obj/",
+        "projectPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
+        "packagesPath": "C:\\Users\\furrf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/ignaciomeritano/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\furrf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,16 +45,24 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net8.0": {
           "framework": "net8.0",
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.33, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.30, )"
+              "version": "[8.0.33, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[8.0.33, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -66,20 +80,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.29, 8.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-arm64",
-              "version": "[8.0.29, 8.0.29]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.29, 8.0.29]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

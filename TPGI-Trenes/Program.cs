@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using TPGI_Trenes.Negocio;
+using TPGI_Trenes.Repository;
+using TPGI_Trenes.Repository.Interfaces;
+using TPGI_Trenes.Services;
+using TPGI_Trenes.Services.Interfaces;
 
 namespace TPGI_Trenes
 {
@@ -10,9 +16,27 @@ namespace TPGI_Trenes
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+
+            builder.Services.AddScoped<ILineasRepository,LineasRepository>();
+            builder.Services.AddScoped<ILineasServices,LineasServices>(); 
+            builder.Services.AddScoped<QueryRepository>(); 
+
+            builder.Services.AddDbContext<TrenesContext>(
+                options => options.UseSqlServer(
+                //builder.Configuration.GetConnectionString("DefaultConnection")
+                //builder.Configuration.GetConnectionString("Conneccion1")
+                builder.Configuration.GetConnectionString("Caccioppoli")
+
+                )
+            );
 
             var app = builder.Build();
 
@@ -24,6 +48,8 @@ namespace TPGI_Trenes
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
