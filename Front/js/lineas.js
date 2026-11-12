@@ -1,7 +1,3 @@
-// Direcciones de la API (ver TPGI-Trenes/Properties/launchSettings.json).
-// Se prueba primero https y, si no responde, http.
-const API_URLS = ["https://localhost:7091", "http://localhost:5282"];
-
 const form = document.getElementById("formBuscar");
 const inputLinea = document.getElementById("nroLinea");
 const btnBuscar = document.getElementById("btnBuscar");
@@ -36,23 +32,10 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-// GET api/Lineas?NroLinea=N -> lista de LineasDTO
+// Nro de Linea
 async function buscarLinea(nroLinea) {
-    for (const base of API_URLS) {
-        let respuesta;
-        try {
-            respuesta = await fetch(`${base}/api/Lineas?NroLinea=${nroLinea}`);
-        } catch {
-            continue; // esa dirección no responde, se prueba la siguiente
-        }
-
-        if (respuesta.status === 204) return [];
-        if (!respuesta.ok) {
-            throw new Error(`La API devolvió un error (${respuesta.status}).`);
-        }
-        return await respuesta.json();
-    }
-    throw new Error("No se pudo conectar con la API. Verificá que el backend esté corriendo.");
+    const datos = await apiGet(`/api/Lineas?NroLinea=${nroLinea}`);
+    return datos ?? [];
 }
 
 function mostrarResultados(trenes) {
@@ -115,3 +98,42 @@ function ocultarTodo() {
     mensaje.className = "alert d-none";
     resultados.classList.add("d-none");
 }
+
+// -> Choferes
+const formChoferes = document.getElementById("formChoferes");
+const inputChofer = document.getElementById("nombreChofer");
+const selectCarga = document.getElementById("cargaChofer");
+const mensajeChoferes = document.getElementById("mensajeChoferes");
+const resultadosChoferes = document.getElementById("resultadosChoferes");
+const tablaChoferes = document.getElementById("tablaChoferes");
+
+formChoferes.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    avisar(mensajeChoferes, "", "");
+    resultadosChoferes.classList.add("d-none");
+
+    try {
+        const nombre = inputChofer.value.trim().toLowerCase();
+        const carga = selectCarga.value;
+        const choferes = claves(await apiGet("/api/Lineas/choferes")).filter(
+            (c) =>
+                (c.chofer ?? "").toLowerCase().includes(nombre) &&
+                (!carga || c.estado_carga_horaria === carga)
+        );
+
+        if (choferes.length === 0) {
+            avisar(mensajeChoferes, "No se encontraron choferes.", "info");
+            return;
+        }
+
+        llenarTabla(tablaChoferes, choferes, (c) => [
+            c.chofer, c.dni, c.barrio, c.telefono,
+            c.viajes_realizados, c.trenes_conducidos, c.minutos_conducidos,
+            c.estado_carga_horaria,
+        ]);
+        resultadosChoferes.classList.remove("d-none");
+    } catch (error) {
+        console.error(error);
+        avisar(mensajeChoferes, error.message, "danger");
+    }
+});
