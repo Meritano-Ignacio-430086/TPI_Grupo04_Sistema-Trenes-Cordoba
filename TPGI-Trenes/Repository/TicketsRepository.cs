@@ -14,6 +14,12 @@ namespace TPGI_Trenes.Repository
             this.bd = bd;
         }
 
+        public async Task<bool> AddTicket(Tickets ticket)
+        {
+            bd.Tickets.Add(ticket);
+            await bd.SaveChangesAsync();    
+            return true;
+        }
 
         public async Task<List<Tickets>> GetByClienteId(int id)
         {

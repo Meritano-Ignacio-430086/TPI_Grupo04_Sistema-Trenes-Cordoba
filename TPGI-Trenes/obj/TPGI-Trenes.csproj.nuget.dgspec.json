@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {}
+    "C:\\Users\\JUANI\\source\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj": {
+    "C:\\Users\\JUANI\\source\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
+        "projectUniqueName": "C:\\Users\\JUANI\\source\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj",
         "projectName": "TPGI-Trenes",
-        "projectPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\TPGI-Trenes.csproj",
-        "packagesPath": "C:\\Users\\furrf\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\obj\\",
+        "projectPath": "C:\\Users\\JUANI\\source\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\TPGI-Trenes.csproj",
+        "packagesPath": "C:\\Users\\JUANI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JUANI\\source\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\furrf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JUANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

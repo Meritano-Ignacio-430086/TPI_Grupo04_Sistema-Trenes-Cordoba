@@ -81,3 +81,15 @@ C:\Users\furrf\Documents\GitHub\Tpi-Grupo00x\TPGI-Trenes\obj\Debug\net8.0\refint
 C:\Users\furrf\Documents\GitHub\Tpi-Grupo00x\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.pdb
 C:\Users\furrf\Documents\GitHub\Tpi-Grupo00x\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.genruntimeconfig.cache
 C:\Users\furrf\Documents\GitHub\Tpi-Grupo00x\TPGI-Trenes\obj\Debug\net8.0\ref\TPGI-Trenes.dll
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.csproj.AssemblyReference.cache
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.AssemblyInfoInputs.cache
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.AssemblyInfo.cs
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.csproj.CoreCompileInputs.cache
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.sourcelink.json
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.dll
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\refint\TPGI-Trenes.dll
+C:\Users\JUANI\source\TPI\TPI_Grupo04_Sistema-Trenes-Cordoba\TPGI-Trenes\obj\Debug\net8.0\TPGI-Trenes.pdb
