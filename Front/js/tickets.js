@@ -35,26 +35,60 @@ document.getElementById("btnHistorial").addEventListener("click", async () => {
     }
 });
 
-// Facturas con varios pagos, esto consulta la tabla de facturas
-// y consulta también la tabla de detalles de cada factura.
+// Facturas: el selector filtra entre importantes (vista vw_Compras_Importantes)
+// y erróneas (facturas con varios pagos que tienen diferencia o forma de pago repetida).
+// Si no se elige ninguna, se muestran todas.
 const tablaFacturas = document.getElementById("tablaFacturas");
 const mensajeFacturas = document.getElementById("mensajeFacturas");
+const selectTipoFactura = document.getElementById("tipoFactura");
 
-document.getElementById("btnFacturas").addEventListener("click", async () => {
+async function cargarFacturas() {
+    const tipo = selectTipoFactura.value;
     tablaFacturas.replaceChildren();
     try {
-        const facturas = claves(await apiGet("/api/Lineas/facturas"));
-        if (facturas.length === 0) {
+        const [importantes, erroneas] = await Promise.all([
+            tipo === "erroneas" ? [] : apiGet("/api/Lineas/compras-importantes"),
+            tipo === "importantes" ? [] : apiGet("/api/Lineas/facturas"),
+        ]);
+
+        // Una misma factura puede ser importante y errónea a la vez.
+        const porNumero = new Map();
+        const agregar = (nro, datos, etiqueta) => {
+            const actual = porNumero.get(nro) ?? { nro, tipos: [], observacion: "-" };
+            Object.assign(actual, datos);
+            actual.tipos.push(etiqueta);
+            porNumero.set(nro, actual);
+        };
+
+        for (const f of claves(importantes)) {
+            agregar(f.nro_factura, {
+                proveedor: f.proveedor, fecha: f.fecha, monto: f.total,
+            }, "Importante");
+        }
+        for (const f of claves(erroneas)) {
+            const conError = Math.abs(f.diferencia ?? 0) > 0 || /error/i.test(f.observacion ?? "");
+            if (!conError) continue;
+            agregar(f.nro_factura, {
+                proveedor: f.proveedor, fecha: f.fecha, monto: f.montodelafactura,
+                observacion: f.observacion,
+            }, "Errónea");
+        }
+
+        const filas = [...porNumero.values()].sort((a, b) => a.nro - b.nro);
+        if (filas.length === 0) {
             avisar(mensajeFacturas, "No hay facturas para mostrar.", "info");
             return;
         }
         avisar(mensajeFacturas, "", "");
-        llenarTabla(tablaFacturas, facturas, (f) => [
-            f.nro_factura, f.proveedor, fechaCorta(f.fecha), moneda(f.montodelafactura),
-            moneda(f.totaldeldetalle), moneda(f.diferencia), f.observacion,
+        llenarTabla(tablaFacturas, filas, (f) => [
+            f.nro, f.proveedor, fechaCorta(f.fecha), moneda(f.monto),
+            f.tipos.join(" / "), f.observacion,
         ]);
     } catch (error) {
         console.error(error);
         avisar(mensajeFacturas, error.message, "danger");
     }
-});
+}
+
+document.getElementById("btnFacturas").addEventListener("click", cargarFacturas);
+selectTipoFactura.addEventListener("change", cargarFacturas);
