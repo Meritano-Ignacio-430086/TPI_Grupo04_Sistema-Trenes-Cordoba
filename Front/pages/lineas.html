@@ -78,54 +78,58 @@
             </button>
           </div>
         </form>
+      </div>
 
-        <!-- resultados -->
-        <div id="resultados" class="d-none">
-          <div class="row g-3 mb-4">
-            <div class="col-md-6">
-              <div class="card p-3 h-100">
-                <span class="text-muted"
-                  >Línea <span id="resNroLinea"></span
-                ></span>
-                <span class="numero" id="resRecorrido"></span>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="card p-3 h-100">
-                <span class="text-muted">Estaciones en el recorrido</span>
-                <span class="numero" id="resEstaciones"></span>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="card p-3 h-100">
-                <span class="text-muted">Trenes asignados</span>
-                <span class="numero" id="resTrenes"></span>
-              </div>
+      <!-- mensajes (error / sin resultados) -->
+      <div id="mensaje" class="alert d-none" role="alert"></div>
+
+      <!-- resultados -->
+      <div id="resultados" class="d-none mb-5">
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card p-3 h-100">
+              <span class="text-muted d-block"
+                >Línea <span id="resNroLinea"></span
+              ></span>
+              <span class="numero d-block fs-4" id="resRecorrido"></span>
             </div>
           </div>
-
-          <div class="card p-3">
-            <h5 class="mb-3">Trenes de la línea</h5>
-            <div class="table-responsive">
-              <table class="table table-hover align-middle mb-0">
-                <thead>
-                  <tr>
-                    <th>Unidad</th>
-                    <th>Modelo</th>
-                    <th>Estado</th>
-                    <th class="text-end">Vagones</th>
-                    <th class="text-end">Capacidad</th>
-                    <th class="text-end">Mantenimientos</th>
-                    <th>Último mantenimiento</th>
-                  </tr>
-                </thead>
-                <tbody id="tablaTrenes"></tbody>
-              </table>
+          <div class="col-6 col-md-3">
+            <div class="card p-3 h-100">
+              <span class="text-muted d-block">Estaciones en el recorrido</span>
+              <span class="numero d-block" id="resEstaciones"></span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card p-3 h-100">
+              <span class="text-muted d-block">Trenes asignados</span>
+              <span class="numero d-block" id="resTrenes"></span>
             </div>
           </div>
         </div>
+
+        <div class="card p-3">
+          <h5 class="mb-3">Trenes de la línea</h5>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Unidad</th>
+                  <th>Modelo</th>
+                  <th>Estado</th>
+                  <th class="text-end">Vagones</th>
+                  <th class="text-end">Capacidad</th>
+                  <th class="text-end">Mantenimientos</th>
+                  <th>Último mantenimiento</th>
+                </tr>
+              </thead>
+              <tbody id="tablaTrenes"></tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <h2 class="mb-4">Buscar por chofer</h2>
+
+      <h2 class="mb-4 mt-5">Buscar por chofer</h2>
       <div class="card p-3 mb-4">
         <form id="formChoferes" class="row g-2">
           <div class="col-md-6">
@@ -173,9 +177,6 @@
           </table>
         </div>
       </div>
-
-      <!-- mensajes (error / sin resultados) -->
-      <div id="mensaje" class="alert d-none" role="alert"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
