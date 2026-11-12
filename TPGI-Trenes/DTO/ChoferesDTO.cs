@@ -10,7 +10,7 @@ namespace TPGI_Trenes.DTO
         public int Viajes_Realizados { get; set; }
         public int Trenes_Conducidos { get; set; }
         public int Minutos_Conducidos { get; set; }
-        public double Promedio_Minutos_Viaje { get; set; }
+        public int Promedio_Minutos_Viaje { get; set; }
         public string? Estado_Carga_Horaria { get; set; }
     }
 }
