@@ -22,6 +22,8 @@ namespace TPGI_Trenes
             builder.Services.AddScoped<ILineasRepository,LineasRepository>();
             builder.Services.AddScoped<ILineasServices,LineasServices>(); 
             builder.Services.AddScoped<QueryRepository>(); 
+            builder.Services.AddScoped<ITicketsRepository,TicketsRepository>(); 
+            builder.Services.AddScoped<ITicketsServices,TicketsServices>(); 
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
@@ -39,7 +41,7 @@ namespace TPGI_Trenes
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
