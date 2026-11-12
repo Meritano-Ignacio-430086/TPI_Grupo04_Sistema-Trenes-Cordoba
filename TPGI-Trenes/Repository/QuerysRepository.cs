@@ -32,9 +32,9 @@ namespace TPGI_Trenes.Repository
                 SELECT  f.Nro_Factura,
                         p.Nombre AS Proveedor,
                         CAST(f.Fecha AS DATE) AS Fecha,
-                        f.Monto AS MontoDeLaFactura,
-                        d.Total_Detalle AS TotalDelDetalle,
-                        f.Monto - d.Total_Detalle AS Diferencia,
+                        CAST(f.Monto AS DECIMAL(18,2)) AS MontoDeLaFactura,
+                        CAST(d.Total_Detalle AS DECIMAL(18,2)) AS TotalDelDetalle,
+                        CAST(f.Monto - d.Total_Detalle AS DECIMAL(18,2)) AS Diferencia,
                         pg.Registros_Pago AS RegistrosDePago,
                         pg.Formas_Distintas AS FormasDePagoDistintas,
                         CASE WHEN pg.Formas_Distintas < pg.Registros_Pago
