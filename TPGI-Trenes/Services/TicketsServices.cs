@@ -1,10 +1,7 @@
 ﻿using TPGI_Trenes.Negocio;
 using TPGI_Trenes.DTO;
 using TPGI_Trenes.Repository;
-<<<<<<< HEAD
-=======
 using TPGI_Trenes.Repository.Interfaces;
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
 using TPGI_Trenes.Services.Interfaces;
 
 namespace TPGI_Trenes.Services
@@ -17,29 +14,18 @@ namespace TPGI_Trenes.Services
         {
             this.repo = repo;
         }
-<<<<<<< HEAD
 
         public Task<bool> Add(TicketsDTO ticket)
         {
-            Tickets hola = new Tickets
-            {
-                IdCliente = ticket.IdCliente,
-                IdTren = ticket.IdTren,
-                Fecha = ticket.FechaCompra,
-                Precio = ticket.Precio,
-            };
-            return repo.AddTicket(hola);
+            throw new NotImplementedException();
         }
 
-        public async Task<List<Tickets>> GetById(int id)
-=======
         public async Task<List<Tickets>> GetByClienteId(int id)
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
         {
             List<Tickets> list = await repo.GetByClienteId(id);
             return list;
         }
-        private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
+        /* private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
         {
             List<DetalleTicketsDTO> detalleTickets = new List<DetalleTicketsDTO>();
             ClientesDTO clientes = new ClientesDTO();
@@ -68,5 +54,6 @@ namespace TPGI_Trenes.Services
         {
             throw new NotImplementedException();
         }
-    }
+ */    
+ }
 }
