@@ -159,11 +159,10 @@
             />
           </div>
           <div class="col-md-3">
-            <select class="form-select">
-              <option>Todos los estados</option>
-              <option>Pagado</option>
-              <option>Pendiente</option>
-              <option>Anulado</option>
+            <select class="form-select" id="tipoFactura">
+              <option value="">Todas las facturas</option>
+              <option value="importantes">Facturas importantes</option>
+              <option value="erroneas">Facturas erróneas</option>
             </select>
           </div>
         </div>
@@ -176,7 +175,7 @@
       <div id="mensajeFacturas" class="alert d-none mt-3"></div>
       <div class="table-responsive mt-3">
         <table class="table table-hover align-middle">
-          <thead><tr><th>Factura</th><th>Proveedor</th><th>Fecha</th><th>Monto</th><th>Detalle</th><th>Diferencia</th><th>Observación</th></tr></thead>
+          <thead><tr><th>Factura</th><th>Proveedor</th><th>Fecha</th><th class="text-end">Monto</th><th>Tipo</th><th>Observación</th></tr></thead>
           <tbody id="tablaFacturas"></tbody>
         </table>
       </div>
