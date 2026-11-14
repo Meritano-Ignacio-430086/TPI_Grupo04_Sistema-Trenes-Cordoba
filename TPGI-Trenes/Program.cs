@@ -34,7 +34,6 @@ namespace TPGI_Trenes
                 //builder.Configuration.GetConnectionString("DefaultConnection")
                 //builder.Configuration.GetConnectionString("Conneccion1")
                 builder.Configuration.GetConnectionString("Caccioppoli")
-
                 )
             );
 
