@@ -15,9 +15,9 @@ namespace TPGI_Trenes.Services
             this.repo = repo;
         }
 
-        public Task<bool> Add(TicketsDTO ticket)
+        public async Task<bool> AddTicket(Tickets_CreateDTO ticket)
         {
-            throw new NotImplementedException();
+            return await repo.AddTicket(ticket);
         }
 
         public async Task<List<Tickets>> GetByClienteId(int id)
@@ -25,7 +25,7 @@ namespace TPGI_Trenes.Services
             List<Tickets> list = await repo.GetByClienteId(id);
             return list;
         }
-        /* private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
+/*        private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
         {
             List<DetalleTicketsDTO> detalleTickets = new List<DetalleTicketsDTO>();
             ClientesDTO clientes = new ClientesDTO();

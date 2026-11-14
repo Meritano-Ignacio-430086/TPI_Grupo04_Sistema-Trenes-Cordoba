@@ -1,87 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\",
+  "WorkspaceRootPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\",
   "Documents": [
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\services\\trenesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\trenesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\services\\lineasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\lineasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\services\\interfaces\\ilineasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\interfaces\\ilineasservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\ticket_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\ticket_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\services\\interfaces\\itrenesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\interfaces\\itrenesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\detalletickets_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\detalletickets_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\repository\\trenesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\trenesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\comprasimportantesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\comprasimportantesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\repository\\interfaces\\itrenesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\itrenesrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\repository\\lineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\lineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\repository\\interfaces\\ilineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\ilineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\juani\\onedrive\\documentos\\utn\\utn\\pii\\tpi\\tpi_grupo04_sistema-trenes-cordoba\\tpgi-trenes\\negocio\\trenescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-=======
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\services\\ticketsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\ticketsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\ticketsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\ticketsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\services\\interfaces\\iticketsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\interfaces\\iticketsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\lineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\lineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\querysrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\querysrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\interfaces\\ilineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\ilineasrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\interfaces\\iticketsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\iticketsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\controller\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:controller\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controllers\\TicketsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\TicketsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\negocio\\trenescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:negocio\\trenescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\detalleticketsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\detalleticketsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -91,116 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-<<<<<<< HEAD
-          "SelectedChildIndex": 2,
-=======
-          "SelectedChildIndex": 5,
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LineasServices.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\LineasServices.cs",
-              "RelativeDocumentMoniker": "Services\\LineasServices.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\LineasServices.cs",
-              "RelativeToolTip": "Services\\LineasServices.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T03:04:13.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ILineasServices.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\Interfaces\\ILineasServices.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\ILineasServices.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\Interfaces\\ILineasServices.cs",
-              "RelativeToolTip": "Services\\Interfaces\\ILineasServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T03:03:46.435Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TrenesServices.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\TrenesServices.cs",
-              "RelativeDocumentMoniker": "Services\\TrenesServices.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\TrenesServices.cs",
-              "RelativeToolTip": "Services\\TrenesServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T03:03:31.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ITrenesServices.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\Interfaces\\ITrenesServices.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\ITrenesServices.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Services\\Interfaces\\ITrenesServices.cs",
-              "RelativeToolTip": "Services\\Interfaces\\ITrenesServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T03:02:12.267Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TrenesRepository.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\TrenesRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\TrenesRepository.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\TrenesRepository.cs",
-              "RelativeToolTip": "Repository\\TrenesRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAowCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T02:55:20.158Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ITrenesRepository.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\Interfaces\\ITrenesRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\ITrenesRepository.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\Interfaces\\ITrenesRepository.cs",
-              "RelativeToolTip": "Repository\\Interfaces\\ITrenesRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T02:55:07.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "LineasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\LineasRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\LineasRepository.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\LineasRepository.cs",
-              "RelativeToolTip": "Repository\\LineasRepository.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwCMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T02:52:42.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ILineasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\Interfaces\\ILineasRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\ILineasRepository.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Repository\\Interfaces\\ILineasRepository.cs",
-              "RelativeToolTip": "Repository\\Interfaces\\ILineasRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T02:52:09.679Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -211,153 +46,85 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-<<<<<<< HEAD
-              "DocumentIndex": 8,
-=======
-              "DocumentIndex": 0,
-=======
-              "DocumentIndex": 7,
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
-              "Title": "TicketsController.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controller\\TicketsController.cs",
-              "RelativeDocumentMoniker": "Controller\\TicketsController.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controller\\TicketsController.cs",
-              "RelativeToolTip": "Controller\\TicketsController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBEAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-10T01:16:33.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TicketsServices.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\TicketsServices.cs",
-              "RelativeDocumentMoniker": "Services\\TicketsServices.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\TicketsServices.cs",
-              "RelativeToolTip": "Services\\TicketsServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:43:09.94Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITicketsServices.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\Interfaces\\ITicketsServices.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\ITicketsServices.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\Interfaces\\ITicketsServices.cs",
-              "RelativeToolTip": "Services\\Interfaces\\ITicketsServices.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:42:32.839Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-<<<<<<< HEAD
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
-=======
-              "Title": "TicketsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\TicketsRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\TicketsRepository.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\TicketsRepository.cs",
-              "RelativeToolTip": "Repository\\TicketsRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:41:31.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ITicketsRepository.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\Interfaces\\ITicketsRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\ITicketsRepository.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\Interfaces\\ITicketsRepository.cs",
-              "RelativeToolTip": "Repository\\Interfaces\\ITicketsRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:40:25.639Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ILineasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\Interfaces\\ILineasRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\ILineasRepository.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\Interfaces\\ILineasRepository.cs",
-              "RelativeToolTip": "Repository\\Interfaces\\ILineasRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:39:24.533Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-14T03:31:41.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "QuerysRepository.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\QuerysRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\QuerysRepository.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\QuerysRepository.cs",
-              "RelativeToolTip": "Repository\\QuerysRepository.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAwwA8AAAArAAAAAAAAAA==",
+              "Title": "ComprasImportantesDTO.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\ComprasImportantesDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ComprasImportantesDTO.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\ComprasImportantesDTO.cs",
+              "RelativeToolTip": "DTO\\ComprasImportantesDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:39:20.611Z",
+              "WhenOpened": "2026-11-14T03:28:32.197Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LineasRepository.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\LineasRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\LineasRepository.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\LineasRepository.cs",
-              "RelativeToolTip": "Repository\\LineasRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "DetalleTickets_CreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\DetalleTickets_CreateDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DetalleTickets_CreateDTO.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\DetalleTickets_CreateDTO.cs",
+              "RelativeToolTip": "DTO\\DetalleTickets_CreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-09T23:39:14.82Z",
+              "WhenOpened": "2026-11-14T03:28:02.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TicketsController.cs",
-              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controllers\\TicketsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TicketsController.cs",
-              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controllers\\TicketsController.cs",
-              "RelativeToolTip": "Controllers\\TicketsController.cs",
+              "DocumentIndex": 5,
+              "Title": "DetalleTicketsDTO.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\DetalleTicketsDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DetalleTicketsDTO.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\DetalleTicketsDTO.cs",
+              "RelativeToolTip": "DTO\\DetalleTicketsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-31T21:18:47.865Z"
+              "WhenOpened": "2026-11-14T03:27:26.514Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
-              "Title": "TrenesContext.cs",
-              "DocumentMoniker": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Negocio\\TrenesContext.cs",
-              "RelativeDocumentMoniker": "Negocio\\TrenesContext.cs",
-              "ToolTip": "C:\\Users\\JUANI\\OneDrive\\Documentos\\UTN\\UTN\\PII\\TPI\\TPI_Grupo04_Sistema-Trenes-Cordoba\\TPGI-Trenes\\Negocio\\TrenesContext.cs",
-              "RelativeToolTip": "Negocio\\TrenesContext.cs",
-<<<<<<< HEAD
-              "ViewState": "AgIAABwAAAAAAAAAAAAuwCoAAAAAAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
+              "DocumentIndex": 2,
+              "Title": "Ticket_CreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Ticket_CreateDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\Ticket_CreateDTO.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Ticket_CreateDTO.cs",
+              "RelativeToolTip": "DTO\\Ticket_CreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-29T19:51:03.694Z"
+              "WhenOpened": "2026-11-14T03:27:16.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-14T02:47:44.137Z",
+              "EditorCaption": ""
             }
           ]
         }
