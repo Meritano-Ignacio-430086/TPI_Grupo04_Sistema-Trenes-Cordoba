@@ -25,10 +25,10 @@ namespace TPGI_Trenes.Repository
                 DetalleTickets = ticket.DetalleTickets?.Select //Detalle tickets podría ser null
                 (
                     dt=>new DetalleTickets
-                    {
-                        IdTrenesVagones=dt.IdTrenesVagones,
-                        IdTrenRecorridoEst=dt.IdTrenRecorridoEst,
-                        Precio = dt.Precio
+                    { 
+                        IdTrenesVagones = dt.IdTrenesVagones,
+                        IdTrenRecorridoEst = dt.IdTrenRecorridoEst
+                        //Precio = dt.Precio Calcularlo con servicio
                     }
                     ).ToList()
             };
