@@ -16,7 +16,6 @@ namespace TPGI_Trenes.Repository
             this.repo = repo;
         }
 
-<<<<<<< HEAD
         public async Task<List<Recorridos>> GetAllLineas()
         {
             List<Recorridos> recorridos =  await bd.Recorridos.ToListAsync();
@@ -28,11 +27,9 @@ namespace TPGI_Trenes.Repository
         }
 
         public async Task<List<Recorridos>> GetById(int NroLinea)
-=======
-       /*  public Task<List<Recorridos>> GetById(int NroLinea)
->>>>>>> origin/TPI_Grupo04_Sistema-Trenes-Cordoba
         {
-            List<Recorridos>recorridos = repo.GetProcedimientoLineas(NroLinea)
-        } */
+            List<Recorridos>recorridos = await bd.Recorridos.Where(o=>o.NroLinea==NroLinea).ToListAsync();
+            return recorridos;
+        } 
     }
 }
