@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TPGI_Trenes.Negocio;
-using TPGI_Trenes.Repository.Interfaces
+using TPGI_Trenes.Repository.Interfaces;
 
 
 namespace TPGI_Trenes.Repository

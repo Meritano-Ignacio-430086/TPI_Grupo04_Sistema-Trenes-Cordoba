@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TPGI_Trenes.Services.Interfaces;
+using TPGI_Trenes.Negocio;
+using TPGI_Trenes.DTO;
+using Microsoft.Identity.Client;
 
 namespace TPGI_Trenes.Controller
 {
@@ -13,45 +16,31 @@ namespace TPGI_Trenes.Controller
         {
             this.services = services;
         }
-        [HttpGet("cliente/{id}")]
-         // GET: HomeController
-        public IActionResult GetByClienteID(int id)
+
+        [HttpGet]
+        [Route("Clientes/{id}")]
+        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID([FromBody]int id)
         {
-
-            return Ok(services.GetByClienteId(id));
+            List<Tickets> tickets = await services.GetByClienteId(id);
+            if(tickets == null)
+            {
+                return NoContent();
+            }
+            return Ok(tickets);
         }
-
-        //// GET: HomeController/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// GET: HomeController/Edit/5
-        //public IActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: HomeController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: HomeController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        [Route("Ticket/Create")]
+        public async Task<ActionResult<List<Tickets>>> CreateTicket([FromBody] Tickets_CreateDTO ticket)
+        {
+            bool res = await services.AddTicket(ticket);
+            if (res)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
     }
 }
