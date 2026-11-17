@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea953791d32799394348299e71c8f7bc052ef652")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1630e9045acc813844b274e1ce011de02793b058")]
 [assembly: System.Reflection.AssemblyProductAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPGI-Trenes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

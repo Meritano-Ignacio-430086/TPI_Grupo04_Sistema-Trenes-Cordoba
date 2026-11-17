@@ -29,7 +29,11 @@ namespace TPGI_Trenes
             builder.Services.AddScoped<ILineasServices,LineasServices>(); 
             builder.Services.AddScoped<QueryRepository>(); 
             builder.Services.AddScoped<ITicketsRepository,TicketsRepository>(); 
-            builder.Services.AddScoped<ITicketsServices,TicketsServices>(); 
+            builder.Services.AddScoped<ITicketsServices,TicketsServices>();
+            builder.Services.AddScoped<IMantenimientosRepository, MantenimientosRepository>();
+            builder.Services.AddScoped<IMantenimientosServices, MantenimientosServices>();
+
+
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
