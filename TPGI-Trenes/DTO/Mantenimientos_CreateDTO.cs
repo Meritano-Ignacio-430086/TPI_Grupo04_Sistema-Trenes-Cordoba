@@ -4,9 +4,9 @@ namespace TPGI_Trenes.DTO
 {
     public class Mantenimientos_CreateDTO
     {
-        public int IdTipoMantenimiento { get; set; }
-        public int IdEmpleado { get; set; }
-        public int IdTren { get; set; }
+        public string? TipoMantenimiento { get; set; }
+        public int EmpleadoDNI { get; set; }
+        public string? UnidadTren { get; set; }
     }
 }
 /*

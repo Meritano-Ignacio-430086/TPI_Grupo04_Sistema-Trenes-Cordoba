@@ -10,29 +10,22 @@ namespace TPGI_Trenes.Controller
     [ApiController]
     public class MantenimientosController : ControllerBase
     {
-        private readonly IMantenimientosServices service;
+        private readonly IMantenimientosServices _service;
         public MantenimientosController(IMantenimientosServices services)
         {
-            this.service = services;
+            this._service = services;
         }
         [HttpPost]
         [Route("Mantenimientos/Create")]
         public async Task<ActionResult<List<Mantenimientos>>> CreateMantenimiento([FromBody] Mantenimientos_CreateDTO mant)
         {
-            if (Convert.ToBoolean(service.AddMantenimiento(mant)))
-            {
-                return Ok();
-            }
-            else
-            {
-                return NoContent();
-            }
-            ;
+            var ok = await _service.AddMantenimiento(mant);
+            return Ok(ok);
         }
         [HttpGet]
         public async Task<ActionResult<List<Mantenimientos_ResponseDTO>>> GetAll()
         {
-            var lista = await service.GetAll();
+            var lista = await _service.GetAll();
             if (lista.Count == 0) return NotFound();
             return lista;
         }

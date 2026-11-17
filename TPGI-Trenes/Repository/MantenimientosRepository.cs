@@ -15,16 +15,40 @@ namespace TPGI_Trenes.Repository
 
         public async Task<bool> AddMantenimiento(Mantenimientos_CreateDTO mant)
         {
-            //new Mantenimientos n_mant = new Mantenimientos
-            //{
-            //    IdEmpleado =,
-            //    Fecha =,
-            //    IdMantenimiento =,
-            //    IdTipoMantenimiento =,
-            //    IdTren =,
+            var empleado = await _context.Empleados
+                    .FirstOrDefaultAsync(e => e.NroDoc == mant.EmpleadoDNI);
+            if (empleado == null) return false;
 
-            //};
+            var tipo = await _context.TiposMantenimientos
+                .FirstOrDefaultAsync(t => t.Descripcion == mant.TipoMantenimiento);
+            if (tipo == null) return false;
+
+            var tren = await _context.Trenes
+                .Include(t => t.IdEstadoNavigation)
+                .FirstOrDefaultAsync(t => t.NroUnidad == mant.UnidadTren);
+            if (tren == null) return false;
+
+            if (tren.IdEstadoNavigation.Descripcion != "Operativo") return false;
+
+            var estadoMant = await _context.Estados
+                .FirstOrDefaultAsync(e => e.Descripcion == "En mantenimiento");
+            if (estadoMant == null) return false;
+
+            //if (empleado.IdRolNavigation.Descripcion != "Mecánico") return false; //Preguntar sobre eso
+
+                _context.Mantenimientos.Add(new Mantenimientos
+            {
+                Fecha = DateTime.Now,
+                IdEmpleado = empleado.IdEmpleado,
+                IdTren = tren.IdTren,
+                IdTipoMantenimiento = tipo.IdTipoMantenimiento
+            });
+
+            tren.IdEstado = estadoMant.IdEstado;
+
+            await _context.SaveChangesAsync();
             return true;
+
         }
 
         public async Task<List<Mantenimientos_ResponseDTO>> GetAll()
