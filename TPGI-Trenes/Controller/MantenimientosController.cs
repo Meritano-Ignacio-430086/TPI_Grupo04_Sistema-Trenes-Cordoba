@@ -16,11 +16,26 @@ namespace TPGI_Trenes.Controller
             this._service = services;
         }
         [HttpPost]
+        [Route("Mantenimientos/Close")]
+        public async Task<ActionResult<List<Mantenimientos>>> CloseMantenimiento([FromQuery] int dniResponsable,[FromQuery] string unidad)
+        {
+            bool res = await _service.CloseMantenimiento(dniResponsable,unidad);
+            if (res)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpPost]
         [Route("Mantenimientos/Create")]
         public async Task<ActionResult<List<Mantenimientos>>> CreateMantenimiento([FromBody] Mantenimientos_CreateDTO mant)
         {
-            var ok = await _service.AddMantenimiento(mant);
-            return Ok(ok);
+            bool res = await _service.AddMantenimiento(mant);
+            if (res)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
         [HttpGet]
         public async Task<ActionResult<List<Mantenimientos_ResponseDTO>>> GetAll()
@@ -34,7 +49,7 @@ namespace TPGI_Trenes.Controller
     }
 }
 /*
- Para acceder a las tablas en sql:
+Para acceder a las tablas en sql:
 select tm.Descripcion [Tipo mantenimiento],
 e.Nombre + space(1) + e.Apellido [Nombre y apellido empleado], 
 tre.Nro_unidad [Tren (Unidad)],
@@ -66,9 +81,7 @@ La unidad que se quiere arreglar
 Baja de manteniemiento:
 Actualización del mantenimiento:
 
-
 Un alta mantenimientos debería cambiar el estado del tren, solicitar el tipo de mantenimiento y la unidad
 Una baja de mantenimiento debería ser como un update, debería colocar el estado del tren resuelto (Fuera de Servicio, En reserva)
 El costo debería ser calculado a través de los materiales y presupuesto con el area de mantenimiento
-
 */

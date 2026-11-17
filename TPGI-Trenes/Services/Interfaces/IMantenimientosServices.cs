@@ -5,7 +5,8 @@ namespace TPGI_Trenes.Services.Interfaces
 {
     public interface IMantenimientosServices
     {
-        Task<bool> AddMantenimiento(Mantenimientos_CreateDTO mant);
         Task<List<Mantenimientos_ResponseDTO>> GetAll();
+        Task<bool> AddMantenimiento(Mantenimientos_CreateDTO mant);
+        Task<bool> CloseMantenimiento(int dniResponsable, string unidad);
     }
 }

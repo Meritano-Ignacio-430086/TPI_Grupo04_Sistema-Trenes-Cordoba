@@ -19,6 +19,11 @@ namespace TPGI_Trenes.Services
             return await _repo.AddMantenimiento(mant);
         }
 
+        public async Task<bool> CloseMantenimiento(int dniEmpleado, string unidad)
+        {
+            return await _repo.CloseMantenimiento(dniEmpleado,unidad);
+        }
+
         public async Task<List<Mantenimientos_ResponseDTO>> GetAll()
         {
             return await _repo.GetAll();

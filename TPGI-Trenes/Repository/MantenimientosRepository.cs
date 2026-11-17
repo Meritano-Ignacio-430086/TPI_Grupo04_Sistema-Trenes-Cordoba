@@ -48,7 +48,37 @@ namespace TPGI_Trenes.Repository
 
             await _context.SaveChangesAsync();
             return true;
+        }
 
+        public async Task<bool> CloseMantenimiento(int dniEmpleado, string unidad)
+        {
+            var mantenimiento = await _context.Mantenimientos
+                .Include(m=>m.IdTrenNavigation)
+                .FirstOrDefaultAsync(t => t.IdTrenNavigation.NroUnidad == unidad);
+            if (mantenimiento == null) return false;
+            var empleado = await _context.Empleados
+                .FirstOrDefaultAsync(e => e.NroDoc == dniEmpleado);
+            if (empleado == null) return false;
+
+            var tren = await _context.Trenes.FirstOrDefaultAsync(t=>t.NroUnidad==unidad);
+            if (tren == null) return false;
+
+            var estadoMant = await _context.Estados
+                .FirstOrDefaultAsync(e => e.Descripcion == "Operativo");
+            if (estadoMant == null) return false;
+
+            _context.Mantenimientos.Add(new Mantenimientos
+            {
+                Fecha = DateTime.Now,
+                IdEmpleado = empleado.IdEmpleado,
+                IdTren = mantenimiento.IdTren,
+                IdTipoMantenimiento = mantenimiento.IdTipoMantenimiento
+            });
+
+            tren.IdEstado = estadoMant.IdEstado;
+
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<List<Mantenimientos_ResponseDTO>> GetAll()
