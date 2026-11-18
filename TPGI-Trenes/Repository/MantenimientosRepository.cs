@@ -52,30 +52,45 @@ namespace TPGI_Trenes.Repository
 
         public async Task<bool> CloseMantenimiento(int dniEmpleado, string unidad)
         {
-            var mantenimiento = await _context.Mantenimientos
-                .Include(m=>m.IdTrenNavigation)
-                .FirstOrDefaultAsync(t => t.IdTrenNavigation.NroUnidad == unidad);
-            if (mantenimiento == null) return false;
+            var c_estadoOperativo = await _context.Estados
+            .FirstOrDefaultAsync(e => e.Descripcion == "Operativo");
+            if (c_estadoOperativo == null) return false;
+            var c_estadoMantenimientoFinalizado = await _context.TiposMantenimientos
+            .FirstOrDefaultAsync(tm => tm.Descripcion == "Completado");
+            if (c_estadoMantenimientoFinalizado == null) return false;
+            if (c_estadoOperativo == null) return false;
+
             var empleado = await _context.Empleados
-                .FirstOrDefaultAsync(e => e.NroDoc == dniEmpleado);
+            .FirstOrDefaultAsync(e => e.NroDoc == dniEmpleado);
             if (empleado == null) return false;
 
-            var tren = await _context.Trenes.FirstOrDefaultAsync(t=>t.NroUnidad==unidad);
+            var tren = await _context.Trenes
+                .Include(t=>t.IdEstadoNavigation)
+                .FirstOrDefaultAsync(t => t.NroUnidad == unidad);
             if (tren == null) return false;
 
-            var estadoMant = await _context.Estados
-                .FirstOrDefaultAsync(e => e.Descripcion == "Operativo");
-            if (estadoMant == null) return false;
+            var u_mantenimiento = await _context.Mantenimientos
+                .Where(m=>m.IdTren==tren.IdTren)
+                .OrderByDescending(m=>m.Fecha)
+                .FirstOrDefaultAsync();
+            if (u_mantenimiento == null) return false;
+
+
 
             _context.Mantenimientos.Add(new Mantenimientos
             {
                 Fecha = DateTime.Now,
                 IdEmpleado = empleado.IdEmpleado,
-                IdTren = mantenimiento.IdTren,
-                IdTipoMantenimiento = mantenimiento.IdTipoMantenimiento
+                IdTren = u_mantenimiento.IdTren,
+                IdTipoMantenimiento = c_estadoMantenimientoFinalizado.IdTipoMantenimiento
             });
 
-            tren.IdEstado = estadoMant.IdEstado;
+            if (tren.IdEstado == c_estadoOperativo.IdEstado)
+            {
+                return false;
+            }
+
+            tren.IdEstado = c_estadoOperativo.IdEstado;
 
             await _context.SaveChangesAsync();
             return true;
