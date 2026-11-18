@@ -5,10 +5,11 @@ namespace TPGI_Trenes.DTO
     public class DetalleTickets_CreateDTO
     {
 
-        public int IdTrenesVagones { get; set; }
+        public int NroLinea { get; set; }
 
-        public int IdTrenRecorridoEst { get; set; }
+        public string Estacion { get; set; } = "";
 
-        public decimal? Precio { get; set; }
+        public string HoraPartida { get; set; } = "";
+        public string TipoVagon { get; set; } = "";
     }
 }
