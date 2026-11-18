@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TPGI_Trenes.Services.Interfaces;
+using TPGI_Trenes.Negocio;
 
 namespace TPGI_Trenes.Controller
 {
@@ -13,12 +14,17 @@ namespace TPGI_Trenes.Controller
         {
             this.services = services;
         }
-        [HttpGet("cliente/{id}")]
-         // GET: HomeController
-        public IActionResult GetByClienteID(int id)
-        {
 
-            return Ok(services.GetByClienteId(id));
+        [HttpGet]
+        [Route("Clientes/{id}")]
+        public async Task<ActionResult<List<Tickets>>> GetByClienteID(int id)
+        {
+            List<Tickets> tickets = await services.GetByClienteId(id);
+            if(tickets == null)
+            {
+                return NoContent();
+            }
+            return Ok(tickets);
         }
 
         //// GET: HomeController/Create

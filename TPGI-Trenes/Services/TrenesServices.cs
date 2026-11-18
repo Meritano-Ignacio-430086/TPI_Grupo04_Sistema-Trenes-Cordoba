@@ -11,7 +11,7 @@ namespace TPGI_Trenes.Services
         {
             this.repo = repo;
         }
-
+/* 
         public Task<List<TrenesDTO>> GetAll()
         {
             throw new NotImplementedException();
@@ -20,6 +20,6 @@ namespace TPGI_Trenes.Services
         public Task<List<TrenesDTO>> GetById(int IdTren)
         {
             throw new NotImplementedException();
-        }
+        } */
     }
 }
