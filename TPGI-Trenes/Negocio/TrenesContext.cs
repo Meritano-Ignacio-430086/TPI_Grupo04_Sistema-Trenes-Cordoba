@@ -89,6 +89,8 @@ public partial class TrenesContext : DbContext
 
     public virtual DbSet<Vagones> Vagones { get; set; }
 
+    public virtual DbSet<Usuario> Usuarios {get;set;}
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Barrios>(entity =>
