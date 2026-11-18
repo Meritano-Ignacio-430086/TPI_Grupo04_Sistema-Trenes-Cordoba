@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\mantenimientos_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\mantenimientos_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\mantenimientos_responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\mantenimientos_responsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\controller\\mantenimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:controller\\mantenimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,24 +23,16 @@
       "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\mantenimientosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\interfaces\\imantenimientosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\imantenimientosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\controller\\mantenimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:controller\\mantenimientoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\services\\mantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\mantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\services\\interfaces\\imantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\interfaces\\imantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\repository\\interfaces\\imantenimientosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:repository\\interfaces\\imantenimientosrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\dto\\mantenimientos_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:dto\\mantenimientos_createdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|c:\\users\\furrf\\documents\\github\\tpi-grupo00x\\tpgi-trenes\\services\\interfaces\\imantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78568FBC-C335-D511-8740-806FF92D9E77}|TPGI-Trenes.csproj|solutionrelative:services\\interfaces\\imantenimientosservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "Mantenimientos_ResponseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Mantenimientos_ResponseDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\Mantenimientos_ResponseDTO.cs",
+              "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Mantenimientos_ResponseDTO.cs",
+              "RelativeToolTip": "DTO\\Mantenimientos_ResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-18T13:12:51.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "MantenimientosServices.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\MantenimientosServices.cs",
               "RelativeDocumentMoniker": "Services\\MantenimientosServices.cs",
@@ -67,19 +84,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Mantenimientos_CreateDTO.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Mantenimientos_CreateDTO.cs",
               "RelativeDocumentMoniker": "DTO\\Mantenimientos_CreateDTO.cs",
               "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\DTO\\Mantenimientos_CreateDTO.cs",
               "RelativeToolTip": "DTO\\Mantenimientos_CreateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T20:57:57.295Z"
+              "WhenOpened": "2026-11-17T20:57:57.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IMantenimientosServices.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Services\\Interfaces\\IMantenimientosServices.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IMantenimientosServices.cs",
@@ -87,25 +105,24 @@
               "RelativeToolTip": "Services\\Interfaces\\IMantenimientosServices.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T20:41:15.109Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-17T20:41:15.109Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MantenimientosController.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controller\\MantenimientosController.cs",
               "RelativeDocumentMoniker": "Controller\\MantenimientosController.cs",
               "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Controller\\MantenimientosController.cs",
               "RelativeToolTip": "Controller\\MantenimientosController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAcwEQAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-17T20:36:46.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "IMantenimientosRepository.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\Interfaces\\IMantenimientosRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Interfaces\\IMantenimientosRepository.cs",
@@ -113,31 +130,30 @@
               "RelativeToolTip": "Repository\\Interfaces\\IMantenimientosRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T20:32:27.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-17T20:32:27.72Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MantenimientosRepository.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\MantenimientosRepository.cs",
               "RelativeDocumentMoniker": "Repository\\MantenimientosRepository.cs",
               "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Repository\\MantenimientosRepository.cs",
               "RelativeToolTip": "Repository\\MantenimientosRepository.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAIwFUAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwFEAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-17T20:07:28.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\furrf\\Documents\\GitHub\\Tpi-Grupo00x\\TPGI-Trenes\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvzkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-17T18:33:37.197Z",
               "EditorCaption": ""
