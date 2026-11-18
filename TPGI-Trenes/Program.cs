@@ -1,4 +1,7 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using TPGI_Trenes.Negocio;
 using TPGI_Trenes.Repository;
 using TPGI_Trenes.Repository.Interfaces;
@@ -25,15 +28,33 @@ namespace TPGI_Trenes
                     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
 
+            var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>() 
+                    ?? throw new InvalidOperationException("No esta configurado el JwwtSettings"); 
+            builder.Services.AddSingleton(jwtSettings);
+
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options => 
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = jwtSettings.Issuer,
+                ValidAudience = jwtSettings.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+            };
+        });
+            builder.Services.AddAuthorization();
+
             builder.Services.AddScoped<ILineasRepository,LineasRepository>();
             builder.Services.AddScoped<ILineasServices,LineasServices>(); 
             builder.Services.AddScoped<QueryRepository>(); 
             builder.Services.AddScoped<ITicketsRepository,TicketsRepository>(); 
-            builder.Services.AddScoped<ITicketsServices,TicketsServices>();
-            builder.Services.AddScoped<IMantenimientosRepository, MantenimientosRepository>();
-            builder.Services.AddScoped<IMantenimientosServices, MantenimientosServices>();
-
-
+            builder.Services.AddScoped<ITicketsServices,TicketsServices>(); 
+            builder.Services.AddScoped<IUserRepository,UserRepository>(); 
+            builder.Services.AddScoped<IAuthService,AuthService>(); 
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
@@ -56,6 +77,8 @@ namespace TPGI_Trenes
 
             app.UseCors();
 
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
