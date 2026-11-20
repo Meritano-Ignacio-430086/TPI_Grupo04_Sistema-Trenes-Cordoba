@@ -400,7 +400,8 @@ INSERT INTO Tipos_Mantenimientos (Descripcion) VALUES
 ('Predictivo'),
 ('Inspección general'),
 ('Revisión de frenos'),
-('Limpieza y desinfección');
+('Limpieza y desinfección'),
+('Completado');
 
 -- 1 = DNI, 2 = Pasaporte argentino
 -- Tipos_Documento: 2 registros

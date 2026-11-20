@@ -10,6 +10,7 @@ Permitiremos a los consumidores y a los administradores crear usuarios con disti
 ## Funciones
 ### Tickets
 - Dar de alta un Ticket.
+- Revisar los tickets creados
 
 ### Loggin:
 - Iniciar sesión (sistema de permisos por rol).

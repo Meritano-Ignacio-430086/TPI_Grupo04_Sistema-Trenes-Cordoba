@@ -29,7 +29,7 @@ namespace TPGI_Trenes
             });
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>() 
-                    ?? throw new InvalidOperationException("No esta configurado el JwwtSettings"); 
+                    ?? throw new InvalidOperationException("No esta configurado el JwtSettings"); 
             builder.Services.AddSingleton(jwtSettings);
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
