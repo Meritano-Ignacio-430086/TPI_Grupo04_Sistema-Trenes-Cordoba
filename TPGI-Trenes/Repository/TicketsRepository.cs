@@ -19,11 +19,23 @@ namespace TPGI_Trenes.Repository
         public async Task<bool> AddTicket(Tickets_CreateDTO ticket)
         {
             var empleado = await bd.Empleados.FirstOrDefaultAsync(e=>e.NroDoc == ticket.DniEmpleado)/*Where(e => e.NroDoc == ticket.DniEmpleado).ToListAsync()*/;
+            if(empleado == null)
+            {
+                throw new ArgumentException ("4"); //No existe el empleado
+            }
             var cliente = await bd.Clientes.FirstOrDefaultAsync(c=>c.NroDoc == ticket.DniCliente)/*Where(c => c.NroDoc == ticket.DniCliente).ToListAsync()*/;
+            if(cliente == null)
+            {
+                throw new ArgumentException ("5"); // No existe el cliente
+            }
             var formas = new List<TicketsXFormapago>();
             foreach (var desc in ticket.FormasPago)
             {
                 var formaPago = await bd.FormasPago.FirstOrDefaultAsync(f => f.Descripcion == desc);
+                if(formaPago == null)
+                {
+                    throw new ArgumentException ("1"); //Forma de pago null
+                }
                 formas.Add(new TicketsXFormapago { IdFormaPago = formaPago.IdFormaPago });
             }
             var detalles = new List<DetalleTickets>();
@@ -34,6 +46,10 @@ namespace TPGI_Trenes.Repository
                 var linea = await bd.TrenesRecorridosEstaciones.Include(r=>r.IdTrenesVagonesNavigation).FirstOrDefaultAsync(r=>r.NroLinea == dt.NroLinea
                                                                                                                             && r.IdEstacionNavigation.Nombre == dt.Estacion
                                                                                                                             && r.HoraPartida == TimeOnly.FromTimeSpan(hora));
+                if(linea == null)
+                {
+                throw new ArgumentException ("5"); // No existe la linea
+                }
                 int idTren = linea.IdTrenesVagonesNavigation.IdTren;
                 var trenesVagon = await bd.TrenesxVagones.Include(tv => tv.IdVagonNavigation).ThenInclude(v => v.IdServicioNavigation).Where(tv => tv.IdTren == idTren
                                                                                                                                                 && tv.IdVagonNavigation.IdTipoVagonNavigation.Descripcion == dt.TipoVagon).Select(tv => new
@@ -44,6 +60,10 @@ namespace TPGI_Trenes.Repository
                                                                                                                                                 }).ToListAsync();
                 var elegido = trenesVagon.FirstOrDefault(c=>c.Vendidos + detalles.Count(x=>x.IdTrenesVagones == c.Tv.IdTrenesVagones
                                                                                         && x.IdTrenRecorridoEst == linea.IdTrenRecorridoEst) < c.Tv.IdVagonNavigation.CantidadAsientos);
+                if(elegido == null)
+                {
+                    throw new ArgumentException ("2"); //Tren elegido null
+                }
                 detalles.Add(new DetalleTickets
                 {
                     IdTrenRecorridoEst = linea.IdTrenRecorridoEst,
@@ -68,11 +88,21 @@ namespace TPGI_Trenes.Repository
             var linea = await bd.TrenesRecorridosEstaciones.Include(r => r.IdTrenesVagonesNavigation).FirstOrDefaultAsync(r => r.NroLinea == nroLinea
                                                                                                                             && r.IdEstacionNavigation.Nombre == estacion
                                                                                                                             && r.HoraPartida == hora);
+            if(linea == null)
+            {
+                throw new ArgumentException("3");// Linea null
+            }
             int idTren = linea.IdTrenesVagonesNavigation.IdTren;
-            return await bd.TrenesxVagones.Where(tv=>tv.IdTren == idTren
+            int? Asiento = await bd.TrenesxVagones.Where(tv => tv.IdTren == idTren
                                         && tv.IdVagonNavigation.IdTipoVagonNavigation.Descripcion == tipoVagon)
                                         .Select(tv => tv.IdVagonNavigation.CantidadAsientos - bd.DetalleTickets.Count(dt => dt.IdTrenesVagones == tv.IdTrenesVagones
                                                                                                                         && dt.IdTrenRecorridoEst == linea.IdTrenRecorridoEst)).FirstOrDefaultAsync();
+            if(Asiento == null)
+            {
+                throw new ArgumentException("4");// Asientos Libres null
+            }                                                                                                            
+                                                                                                                        
+            return (int)Asiento;
         }
 
         public async Task<List<Tickets>> GetByClienteId(int id)
