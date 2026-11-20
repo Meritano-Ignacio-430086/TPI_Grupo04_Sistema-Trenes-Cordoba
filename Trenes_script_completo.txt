@@ -1,7 +1,6 @@
 CREATE DATABASE [Trenes]
-GO
 USE Trenes
-GO
+
 -- [Tablas Auxiliares]
 CREATE TABLE  Tipos_Vagones(
    Id_Tipo_Vagon INT IDENTITY(1,1) NOT NULL,
@@ -364,7 +363,11 @@ CREATE TABLE Contactos_Empleados (
 );
 
 
-
+CREATE TABLE Usuarios (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Email NVARCHAR(150) NOT NULL UNIQUE,
+    Clave NVARCHAR(MAX) NOT NULL
+);
 
 
 
@@ -4110,6 +4113,507 @@ INSERT INTO Mantenimientos (Id_Tipo_Mantenimiento, Fecha, Id_Empleado, Id_Tren) 
 GO
 
 
+SET NOCOUNT ON;
+
+IF NOT EXISTS (SELECT 1 FROM Repuestos WHERE Nombre = 'Bateria 24V')
+BEGIN
+  DECLARE @offT INT, @offR INT, @offS INT, @offF INT;
+
+  SELECT @offT = ISNULL(MAX(Id_Ticket),0) FROM Tickets;
+  SET IDENTITY_INSERT Tickets ON;
+  INSERT INTO Tickets (Id_Ticket, Fecha, Id_Empleado, Id_Cliente) VALUES
+  (1 + @offT, '2026-05-09 14:06:00', 28, 1),
+  (2 + @offT, '2026-07-07 20:09:00', 18, 2),
+  (3 + @offT, '2026-02-07 05:25:00', 25, 3),
+  (4 + @offT, '2026-05-09 06:14:00', 25, 4),
+  (5 + @offT, '2026-10-23 16:17:00', 29, 5),
+  (6 + @offT, '2026-03-05 08:16:00', 20, 6),
+  (7 + @offT, '2026-01-14 13:51:00', 21, 7),
+  (8 + @offT, '2026-04-16 10:19:00', 21, 8),
+  (9 + @offT, '2026-11-14 16:05:00', 30, 9),
+  (10 + @offT, '2026-11-03 15:42:00', 23, 10),
+  (11 + @offT, '2026-09-08 12:11:00', 20, 11),
+  (12 + @offT, '2026-09-19 13:05:00', 30, 12),
+  (13 + @offT, '2026-10-01 14:00:00', 21, 13),
+  (14 + @offT, '2026-10-14 14:54:00', 29, 14),
+  (15 + @offT, '2026-09-09 11:26:00', 23, 15),
+  (16 + @offT, '2026-11-27 14:27:00', 24, 16),
+  (17 + @offT, '2026-03-27 12:19:00', 21, 17),
+  (18 + @offT, '2026-01-23 07:02:00', 24, 18),
+  (19 + @offT, '2026-11-13 13:33:00', 25, 19),
+  (20 + @offT, '2026-09-18 15:09:00', 27, 20),
+  (21 + @offT, '2026-04-17 07:26:00', 20, 21),
+  (22 + @offT, '2026-11-18 19:17:00', 19, 22),
+  (23 + @offT, '2026-07-15 18:47:00', 26, 23),
+  (24 + @offT, '2026-06-25 22:12:00', 22, 24),
+  (25 + @offT, '2026-02-24 06:45:00', 20, 25),
+  (26 + @offT, '2026-05-03 12:07:00', 22, 26),
+  (27 + @offT, '2026-04-07 14:29:00', 17, 27),
+  (28 + @offT, '2026-01-22 16:44:00', 18, 28),
+  (29 + @offT, '2026-05-07 15:01:00', 22, 29),
+  (30 + @offT, '2026-05-08 15:09:00', 29, 30),
+  (31 + @offT, '2026-08-15 07:18:00', 26, 1),
+  (32 + @offT, '2026-04-15 19:18:00', 19, 2),
+  (33 + @offT, '2026-05-17 17:38:00', 19, 3),
+  (34 + @offT, '2026-06-02 05:23:00', 17, 4),
+  (35 + @offT, '2026-08-09 10:23:00', 29, 5),
+  (36 + @offT, '2026-07-18 14:36:00', 18, 6),
+  (37 + @offT, '2026-08-01 11:27:00', 20, 7),
+  (38 + @offT, '2026-02-03 06:03:00', 17, 8),
+  (39 + @offT, '2026-03-03 09:38:00', 17, 9),
+  (40 + @offT, '2026-10-28 20:37:00', 20, 10),
+  (41 + @offT, '2026-06-25 06:07:00', 30, 11),
+  (42 + @offT, '2026-10-19 14:49:00', 23, 12),
+  (43 + @offT, '2026-04-19 20:12:00', 20, 13),
+  (44 + @offT, '2026-08-01 18:31:00', 17, 14),
+  (45 + @offT, '2026-04-01 18:28:00', 20, 15),
+  (46 + @offT, '2026-08-24 11:31:00', 17, 25),
+  (47 + @offT, '2026-01-19 13:16:00', 25, 32),
+  (48 + @offT, '2026-04-23 12:26:00', 19, 34),
+  (49 + @offT, '2026-06-27 06:57:00', 26, 41),
+  (50 + @offT, '2026-02-04 17:57:00', 27, 84),
+  (51 + @offT, '2026-01-21 20:24:00', 23, 12),
+  (52 + @offT, '2026-04-24 10:21:00', 27, 38),
+  (53 + @offT, '2026-09-18 15:52:00', 25, 54),
+  (54 + @offT, '2026-04-27 13:21:00', 24, 51),
+  (55 + @offT, '2026-02-11 13:40:00', 20, 86),
+  (56 + @offT, '2026-01-23 17:57:00', 19, 80),
+  (57 + @offT, '2026-05-26 06:55:00', 28, 22),
+  (58 + @offT, '2026-11-18 19:36:00', 28, 61),
+  (59 + @offT, '2026-07-11 17:13:00', 20, 1),
+  (60 + @offT, '2026-03-25 05:39:00', 18, 33);
+  SET IDENTITY_INSERT Tickets OFF;
+  INSERT INTO Detalle_Tickets (Id_Trenes_Vagones, Id_Tren_Recorrido_Est, Id_Ticket, Precio) VALUES
+  (10, 49, 1 + @offT, 1200.00),
+  (16, 71, 1 + @offT, 850.00),
+  (5, 21, 2 + @offT, 2500.00),
+  (9, 43, 3 + @offT, 2200.00),
+  (13, 61, 3 + @offT, 2200.00),
+  (12, 57, 3 + @offT, 850.00),
+  (1, 5, 4 + @offT, 2500.00),
+  (3, 15, 5 + @offT, 1800.00),
+  (16, 72, 5 + @offT, 1500.00),
+  (17, 78, 5 + @offT, 1200.00),
+  (10, 47, 6 + @offT, 850.00),
+  (1, 2, 7 + @offT, 1500.00),
+  (9, 45, 7 + @offT, 850.00),
+  (3, 11, 7 + @offT, 2200.00),
+  (10, 49, 8 + @offT, 1200.00),
+  (8, 40, 8 + @offT, 1800.00),
+  (14, 63, 9 + @offT, 1800.00),
+  (2, 10, 10 + @offT, 850.00),
+  (10, 47, 11 + @offT, 2200.00),
+  (12, 56, 11 + @offT, 1800.00),
+  (12, 57, 11 + @offT, 850.00),
+  (6, 26, 12 + @offT, 2500.00),
+  (8, 39, 12 + @offT, 1800.00),
+  (12, 55, 12 + @offT, 850.00),
+  (5, 22, 13 + @offT, 1500.00),
+  (5, 21, 13 + @offT, 1200.00),
+  (4, 20, 13 + @offT, 1500.00),
+  (9, 44, 14 + @offT, 1500.00),
+  (15, 70, 14 + @offT, 850.00),
+  (5, 22, 15 + @offT, 850.00),
+  (19, 83, 15 + @offT, 1500.00),
+  (4, 16, 15 + @offT, 2200.00),
+  (14, 63, 16 + @offT, 2500.00),
+  (13, 62, 17 + @offT, 2200.00),
+  (2, 10, 17 + @offT, 2200.00),
+  (7, 32, 17 + @offT, 1800.00),
+  (10, 46, 18 + @offT, 1200.00),
+  (5, 24, 18 + @offT, 2500.00),
+  (20, 87, 19 + @offT, 850.00),
+  (9, 41, 20 + @offT, 2200.00),
+  (13, 60, 20 + @offT, 2200.00),
+  (8, 40, 20 + @offT, 2200.00),
+  (18, 79, 21 + @offT, 2200.00),
+  (12, 57, 21 + @offT, 1800.00),
+  (7, 33, 22 + @offT, 2200.00),
+  (19, 85, 23 + @offT, 1500.00),
+  (4, 18, 23 + @offT, 1800.00),
+  (17, 78, 24 + @offT, 1200.00),
+  (18, 80, 25 + @offT, 1200.00),
+  (8, 37, 25 + @offT, 1500.00),
+  (6, 26, 25 + @offT, 2200.00),
+  (20, 87, 26 + @offT, 2200.00),
+  (3, 12, 26 + @offT, 850.00),
+  (19, 83, 27 + @offT, 1200.00),
+  (9, 43, 27 + @offT, 2500.00),
+  (9, 42, 28 + @offT, 1200.00),
+  (8, 39, 28 + @offT, 850.00),
+  (1, 3, 29 + @offT, 2200.00),
+  (3, 12, 29 + @offT, 1500.00),
+  (3, 13, 29 + @offT, 1200.00),
+  (17, 75, 30 + @offT, 1800.00),
+  (16, 74, 31 + @offT, 850.00),
+  (3, 15, 31 + @offT, 1200.00),
+  (19, 84, 31 + @offT, 1800.00),
+  (6, 29, 32 + @offT, 2200.00),
+  (19, 85, 32 + @offT, 1500.00),
+  (20, 89, 32 + @offT, 1800.00),
+  (7, 31, 33 + @offT, 1800.00),
+  (6, 29, 33 + @offT, 1500.00),
+  (10, 48, 33 + @offT, 1200.00),
+  (9, 42, 34 + @offT, 2200.00),
+  (18, 81, 34 + @offT, 2200.00),
+  (12, 58, 34 + @offT, 1800.00),
+  (11, 52, 35 + @offT, 1500.00),
+  (8, 37, 35 + @offT, 1800.00),
+  (11, 53, 35 + @offT, 2200.00),
+  (7, 33, 36 + @offT, 1200.00),
+  (13, 59, 37 + @offT, 2500.00),
+  (16, 72, 37 + @offT, 2200.00),
+  (10, 47, 37 + @offT, 1800.00),
+  (18, 80, 38 + @offT, 850.00),
+  (4, 20, 38 + @offT, 2200.00),
+  (13, 59, 39 + @offT, 2500.00),
+  (17, 78, 40 + @offT, 1500.00),
+  (3, 12, 40 + @offT, 1500.00),
+  (6, 29, 41 + @offT, 2500.00),
+  (13, 62, 41 + @offT, 2200.00),
+  (4, 20, 42 + @offT, 1200.00),
+  (8, 39, 43 + @offT, 1200.00),
+  (5, 21, 44 + @offT, 1800.00),
+  (20, 88, 45 + @offT, 2200.00),
+  (16, 71, 45 + @offT, 2500.00),
+  (15, 69, 45 + @offT, 1500.00),
+  (15, 68, 46 + @offT, 1200.00),
+  (3, 13, 47 + @offT, 1200.00),
+  (9, 41, 48 + @offT, 850.00),
+  (7, 35, 49 + @offT, 850.00),
+  (8, 37, 50 + @offT, 2200.00),
+  (18, 81, 50 + @offT, 2500.00),
+  (5, 23, 50 + @offT, 2500.00),
+  (19, 84, 51 + @offT, 1800.00),
+  (3, 11, 52 + @offT, 2200.00),
+  (20, 89, 53 + @offT, 850.00),
+  (16, 71, 53 + @offT, 1200.00),
+  (11, 53, 54 + @offT, 1200.00),
+  (6, 28, 54 + @offT, 1500.00),
+  (13, 62, 54 + @offT, 2200.00),
+  (10, 49, 55 + @offT, 1200.00),
+  (7, 33, 56 + @offT, 2200.00),
+  (15, 69, 57 + @offT, 2500.00),
+  (8, 39, 57 + @offT, 1800.00),
+  (5, 22, 58 + @offT, 1800.00),
+  (2, 8, 58 + @offT, 1800.00),
+  (8, 36, 59 + @offT, 2500.00),
+  (8, 39, 60 + @offT, 1200.00);
+  INSERT INTO Tickets_x_Formapago (Id_Forma_Pago, Id_Ticket) VALUES
+  (1, 1 + @offT),
+  (2, 2 + @offT),
+  (1, 3 + @offT),
+  (5, 4 + @offT),
+  (1, 5 + @offT),
+  (2, 6 + @offT),
+  (2, 7 + @offT),
+  (5, 8 + @offT),
+  (1, 9 + @offT),
+  (4, 10 + @offT),
+  (5, 11 + @offT),
+  (2, 12 + @offT),
+  (4, 13 + @offT),
+  (4, 14 + @offT),
+  (3, 15 + @offT),
+  (2, 16 + @offT),
+  (5, 17 + @offT),
+  (5, 18 + @offT),
+  (2, 19 + @offT),
+  (1, 20 + @offT),
+  (4, 21 + @offT),
+  (5, 22 + @offT),
+  (3, 23 + @offT),
+  (3, 24 + @offT),
+  (4, 25 + @offT),
+  (5, 26 + @offT),
+  (1, 27 + @offT),
+  (2, 28 + @offT),
+  (3, 29 + @offT),
+  (5, 30 + @offT),
+  (5, 31 + @offT),
+  (3, 32 + @offT),
+  (4, 33 + @offT),
+  (3, 34 + @offT),
+  (1, 35 + @offT),
+  (2, 36 + @offT),
+  (3, 37 + @offT),
+  (1, 38 + @offT),
+  (1, 39 + @offT),
+  (5, 40 + @offT),
+  (3, 41 + @offT),
+  (5, 42 + @offT),
+  (4, 43 + @offT),
+  (3, 44 + @offT),
+  (1, 45 + @offT),
+  (2, 46 + @offT),
+  (1, 47 + @offT),
+  (4, 48 + @offT),
+  (5, 49 + @offT),
+  (5, 50 + @offT),
+  (5, 51 + @offT),
+  (2, 52 + @offT),
+  (1, 53 + @offT),
+  (2, 54 + @offT),
+  (1, 55 + @offT),
+  (3, 56 + @offT),
+  (5, 57 + @offT),
+  (2, 58 + @offT),
+  (3, 59 + @offT),
+  (1, 60 + @offT);
+
+  SELECT @offR = ISNULL(MAX(Id_Repuesto),0) FROM Repuestos;
+  SET IDENTITY_INSERT Repuestos ON;
+  INSERT INTO Repuestos (Id_Repuesto, Id_Tipo_Repuesto, Nombre, Material, Precio_Unit) VALUES
+  (1 + @offR, 1, 'Pastilla de freno', 'Ceramica', 4500),
+  (2 + @offR, 1, 'Disco de freno', 'Acero', 18000),
+  (3 + @offR, 1, 'Zapata de freno', 'Fundicion', 7200),
+  (4 + @offR, 1, 'Cilindro de freno', 'Aluminio', 26000),
+  (5 + @offR, 2, 'Inyector diesel', 'Acero', 32000),
+  (6 + @offR, 2, 'Filtro de aceite', 'Papel', 3800),
+  (7 + @offR, 2, 'Bomba de combustible', 'Acero', 54000),
+  (8 + @offR, 2, 'Turbocompresor', 'Aleacion', 210000),
+  (9 + @offR, 3, 'Bateria 24V', 'Plomo', 48000),
+  (10 + @offR, 3, 'Alternador', 'Cobre', 95000),
+  (11 + @offR, 3, 'Motor de traccion', 'Cobre', 480000),
+  (12 + @offR, 3, 'Cable de potencia', 'Cobre', 6500),
+  (13 + @offR, 4, 'Puerta corrediza', 'Aluminio', 120000),
+  (14 + @offR, 4, 'Ventanilla laminada', 'Vidrio', 38000),
+  (15 + @offR, 4, 'Asiento pasajero', 'Polipropileno', 22000),
+  (16 + @offR, 5, 'Rodamiento de eje', 'Acero', 15500),
+  (17 + @offR, 5, 'Resorte de suspension', 'Acero', 9800),
+  (18 + @offR, 5, 'Amortiguador', 'Acero', 27000),
+  (19 + @offR, 5, 'Rueda ferroviaria', 'Acero', 165000),
+  (20 + @offR, 5, 'Eje de ruedas', 'Acero', 230000);
+  SET IDENTITY_INSERT Repuestos OFF;
+
+  SELECT @offS = ISNULL(MAX(Id_Stock),0) FROM Stocks;
+  SET IDENTITY_INSERT Stocks ON;
+  INSERT INTO Stocks (Id_Stock, Id_Repuesto, Cantidad) VALUES
+  (1 + @offS, 1 + @offR, 34),
+  (2 + @offS, 2 + @offR, 34),
+  (3 + @offS, 3 + @offR, 2),
+  (4 + @offS, 4 + @offR, 6),
+  (5 + @offS, 5 + @offR, 16),
+  (6 + @offS, 6 + @offR, 19),
+  (7 + @offS, 7 + @offR, 3),
+  (8 + @offS, 8 + @offR, 4),
+  (9 + @offS, 9 + @offR, 2),
+  (10 + @offS, 10 + @offR, 32),
+  (11 + @offS, 11 + @offR, 11),
+  (12 + @offS, 12 + @offR, 15),
+  (13 + @offS, 13 + @offR, 25),
+  (14 + @offS, 14 + @offR, 17),
+  (15 + @offS, 15 + @offR, 24),
+  (16 + @offS, 16 + @offR, 21),
+  (17 + @offS, 17 + @offR, 26),
+  (18 + @offS, 18 + @offR, 40),
+  (19 + @offS, 19 + @offR, 27),
+  (20 + @offS, 20 + @offR, 4);
+  SET IDENTITY_INSERT Stocks OFF;
+  INSERT INTO Stock_Movimientos (Id_Tipo_Movimiento, Id_Stock, Fecha, Cantidad) VALUES
+  (1, 14 + @offS, '2026-08-03', 13),
+  (2, 18 + @offS, '2026-05-26', 4),
+  (3, 11 + @offS, '2026-03-07', 1),
+  (3, 14 + @offS, '2026-05-11', 13),
+  (3, 14 + @offS, '2026-06-25', 10),
+  (1, 9 + @offS, '2026-05-17', 2),
+  (1, 13 + @offS, '2026-05-20', 5),
+  (1, 20 + @offS, '2026-06-03', 15),
+  (1, 20 + @offS, '2026-02-23', 4),
+  (2, 7 + @offS, '2026-11-16', 13),
+  (1, 11 + @offS, '2026-01-15', 10),
+  (1, 6 + @offS, '2026-02-08', 9),
+  (1, 4 + @offS, '2026-06-10', 14),
+  (1, 3 + @offS, '2026-11-28', 3),
+  (1, 6 + @offS, '2026-11-07', 5),
+  (1, 19 + @offS, '2026-06-21', 6),
+  (2, 6 + @offS, '2026-03-25', 4),
+  (1, 2 + @offS, '2026-03-22', 15),
+  (1, 9 + @offS, '2026-11-22', 14),
+  (3, 4 + @offS, '2026-04-26', 3),
+  (3, 16 + @offS, '2026-10-18', 8),
+  (2, 12 + @offS, '2026-07-24', 7),
+  (1, 2 + @offS, '2026-03-05', 6),
+  (1, 10 + @offS, '2026-04-12', 10),
+  (1, 20 + @offS, '2026-11-12', 7),
+  (2, 18 + @offS, '2026-02-08', 4),
+  (2, 6 + @offS, '2026-09-07', 1),
+  (1, 4 + @offS, '2026-04-10', 14),
+  (2, 18 + @offS, '2026-08-02', 5),
+  (3, 6 + @offS, '2026-03-13', 10),
+  (3, 12 + @offS, '2026-06-01', 8),
+  (1, 15 + @offS, '2026-01-24', 13),
+  (3, 7 + @offS, '2026-02-11', 5),
+  (1, 3 + @offS, '2026-08-06', 11),
+  (1, 6 + @offS, '2026-10-08', 10),
+  (2, 20 + @offS, '2026-01-24', 11),
+  (1, 13 + @offS, '2026-07-08', 13),
+  (1, 20 + @offS, '2026-01-05', 3),
+  (2, 8 + @offS, '2026-07-24', 6),
+  (2, 6 + @offS, '2026-06-22', 14);
+
+  SELECT @offF = ISNULL(MAX(Nro_Factura),0) FROM Facturas;
+  SET IDENTITY_INSERT Facturas ON;
+  INSERT INTO Facturas (Nro_Factura, Id_Proveedor, Id_Empleado, Fecha, Monto) VALUES
+  (1 + @offF, 35, 46, '2026-05-20', 173000),
+  (2 + @offF, 31, 42, '2026-02-21', 92400),
+  (3 + @offF, 35, 46, '2026-02-23', 690000),
+  (4 + @offF, 12, 45, '2026-10-02', 1364500),
+  (5 + @offF, 19, 47, '2026-01-01', 501000),
+  (6 + @offF, 3, 45, '2026-04-28', 29600),
+  (7 + @offF, 19, 47, '2026-02-03', 121400),
+  (8 + @offF, 9, 47, '2026-03-04', 1852800),
+  (9 + @offF, 39, 41, '2026-03-02', 1158500),
+  (10 + @offF, 35, 48, '2026-04-20', 1825400),
+  (11 + @offF, 22, 43, '2026-05-06', 1211000),
+  (12 + @offF, 18, 46, '2026-11-06', 2054400),
+  (13 + @offF, 3, 41, '2026-01-28', 81000),
+  (14 + @offF, 16, 46, '2026-11-13', 2369600),
+  (15 + @offF, 12, 41, '2026-07-01', 5771600),
+  (16 + @offF, 1, 46, '2026-06-04', 1962000),
+  (17 + @offF, 11, 42, '2026-08-13', 199000),
+  (18 + @offF, 9, 48, '2026-08-24', 1068000),
+  (19 + @offF, 25, 42, '2026-08-14', 2980000),
+  (20 + @offF, 22, 41, '2026-09-25', 764000),
+  (21 + @offF, 28, 48, '2026-07-18', 15500),
+  (22 + @offF, 49, 46, '2026-08-24', 3202000),
+  (23 + @offF, 46, 48, '2026-10-26', 201500),
+  (24 + @offF, 33, 41, '2026-11-14', 1688000),
+  (25 + @offF, 44, 45, '2026-03-02', 1255000),
+  (26 + @offF, 21, 48, '2026-10-08', 284000),
+  (27 + @offF, 31, 42, '2026-09-20', 33200),
+  (28 + @offF, 13, 44, '2026-01-17', 4752000),
+  (29 + @offF, 40, 45, '2026-05-04', 480000),
+  (30 + @offF, 5, 44, '2026-04-02', 1335400);
+  SET IDENTITY_INSERT Facturas OFF;
+  INSERT INTO Detalles_Facturas (Nro_Factura, Id_Repuesto, Cantidad, Precio) VALUES
+  (1 + @offF, 18 + @offR, 1, 27000.00),
+  (1 + @offF, 18 + @offR, 3, 27000.00),
+  (1 + @offF, 12 + @offR, 10, 6500.00),
+  (2 + @offF, 6 + @offR, 3, 3800.00),
+  (2 + @offF, 18 + @offR, 3, 27000.00),
+  (3 + @offF, 20 + @offR, 3, 230000.00),
+  (4 + @offF, 16 + @offR, 5, 15500.00),
+  (4 + @offF, 7 + @offR, 8, 54000.00),
+  (4 + @offF, 10 + @offR, 9, 95000.00),
+  (5 + @offF, 17 + @offR, 10, 9800.00),
+  (5 + @offF, 12 + @offR, 2, 6500.00),
+  (5 + @offF, 7 + @offR, 7, 54000.00),
+  (6 + @offF, 6 + @offR, 4, 3800.00),
+  (6 + @offF, 3 + @offR, 2, 7200.00),
+  (7 + @offF, 6 + @offR, 4, 3800.00),
+  (7 + @offF, 17 + @offR, 9, 9800.00),
+  (7 + @offF, 2 + @offR, 1, 18000.00),
+  (8 + @offF, 17 + @offR, 6, 9800.00),
+  (8 + @offF, 9 + @offR, 3, 48000.00),
+  (8 + @offF, 19 + @offR, 10, 165000.00),
+  (9 + @offF, 18 + @offR, 7, 27000.00),
+  (9 + @offF, 10 + @offR, 10, 95000.00),
+  (9 + @offF, 12 + @offR, 3, 6500.00),
+  (10 + @offF, 6 + @offR, 8, 3800.00),
+  (10 + @offF, 19 + @offR, 9, 165000.00),
+  (10 + @offF, 1 + @offR, 10, 4500.00),
+  (10 + @offF, 18 + @offR, 10, 27000.00),
+  (11 + @offF, 10 + @offR, 6, 95000.00),
+  (11 + @offF, 7 + @offR, 9, 54000.00),
+  (11 + @offF, 16 + @offR, 10, 15500.00),
+  (12 + @offF, 4 + @offR, 4, 26000.00),
+  (12 + @offF, 11 + @offR, 4, 480000.00),
+  (12 + @offF, 6 + @offR, 8, 3800.00),
+  (13 + @offF, 18 + @offR, 3, 27000.00),
+  (14 + @offF, 8 + @offR, 8, 210000.00),
+  (14 + @offF, 14 + @offR, 5, 38000.00),
+  (14 + @offF, 17 + @offR, 2, 9800.00),
+  (14 + @offF, 11 + @offR, 1, 480000.00),
+  (15 + @offF, 6 + @offR, 7, 3800.00),
+  (15 + @offF, 2 + @offR, 9, 18000.00),
+  (15 + @offF, 8 + @offR, 6, 210000.00),
+  (15 + @offF, 11 + @offR, 9, 480000.00),
+  (16 + @offF, 19 + @offR, 4, 165000.00),
+  (16 + @offF, 16 + @offR, 6, 15500.00),
+  (16 + @offF, 19 + @offR, 7, 165000.00),
+  (16 + @offF, 18 + @offR, 2, 27000.00),
+  (17 + @offF, 1 + @offR, 2, 4500.00),
+  (17 + @offF, 10 + @offR, 2, 95000.00),
+  (18 + @offF, 14 + @offR, 6, 38000.00),
+  (18 + @offF, 13 + @offR, 5, 120000.00),
+  (18 + @offF, 13 + @offR, 2, 120000.00),
+  (19 + @offF, 8 + @offR, 10, 210000.00),
+  (19 + @offF, 20 + @offR, 3, 230000.00),
+  (19 + @offF, 14 + @offR, 5, 38000.00),
+  (20 + @offF, 20 + @offR, 3, 230000.00),
+  (20 + @offF, 16 + @offR, 4, 15500.00),
+  (21 + @offF, 16 + @offR, 1, 15500.00),
+  (22 + @offF, 7 + @offR, 3, 54000.00),
+  (22 + @offF, 11 + @offR, 6, 480000.00),
+  (22 + @offF, 5 + @offR, 5, 32000.00),
+  (23 + @offF, 16 + @offR, 7, 15500.00),
+  (23 + @offF, 16 + @offR, 6, 15500.00),
+  (24 + @offF, 19 + @offR, 10, 165000.00),
+  (24 + @offF, 6 + @offR, 9, 3800.00),
+  (24 + @offF, 6 + @offR, 1, 3800.00),
+  (25 + @offF, 8 + @offR, 6, 210000.00),
+  (26 + @offF, 2 + @offR, 2, 18000.00),
+  (26 + @offF, 2 + @offR, 8, 18000.00),
+  (26 + @offF, 4 + @offR, 4, 26000.00),
+  (27 + @offF, 6 + @offR, 4, 3800.00),
+  (27 + @offF, 1 + @offR, 4, 4500.00),
+  (28 + @offF, 11 + @offR, 6, 480000.00),
+  (28 + @offF, 9 + @offR, 10, 48000.00),
+  (28 + @offF, 13 + @offR, 10, 120000.00),
+  (28 + @offF, 5 + @offR, 6, 32000.00),
+  (29 + @offF, 11 + @offR, 1, 480000.00),
+  (30 + @offF, 13 + @offR, 6, 120000.00),
+  (30 + @offF, 3 + @offR, 2, 7200.00),
+  (30 + @offF, 5 + @offR, 8, 32000.00),
+  (30 + @offF, 14 + @offR, 9, 38000.00);
+  INSERT INTO Facturas_x_Formapago (Id_Forma_Pago, Nro_Factura) VALUES
+  (2, 1 + @offF),
+  (5, 1 + @offF),
+  (5, 2 + @offF),
+  (1, 2 + @offF),
+  (5, 3 + @offF),
+  (5, 3 + @offF),
+  (1, 4 + @offF),
+  (3, 4 + @offF),
+  (1, 5 + @offF),
+  (5, 5 + @offF),
+  (1, 6 + @offF),
+  (2, 6 + @offF),
+  (1, 7 + @offF),
+  (1, 7 + @offF),
+  (1, 8 + @offF),
+  (2, 8 + @offF),
+  (5, 9 + @offF),
+  (3, 9 + @offF),
+  (3, 10 + @offF),
+  (5, 10 + @offF),
+  (3, 11 + @offF),
+  (3, 11 + @offF),
+  (1, 12 + @offF),
+  (4, 12 + @offF),
+  (2, 13 + @offF),
+  (1, 14 + @offF),
+  (2, 15 + @offF),
+  (4, 16 + @offF),
+  (2, 17 + @offF),
+  (3, 18 + @offF),
+  (1, 19 + @offF),
+  (3, 20 + @offF),
+  (4, 21 + @offF),
+  (5, 22 + @offF),
+  (5, 23 + @offF),
+  (4, 24 + @offF),
+  (3, 25 + @offF),
+  (2, 26 + @offF),
+  (5, 27 + @offF),
+  (1, 28 + @offF),
+  (4, 29 + @offF),
+  (1, 30 + @offF);
+END
+GO
+
+
 
 
 -- =================== PROCEDIMIENTOS, FUNCION Y VISTA ===================
@@ -4123,7 +4627,7 @@ BEGIN
 
     IF NOT EXISTS (SELECT 1 FROM Recorridos WHERE Nro_Linea = @Nro_Linea)
     BEGIN
-        RAISERROR(N'El n£mero de l¡nea especificado no existe.', 16, 1);
+        RAISERROR(N'El n mero de l nea especificado no existe.', 16, 1);
         RETURN;
     END
 
@@ -4155,44 +4659,6 @@ END;
 
 GO
 
-CREATE PROCEDURE dbo.P_ObtenerInformacionTrenPorLinea
-
-@Nro_Linea INT
-
-AS
-BEGIN
-IF NOT EXISTS (SELECT 1 FROM Recorridos WHERE Nro_Linea = @Nro_Linea)
-   BEGIN
-       RAISERROR('El nÃºmero de lÃ­nea especificado no existe.', 16, 1);
-RETURN;
-END
-SELECT
-r.Nro_Linea AS [Linea],
-r.Descripcion AS [Recorrido],
-t.Nro_unidad AS [Tren],
-t.Modelo AS [Modelo_Tren],
-(SELECT COUNT(*) FROM Mantenimientos m WHERE m.Id_Tren = t.Id_Tren) AS [Total_Mantenimientos_Historicos],
-(SELECT MAX(m.Fecha) FROM Mantenimientos m WHERE m.Id_Tren = t.Id_Tren) AS [Ultimo_Mantenimiento],
-COUNT(DISTINCT er.Id_Estacion) AS [Cantidad_Estaciones],
-COUNT(DISTINCT txv.Id_Vagon) AS [Vagones_Asignados],
-SUM(ISNULL(v.Capacidad, 0)) AS [Capacidad_Vagones],
-CASE
-       WHEN t.Id_Estado = 1 THEN 'Operativo / Activo'
-       WHEN t.Id_Estado = 2 THEN 'Fuera de Servicio'
-       WHEN t.Id_Estado = 3 THEN 'En Mantenimiento'
-       ELSE 'Estado No Definido'
-END AS [Estado_Operativo]
-FROM Recorridos r
-INNER JOIN Estaciones_Recorridos er ON r.Nro_Linea = er.Nro_Linea
-INNER JOIN Trenes_Recorridos_Estaciones tre ON r.Nro_Linea = tre.Nro_Linea AND er.Id_Estacion = tre.Id_Estacion
-INNER JOIN TrenesxVagones txv ON tre.Id_Trenes_Vagones = txv.Id_Trenes_Vagones
-INNER JOIN Trenes t ON txv.Id_Tren = t.Id_Tren
-LEFT JOIN Vagones v ON txv.Id_Vagon = v.Id_Vagon
-WHERE r.Nro_Linea = @Nro_Linea
-GROUP BY r.Nro_Linea,r.Descripcion,t.Nro_unidad,t.Modelo,t.Id_Estado,T.Id_Tren
-END;
-
-GO
 
 CREATE  FUNCTION dbo.fn_Historial_Compras_Cliente_DNI
 (
@@ -4253,4 +4719,5 @@ GROUP BY f.Nro_Factura, f.Fecha, p.Nombre, e.Apellido, e.Nombre
 HAVING SUM(d.Cantidad * d.Precio) > (SELECT AVG(Monto) FROM Facturas)
 
 GO
+
 
