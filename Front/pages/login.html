@@ -57,7 +57,7 @@
                         <input type="checkbox" name="remember">
                         <span>Recordarme</span>
                     </label>
-                    <a href="#">¿Olvidaste tu clave?</a>
+                    <a href="#" id="linkOlvide">¿Olvidaste tu clave?</a>
                 </div>
 
                 <button type="submit" id="btnLogin">
@@ -69,11 +69,39 @@
                 </button>
 
                 <p class="login-error" id="loginError" role="alert" hidden></p>
+
+                <div class="registro-aparte">
+                    <span>¿No tenés cuenta?</span>
+                    <a href="register.html" class="btn-registro">Registrarse</a>
+                </div>
             </form>
         </section>
     </main>
+    <!-- popup: olvidé mi contraseña -->
+    <dialog id="modalOlvide" class="modal-olvide" aria-labelledby="tituloOlvide">
+        <button type="button" class="modal-cerrar" id="cerrarOlvide" aria-label="Cerrar">&times;</button>
+        <div class="modal-icono">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+            </svg>
+        </div>
+        <h2 id="tituloOlvide">¿Olvidaste tu contraseña?</h2>
+        <p class="modal-texto">Contactate con alguno de los administradores de la aplicación:</p>
+        <ul class="modal-admins">
+            <li>Ignacio Meritano</li>
+            <li>Brian Lonzari</li>
+            <li>Marcos Murua</li>
+            <li>Juan Dre</li>
+            <li>Francisco Berrotaran</li>
+            <li>Victorio Caccioppoli</li>
+        </ul>
+        <button type="button" class="modal-aceptar" id="aceptarOlvide">Entendido</button>
+    </dialog>
+
     <script src="../js/api.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/login.js"></script>
+    <script src="../js/olvide-clave.js"></script>
 </body>
 </html>
