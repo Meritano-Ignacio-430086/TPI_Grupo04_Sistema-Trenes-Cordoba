@@ -1,617 +1,570 @@
-/* =========================================
-   DESIGN TOKENS · RIELCBA v1.0
-   ========================================= */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+/* ===== Colores de la marca ===== */
 :root {
-  /* Marca */
-  --riel-navy-950: #0b1d2b;
-  --riel-navy-900: #102334;
-  --riel-ink: #122838;
+  --riel-noche: #0B1D2B;
+  --riel-titulo: #102334;
+  --riel-botones: #168FC8;
+  --riel-botones-hover: #0F7FB5;
+  --riel-celeste-claro: #45AFE6;
+  --riel-celeste-fondo: #EAF7FC;
+  --riel-rojo: #CF4248;
+  --riel-fondo: #F4F8FB;
+  --riel-borde: #DFE9EE;
+  --riel-borde-campo: #D7E3E9;
+  --riel-gris: #637586;
+  --riel-gris-claro: #84949E;
+  --riel-verde: #16794A;
 
-  --riel-sky-700: #0f7fb5;
-  --riel-sky-600: #168fc8;
-  --riel-sky-500: #239bd5;
-  --riel-sky-400: #45afe6;
-  --riel-sky-100: #eaf7fc;
-
-  --riel-red-600: #cf4248;
-
-  /* Superficies y texto */
-  --riel-background: #f4f8fb;
-  --riel-surface: #ffffff;
-  --riel-text-primary: #122838;
-  --riel-text-secondary: #637586;
-  --riel-text-muted: #84949e;
-
-  /* Bordes, radios y sombras */
-  --riel-border: #dfe9ee;
-  --riel-radius-sm: 8px;
-  --riel-radius-md: 12px;
-  --riel-radius-lg: 16px;
-  --riel-shadow-card: 0 12px 35px rgb(30 71 92 / 5%);
-  --riel-shadow-action: 0 10px 25px rgb(35 155 213 / 22%);
-  --riel-shadow-brand: 0 8px 24px rgb(69 175 230 / 28%);
+  /* colores de los gráficos */
+  --riel-graf-1: #36A7DD;
+  --riel-graf-2: #76CCEC;
+  --riel-graf-3: #CF4B52;
+  --riel-graf-4: #B7DFEA;
 }
 
-/* =========================================
-   BASE Y OVERRIDES GLOBALES DE BOOTSTRAP
-   ========================================= */
 body {
-  font-family: "DM Sans", Arial, sans-serif;
-  background-color: var(--riel-background);
-  color: var(--riel-text-primary);
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--riel-fondo);
+  color: var(--riel-titulo);
+  font-family: "DM Sans", sans-serif;
 }
 
-.riel-container {
-  max-width: 1140px;
+/* ===== Navbar ===== */
+.navbar-riel {
+  background-color: var(--riel-noche);
+  padding: 0.9rem 0;
+  --bs-navbar-color: rgba(255, 255, 255, 0.7);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #fff;
+}
+.navbar-brand {
+  font-weight: 700;
+}
+.navbar-riel .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icono {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--riel-celeste-claro);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(69, 175, 230, 0.28);
+}
+.navbar-riel .nav-link {
+  font-weight: 500;
+  position: relative;
+}
+.navbar-riel .nav-link.active {
+  font-weight: 600;
+}
+@media (min-width: 992px) {
+  .navbar-riel .nav-link {
+    padding: 0.5rem 0.9rem !important;
+  }
+  /* rayita celeste abajo de la página activa */
+  .navbar-riel .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--riel-celeste-claro);
+  }
+}
+.estado-sistema {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.estado-sistema .punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2ECC71;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+}
+.navbar-riel .btn-outline-light {
+  border-radius: 10px;
+  border-color: rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
 }
 
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--riel-sky-400);
-  outline-offset: 3px;
+/* franjita rojo / blanco / celeste */
+.franja {
+  height: 4px;
+  background: linear-gradient(to right, var(--riel-rojo) 33%, white 33% 66%, var(--riel-celeste-claro) 66%);
 }
 
+/* ===== Encabezado de cada página ===== */
+.encabezado {
+  margin: 1.5rem 0 2rem;
+}
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--riel-botones);
+  margin-bottom: 0.5rem;
+}
+.titulo-pagina {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+.descripcion {
+  color: var(--riel-gris);
+  margin-bottom: 0;
+}
+
+/* ===== Botones ===== */
+.btn {
+  border-radius: 12px;
+  font-weight: 600;
+}
 .btn-primary,
 .bg-primary {
-  background-color: var(--riel-sky-700) !important;
-  border-color: var(--riel-sky-700) !important;
+  background-color: var(--riel-botones) !important;
+  border-color: var(--riel-botones) !important;
 }
-
 .btn-primary:hover {
-  background-color: var(--riel-sky-600) !important;
-  border-color: var(--riel-sky-600) !important;
+  background-color: var(--riel-botones-hover) !important;
 }
-
+.btn-primary {
+  box-shadow: 0 10px 25px rgba(35, 155, 213, 0.22);
+}
 .text-primary {
-  color: var(--riel-sky-600) !important;
+  color: var(--riel-botones) !important;
+}
+.text-muted {
+  color: var(--riel-gris) !important;
 }
 
-/* =========================================
-   COMPATIBILIDAD CON OTRAS PANTALLAS DEL EQUIPO
-   ========================================= */
-.portada {
-  background-color: var(--riel-navy-950);
-  color: #ffffff;
-  padding: 80px 0;
-}
-
+/* ===== Tarjetas ===== */
 .card {
-  border: 1px solid var(--riel-border);
-  box-shadow: var(--riel-shadow-card);
+  border: 1px solid var(--riel-borde);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(30, 71, 92, 0.05);
+}
+.card-titulo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+.card-subtitulo {
+  font-size: 0.85rem;
+  color: var(--riel-gris);
+  margin-bottom: 0;
+}
+.chip {
+  font-size: 0.8rem;
+  color: var(--riel-gris);
+  background-color: var(--riel-fondo);
+  border: 1px solid var(--riel-borde);
+  border-radius: 8px;
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+}
+.link-riel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--riel-botones);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.link-riel:hover {
+  color: var(--riel-botones-hover);
 }
 
+/* tarjetas de números */
 .numero {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--riel-navy-900);
+  display: block;
+  letter-spacing: -0.02em;
+  margin: 0.9rem 0 0.2rem;
+}
+.tendencia {
+  font-size: 0.8rem;
+  color: var(--riel-verde);
+}
+.icono-card {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--riel-celeste-fondo);
+  color: var(--riel-botones);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ===== Gráfico de barras (Tickets por día) ===== */
+.grafico-barras {
+  display: flex;
+  gap: 14px;
+  height: 230px;
+  margin-top: 1.5rem;
+}
+.grafico-barras .dia {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.grafico-barras .pista {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom: 1px solid var(--riel-borde);
+}
+.grafico-barras .barra {
+  width: 100%;
+  max-width: 42px;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(to top, var(--riel-graf-2), var(--riel-graf-1));
+  transition: opacity 0.2s;
+}
+.grafico-barras .barra.destacada {
+  background: linear-gradient(to top, #E8777C, var(--riel-graf-3));
+}
+.grafico-barras .barra:hover {
+  opacity: 0.8;
+}
+.grafico-barras .etiqueta {
+  font-size: 0.75rem;
+  color: var(--riel-gris-claro);
+}
+
+/* ===== Ventas por línea ===== */
+.linea-venta {
+  margin-bottom: 1.1rem;
+}
+.linea-venta:last-child {
+  margin-bottom: 0;
+}
+.linea-venta .nombre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+.linea-venta .porcentaje {
+  font-weight: 700;
+}
+.punto-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background-color: #EEF4F7;
+  margin-top: 0.45rem;
+}
+.progress-bar {
+  border-radius: 999px;
+}
+.color-1 { background-color: var(--riel-graf-1); }
+.color-2 { background-color: var(--riel-graf-2); }
+.color-3 { background-color: var(--riel-graf-3); }
+.color-4 { background-color: var(--riel-graf-4); }
+
+/* ===== Tablas ===== */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-hover-bg: #F8FBFC;
+  margin-bottom: 0;
+}
+.table thead th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--riel-gris);
+  border-bottom: 1px solid var(--riel-borde);
+  padding-bottom: 0.75rem;
+  white-space: nowrap;
+}
+.table td {
+  border-color: #EDF2F5;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+.table td.nro-ticket {
+  color: var(--riel-botones);
+  font-weight: 600;
+}
+
+/* badges suaves (también se aplican a los que arma el JS) */
+.badge {
+  font-weight: 600;
+  padding: 0.4em 0.8em;
+  border-radius: 999px;
+}
+.badge.text-bg-success {
+  background-color: #E6F6EE !important;
+  color: var(--riel-verde) !important;
+}
+.badge.text-bg-warning {
+  background-color: #FFF4DE !important;
+  color: #9A6200 !important;
+}
+.badge.text-bg-danger {
+  background-color: #FDECEC !important;
+  color: #B4343A !important;
+}
+.badge.text-bg-secondary {
+  background-color: #EEF2F5 !important;
+  color: #52616E !important;
+}
+.badge.text-bg-info,
+.badge.text-bg-primary {
+  background-color: var(--riel-celeste-fondo) !important;
+  color: var(--riel-botones-hover) !important;
+}
+
+/* ===== Formularios ===== */
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.form-control,
+.form-select {
+  background-color: #FBFDFE;
+  border: 1px solid var(--riel-borde-campo);
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #45AEE0;
+  box-shadow: 0 0 0 4px rgba(69, 174, 224, 0.1);
+}
+.form-control::placeholder {
+  color: #A2B0B8;
+}
+/* campo con ícono adentro */
+.campo-icono {
+  position: relative;
+}
+.campo-icono > i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--riel-gris-claro);
+  pointer-events: none;
+}
+.campo-icono .form-control {
+  padding-left: 2.6rem;
+}
+.form-buscar .btn {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+/* ===== Mensajes ===== */
+.alert {
+  border-radius: 12px;
+  border: none;
+}
+
+/* ===== Otras páginas ===== */
+.portada {
+  background-color: var(--riel-noche);
+  color: white;
+  padding: 80px 0;
+}
 .avatar {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: var(--riel-sky-100);
-  color: var(--riel-sky-600);
+  background-color: var(--riel-botones);
+  color: white;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 10px;
 }
 
-/* =========================================
-   HEADER, NAVBAR Y FOOTER
-   ========================================= */
-.riel-navbar {
-  background-color: var(--riel-navy-950);
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.riel-brand-badge {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background-color: var(--riel-sky-400);
-  color: #ffffff;
+/* ===== Página Líneas ===== */
+/* pestañas Líneas / Choferes */
+.pestanias {
   display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background-color: white;
+  border: 1px solid var(--riel-borde);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(30, 71, 92, 0.05);
+}
+.pestania {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  box-shadow: var(--riel-shadow-brand);
-}
-
-.riel-brand-name {
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-}
-
-.riel-navbar .nav-link {
-  color: rgba(255, 255, 255, 0.72);
+  gap: 8px;
+  border: none;
+  background: none;
+  border-radius: 9px;
+  padding: 0.55rem 1.2rem;
   font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 150ms ease;
-}
-
-.riel-navbar .nav-link:hover,
-.riel-navbar .nav-link.active {
-  color: #ffffff;
-}
-
-.riel-status {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.riel-status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 9999px;
-  background-color: #2ecc71;
-}
-
-.riel-btn-logout {
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: var(--riel-radius-sm);
-  padding: 0.38rem 0.9rem;
-  font-weight: 500;
-  transition: background-color 150ms ease, border-color 150ms ease;
-}
-
-.riel-btn-logout:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-}
-
-.riel-tricolor {
-  height: 2px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    #cf4248 0% 33.33%,
-    #ffffff 33.33% 66.66%,
-    #56b9e8 66.66% 100%
-  );
-}
-
-.riel-footer {
-  background-color: var(--riel-navy-950);
-  padding: 1.25rem 0;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.riel-footer-brand {
-  color: #ffffff;
   font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: -0.02em;
+  color: #71808D;
+  transition: background-color 0.2s, color 0.2s;
+}
+.pestania:hover {
+  background-color: #F3F8FA;
+}
+.pestania.activa {
+  background-color: var(--riel-botones);
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 143, 200, 0.25);
 }
 
-.riel-footer-meta {
-  font-size: 0.78rem;
-  color: var(--riel-text-muted);
-}
-
-/* =========================================
-   ACERCA DE (Hero y Equipo)
-   ========================================= */
-.riel-hero {
-  position: relative;
-  padding: 5.5rem 0 5rem;
-  color: #ffffff;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(11, 29, 43, 0.94) 0%,
-      rgba(11, 29, 43, 0.82) 52%,
-      rgba(11, 29, 43, 0.45) 100%
-    ),
-    url("../img/hero-tren-cordoba.jpg");
-  background-color: var(--riel-navy-950);
-  background-size: cover;
-  background-position: center;
-}
-
-.riel-hero-content {
-  max-width: 580px;
-}
-
-.riel-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--riel-sky-400);
-  margin-bottom: 1rem;
-}
-
-.riel-hero-title {
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  margin-bottom: 1.25rem;
-}
-
-.riel-hero-subtitle {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 460px;
-}
-
-.riel-team-section {
-  padding: 4.5rem 0 5rem;
-  background-color: var(--riel-surface);
-}
-
-.riel-section-title {
-  font-size: clamp(1.85rem, 3vw, 2.35rem);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-  color: var(--riel-navy-900);
-}
-
-.riel-section-desc {
-  color: var(--riel-text-secondary);
-  font-size: 0.975rem;
-  line-height: 1.65;
-  max-width: 580px;
-}
-
-.riel-course-meta {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--riel-sky-600);
-}
-
-.riel-member-card {
-  background-color: var(--riel-surface);
-  border: 1px solid var(--riel-border);
-  border-radius: var(--riel-radius-lg);
-  padding: 1.35rem;
-  box-shadow: var(--riel-shadow-card);
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
-}
-
-.riel-member-card:hover {
-  transform: translateY(-4px);
-  border-color: #c5dde8;
-  box-shadow: 0 16px 38px rgb(30 71 92 / 9%);
-}
-
-.riel-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background-color: var(--riel-sky-100);
-  color: var(--riel-sky-600);
-  font-size: 0.85rem;
-  font-weight: 700;
-  display: inline-flex;
+/* "3 trenes encontrados" */
+.barra-resultados {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.75rem 0 1rem;
+  font-size: 0.9rem;
+  color: #71828E;
 }
-
-.riel-card-icon {
-  color: var(--riel-text-muted);
-  font-size: 0.85rem;
-  opacity: 0.55;
+.barra-resultados strong {
+  color: var(--riel-titulo);
 }
-
-.riel-member-role {
-  display: block;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--riel-sky-600);
-  margin-bottom: 0.3rem;
-}
-
-.riel-member-name {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--riel-navy-900);
-  margin-bottom: 0.25rem;
-}
-
-.riel-member-id {
+.barra-resultados span {
   font-size: 0.8rem;
-  color: var(--riel-text-muted);
+  color: var(--riel-gris-claro);
 }
 
-/* =========================================
-   PÁGINAS INTERNAS (Tickets, Líneas, etc.)
-   ========================================= */
-.riel-page-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--riel-sky-600);
-  margin-bottom: 0.45rem;
+/* cartel antes de buscar */
+.estado-vacio {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  background-color: white;
+  border: 1px dashed #CBDCE5;
+  border-radius: 16px;
+}
+.estado-vacio i {
+  display: block;
+  font-size: 2rem;
+  color: #8DB2C5;
+  margin-bottom: 0.5rem;
 }
 
-.riel-page-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  color: var(--riel-navy-900);
-}
-
-.riel-page-subtitle {
-  color: var(--riel-text-secondary);
-  font-size: 0.975rem;
-  line-height: 1.6;
-  max-width: 560px;
-}
-
-.riel-btn-primary {
-  height: 48px;
-  padding: 0 1.25rem;
-  border-radius: var(--riel-radius-md);
-  background-color: var(--riel-sky-700);
-  border: 1px solid var(--riel-sky-700);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.925rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: var(--riel-shadow-action);
-  transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
-}
-
-.riel-btn-primary:hover {
-  background-color: var(--riel-sky-600);
-  border-color: var(--riel-sky-600);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.riel-btn-secondary {
-  height: 44px;
-  padding: 0 1.1rem;
-  border-radius: var(--riel-radius-md);
-  background-color: var(--riel-surface);
-  border: 1px solid #d7e3e9;
-  color: var(--riel-navy-900);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.riel-btn-secondary:hover {
-  background-color: #f0f9fc;
-  border-color: #c5dde8;
-  color: var(--riel-navy-900);
-}
-
-.riel-filter-card {
-  background-color: var(--riel-surface);
-  border: 1px solid var(--riel-border);
-  border-radius: var(--riel-radius-lg);
-  padding: 1rem;
-  box-shadow: var(--riel-shadow-card);
-}
-
-.riel-control {
-  height: 48px;
-  background-color: #fbfdfe;
-  border: 1px solid #d7e3e9;
-  border-radius: var(--riel-radius-md);
-  color: var(--riel-text-primary);
-  font-size: 0.925rem;
-  padding-left: 0.95rem;
-  padding-right: 0.95rem;
-}
-
-.riel-control::placeholder {
-  color: #a2b0b8;
-}
-
-.riel-control:focus {
-  background-color: #ffffff;
-  border-color: #45aee0;
-  box-shadow: 0 0 0 4px rgb(69 174 224 / 10%);
-}
-
-.riel-input-icon {
-  position: relative;
-}
-
-.riel-input-icon i {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #a2b0b8;
-  pointer-events: none;
-}
-
-.riel-input-icon .riel-control {
-  padding-left: 2.65rem;
-}
-
-.riel-results-count {
-  font-size: 0.875rem;
-  color: var(--riel-text-secondary);
-}
-
-.riel-results-count strong {
-  color: var(--riel-navy-900);
-}
-
-.riel-link-action {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #218fc6;
-  text-decoration: none;
-}
-
-.riel-link-action:hover {
-  color: var(--riel-sky-700);
-  text-decoration: underline;
-}
-
-.riel-table-card {
-  background-color: var(--riel-surface);
-  border: 1px solid var(--riel-border);
-  border-radius: var(--riel-radius-lg);
-  box-shadow: var(--riel-shadow-card);
+/* tarjeta de cada tren */
+.tarjeta-tren {
   overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.riel-table thead th {
-  background-color: #f0f9fc;
-  color: var(--riel-text-secondary);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.95rem 1rem;
-  border-bottom: 1px solid var(--riel-border);
-  white-space: nowrap;
+.tarjeta-tren:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(30, 71, 92, 0.12);
 }
-
-.riel-table tbody td {
-  padding: 1rem;
-  font-size: 0.88rem;
-  color: var(--riel-text-primary);
-  border-bottom: 1px solid var(--riel-border);
-  white-space: nowrap;
+.franja-tren {
+  height: 6px;
 }
-
-.riel-table tbody tr:last-child td {
-  border-bottom: 0;
+.franja-ok {
+  background-color: var(--riel-graf-1);
 }
-
-.riel-table tbody tr:hover td {
-  background-color: #f8fbfc;
+.franja-alerta {
+  background-color: var(--riel-rojo);
 }
-
-.riel-id-link {
-  color: #218fc6;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.riel-cell-main {
-  font-weight: 600;
-  color: var(--riel-navy-900);
-  display: block;
-}
-
-.riel-cell-sub {
-  font-size: 0.78rem;
-  color: var(--riel-text-muted);
-  display: block;
-}
-
-.riel-price {
-  font-weight: 700;
-  color: var(--riel-navy-900);
-}
-
-.modal-backdrop.show {
-  background-color: var(--riel-navy-950);
-  opacity: 0.65;
-}
-
-.riel-modal {
-  border: 1px solid var(--riel-border);
-  border-radius: 24px;
-  padding: 0.5rem;
-  box-shadow: 0 24px 60px rgb(11 29 43 / 22%);
-}
-
-.riel-modal-title {
-  font-size: 1.4rem;
+.tren-unidad {
+  font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.03em;
-  color: var(--riel-navy-900);
+  margin: 0.2rem 0 0.15rem;
+}
+.tren-modelo {
+  font-size: 0.78rem;
+  color: var(--riel-gris-claro);
+}
+.tren-recorrido {
+  font-size: 0.9rem;
+  color: #647682;
+  margin: 1.2rem 0 1.4rem;
+}
+.tren-datos {
+  border-top: 1px solid #E8EEF1;
+  padding-top: 0.4rem;
+}
+.tren-datos small {
+  display: block;
+  font-size: 0.75rem;
+  color: #93A0AA;
+}
+.tren-datos strong {
+  display: block;
+  margin-top: 2px;
+}
+.tren-pie {
+  margin: 1.2rem 0 0;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  background-color: #F4F8FA;
+  font-size: 0.75rem;
+  color: #7C8D98;
+}
+.tren-pie strong {
+  color: #526B7A;
 }
 
-/* Ajustes del modal "Emitir nuevo ticket" */
-.riel-modal-backdrop {
-  backdrop-filter: blur(4px);
-}
+/* badges con borde finito, como en el diseño */
+.badge.text-bg-success { box-shadow: inset 0 0 0 1px rgba(22, 121, 74, 0.15); }
+.badge.text-bg-warning { box-shadow: inset 0 0 0 1px rgba(154, 98, 0, 0.15); }
+.badge.text-bg-danger { box-shadow: inset 0 0 0 1px rgba(180, 52, 58, 0.15); }
 
-.riel-modal-dialog {
-  max-width: 512px;
+/* tabla de choferes */
+.tabla-choferes thead th {
+  background-color: #EDF7FB;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
 }
-
-.riel-modal {
-  padding: 0.75rem;
+.tabla-choferes th:first-child,
+.tabla-choferes td:first-child {
+  padding-left: 1.5rem;
 }
-
-.riel-modal-close {
-  width: 32px;
-  height: 32px;
-  border-radius: 9999px;
-  border: 0;
-  background-color: #f4f8fb;
-  color: var(--riel-text-secondary);
-  display: inline-flex;
+.tabla-choferes th:last-child,
+.tabla-choferes td:last-child {
+  padding-right: 1.5rem;
+}
+.avatar-chico {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--riel-celeste-fondo);
+  color: #238FC4;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  transition: background-color 150ms ease, color 150ms ease;
-}
-
-.riel-modal-close:hover {
-  background-color: #e6f0f5;
-  color: var(--riel-navy-900);
-}
-
-.riel-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--riel-navy-900);
-  margin-bottom: 0.4rem;
-}
-
-.riel-btn-ghost {
-  height: 44px;
-  padding: 0 1rem;
-  border: 0;
-  background-color: transparent;
-  color: var(--riel-text-secondary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-radius: var(--riel-radius-md);
-}
-
-.riel-btn-ghost:hover {
-  background-color: #f0f9fc;
-  color: var(--riel-navy-900);
-}
-
-/* =========================================
-   ACCESIBILIDAD: REDUCCIÓN DE MOVIMIENTO
-   ========================================= */
-@media (prefers-reduced-motion: reduce) {
-  .riel-member-card,
-  .riel-navbar .nav-link,
-  .riel-btn-logout,
-  .riel-btn-primary {
-    transition: none;
-  }
-
-  .riel-member-card:hover,
-  .riel-btn-primary:hover {
-    transform: none;
-  }
 }
