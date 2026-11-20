@@ -126,9 +126,47 @@ btnExportar.addEventListener("click", () => {
     URL.revokeObjectURL(enlace.href);
 });
 
-// Nuevo ticket: todavía no hay endpoint conectado
-formNuevoTicket.addEventListener("submit", (e) => {
+// Nuevo ticket: POST /api/Tickets/Ticket/Create
+const modalTicketEl = document.getElementById("modalTicket");
+const campo = (id) => document.getElementById(id);
+const btnCrearTicket = document.getElementById("btnCrearTicket");
+
+formNuevoTicket.addEventListener("submit", async (e) => {
     e.preventDefault();
-    bootstrap.Modal.getInstance(document.getElementById("modalTicket"))?.hide();
-    avisar(mensajeHistorial, "La emisión de tickets todavía no está conectada a la API.", "info");
+
+    const formasPago = campo("nuevoTicketFormasPago").value
+        .split(",")
+        .map((f) => f.trim())
+        .filter(Boolean);
+
+    const dniCliente = parseInt(campo("nuevoTicketDniCliente").value, 10);
+    const payload = {
+        dniEmpleado: parseInt(campo("nuevoTicketDniEmpleado").value, 10),
+        dniCliente,
+        detalleTickets: [
+            {
+                nroLinea: parseInt(campo("nuevoTicketLinea").value, 10),
+                estacion: campo("nuevoTicketEstacion").value.trim(),
+                horaPartida: campo("nuevoTicketHoraPartida").value.trim(),
+                tipoVagon: campo("nuevoTicketTipoVagon").value.trim(),
+            },
+        ],
+        formasPago,
+    };
+
+    btnCrearTicket.disabled = true;
+    try {
+        await apiPost("/api/Tickets/Ticket/Create", payload);
+        formNuevoTicket.reset();
+        bootstrap.Modal.getInstance(modalTicketEl)?.hide();
+        // Muestra el historial del cliente al que se le emitió el ticket
+        inputDni.value = dniCliente;
+        await consultarHistorial();
+        avisar(mensajeHistorial, "Ticket emitido correctamente.", "success");
+    } catch (error) {
+        console.error(error);
+        avisar(mensajeHistorial, error.message, "danger");
+    } finally {
+        btnCrearTicket.disabled = false;
+    }
 });
