@@ -15,34 +15,37 @@ namespace TPGI_Trenes.Controller
         {
             this._service = services;
         }
-        [HttpPost]
-        [Route("Mantenimientos/Close")]
-        public async Task<ActionResult<List<Mantenimientos>>> CloseMantenimiento([FromQuery] int dniResponsable,[FromQuery] string unidad)
-        {
-            bool res = await _service.CloseMantenimiento(dniResponsable,unidad);
-            if (res)
-            {
-                return Ok();
-            }
-            return BadRequest();
-        }
+
         [HttpPost]
         [Route("Mantenimientos/Create")]
-        public async Task<ActionResult<List<Mantenimientos>>> CreateMantenimiento([FromBody] Mantenimientos_CreateDTO mant)
+        public async Task<IActionResult> CreateMantenimiento([FromBody] Mantenimientos_CreateDTO mant)
         {
             bool res = await _service.AddMantenimiento(mant);
             if (res)
             {
-                return Ok();
+                return Ok(new { mensaje = "Mantenimiento creado" });
             }
-            return BadRequest();
+            return BadRequest(new { mensaje = "No se pudo crear: revisá empleado, rol, tipo, tren y estado" });
         }
+
+        [HttpPost]
+        [Route("Mantenimientos/Close")]
+        public async Task<IActionResult> CloseMantenimiento([FromQuery] int dniResponsable,[FromQuery] string unidad)
+        {
+            bool res = await _service.CloseMantenimiento(dniResponsable,unidad);
+            if (res)
+            {
+                return Ok(new { mensaje = "Mantenimiento cerrado exitosamente" });
+            }
+            return BadRequest(new { mensaje = "No se pudo crear el mantenimiento: revisá empleado, rol, tipo, tren y estado" });
+        }
+
         [HttpGet]
-        public async Task<ActionResult<List<Mantenimientos_ResponseDTO>>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var lista = await _service.GetAll();
             if (lista.Count == 0) return NotFound();
-            return lista;
+            return Ok(lista);
         }
 
 
