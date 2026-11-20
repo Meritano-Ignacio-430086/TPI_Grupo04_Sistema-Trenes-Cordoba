@@ -19,7 +19,7 @@ namespace TPGI_Trenes.Controller
 
         [HttpGet]
         [Route("Clientes/{id}")]
-        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID([FromBody]int id)
+        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID(int id)
         {
             List<Tickets> tickets = await services.GetByClienteId(id);
             if(tickets == null)
