@@ -1,9 +1,12 @@
 ﻿using TPGI_Trenes.Negocio;
+using TPGI_Trenes.DTO;
 
 namespace TPGI_Trenes.Services.Interfaces
 {
     public interface ITicketsServices
     {
-        Task<List<Tickets>> GetByClienteId(int id);
+        Task<bool> AddTicket(Tickets_CreateDTO ticket);
+        Task<List<HistorialCompraDTO>> GetByClienteId(int? dni);
+        Task<List<HistorialCompraDTO>> GetAllCliente();
     }
 }

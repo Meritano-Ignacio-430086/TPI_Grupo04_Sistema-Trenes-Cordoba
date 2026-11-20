@@ -46,7 +46,10 @@ namespace TPGI_Trenes.Services
         public async Task<List<LineasDTO>> GetLineasByIdAsync(int NroLinea)
         {
             List<LineasDTO> lineas = await queryrepo.GetProcedimientoLineas(NroLinea);
-
+            if(lineas == null)
+            {
+                throw new ArgumentException("1");//No existe la linea
+            }
             return lineas;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using TPGI_Trenes.Negocio;
+using TPGI_Trenes.DTO;
 using TPGI_Trenes.Repository;
 using TPGI_Trenes.Repository.Interfaces;
 using TPGI_Trenes.Services.Interfaces;
@@ -13,10 +14,19 @@ namespace TPGI_Trenes.Services
         {
             this.repo = repo;
         }
-        public async Task<List<Tickets>> GetByClienteId(int id)
+
+        public async Task<bool> AddTicket(Tickets_CreateDTO ticket)
         {
-            List<Tickets> list = await repo.GetByClienteId(id);
-            return list;
+            return await repo.AddTicket(ticket);
+        }
+
+        public async Task<List<HistorialCompraDTO>> GetByClienteId(int? dni)
+        {
+            return await repo.GetByDniCliente(dni);
+        }
+        public async Task<List<HistorialCompraDTO>> GetAllCliente()
+        {
+            return await repo.GetAllCliente();
         }
     }
 }

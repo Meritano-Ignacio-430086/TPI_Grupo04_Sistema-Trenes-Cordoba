@@ -1,79 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar - Sistema Trenes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/Front/css/estilos.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de · RielCBA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/riel.css">
+    <script src="../js/auth.js"></script>
 </head>
-<body >
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="dashboard.html"><i class="bi bi-train-front"></i> RielCBA</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-          <li class="nav-item"><a class="nav-link" href="lineas.html">Líneas</a></li>
-          <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
-          <li class="nav-item"><a class="nav-link active" href="soporte.html">Mantenimiento</a></li>
-          <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca de</a></li>
-        </ul>
-        <a href="login.html" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+<body class="d-flex flex-column min-vh-100">
+
+  <header class="riel-header sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark riel-navbar">
+      <div class="container riel-container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.html">
+          <span class="riel-brand-badge" aria-hidden="true">
+            <i class="bi bi-train-front"></i>
+          </span>
+          <span class="riel-brand-name">RielCBA</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav mx-auto gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="lineas.html">Líneas</a></li>
+            <li class="nav-item"><a class="nav-link" href="tickets.html">Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="soporte.html">Mantenimiento</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="acerca.html">Acerca de</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+            <span class="riel-status d-none d-xl-inline-flex align-items-center gap-2">
+              <span class="riel-status-dot"></span>
+              Sistema operativo
+            </span>
+            <a href="login.html" class="btn riel-btn-logout btn-sm">Cerrar sesión</a>
+          </div>
+        </div>
       </div>
+    </nav>
+    <div class="riel-tricolor" aria-hidden="true"></div>
+  </header>
+
+  <main class="flex-grow-1">
+    <section class="riel-hero">
+      <div class="container riel-container">
+        <div class="riel-hero-content">
+          <span class="riel-eyebrow">Trabajo Práctico Integrador</span>
+          <h1 class="riel-hero-title">Tecnología con<br>destino Córdoba.</h1>
+          <p class="riel-hero-subtitle mb-0">
+            Creamos una herramienta para modernizar la red ferroviaria y acercar una mejor experiencia a cada pasajero.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="riel-team-section">
+      <div class="container riel-container">
+        <div class="row align-items-start g-4 mb-5">
+          <div class="col-lg-5">
+            <h2 class="riel-section-title mb-0">Un equipo, una misma vía.</h2>
+          </div>
+          <div class="col-lg-7">
+            <p class="riel-section-desc mb-2">
+              Somos estudiantes de la Tecnicatura Universitaria en Programación de la UTN FRC.
+              Diseñamos RielCBA combinando tecnología, datos y una mirada centrada en las personas.
+            </p>
+            <p class="riel-course-meta mb-0">
+              Docente: Ing. Oscar Botta · Programación II (TUP-1W3)
+            </p>
+          </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">IM</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Backend &amp; Datos</span>
+              <h3 class="riel-member-name">Ignacio Meritano</h3>
+              <p class="riel-member-id mb-0">Legajo 430086</p>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">BL</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Frontend &amp; UI</span>
+              <h3 class="riel-member-name">Brian Lonzari</h3>
+              <p class="riel-member-id mb-0">Legajo 430489</p>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">MM</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Arquitectura</span>
+              <h3 class="riel-member-name">Marcos Murua</h3>
+              <p class="riel-member-id mb-0">Legajo 421466</p>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">JD</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Base de Datos</span>
+              <h3 class="riel-member-name">Juan Dre</h3>
+              <p class="riel-member-id mb-0">Legajo 430091</p>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">FB</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Calidad &amp; Testing</span>
+              <h3 class="riel-member-name">Francisco Berrotaran</h3>
+              <p class="riel-member-id mb-0">Legajo 430116</p>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="riel-member-card h-100">
+              <div class="d-flex justify-content-between align-items-start mb-4">
+                <div class="riel-avatar" aria-hidden="true">VC</div>
+                <i class="bi bi-arrow-up-right riel-card-icon" aria-hidden="true"></i>
+              </div>
+              <span class="riel-member-role">Frontend &amp; Integración</span>
+              <h3 class="riel-member-name">Victorio Caccioppoli</h3>
+              <p class="riel-member-id mb-0">Legajo 430089</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="riel-footer">
+    <div class="container riel-container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-train-front text-white"></i>
+        <span class="riel-footer-brand">RielCBA</span>
+      </div>
+      <small class="riel-footer-meta">
+        UTN Facultad Regional Córdoba · Programación II · TUP-1W3
+      </small>
     </div>
-  </nav>
+  </footer>
 
-  <div class="container py-4">
-    <h2>Acerca de</h2>
-    <p class="text-muted mb-4">
-      Trabajo Práctico Integrador · Programación II (TUP-1W3) · UTN FRC<br>
-      Docente: Ing. Oscar Botta
-    </p>
-
-    <div class="row g-3">
-      <div class="col-6 col-md-4 col-lg">
-        <div class="card text-center p-3 h-100">
-          <div class="avatar">IM</div>
-          <h6 class="mb-0">Ignacio Meritano</h6>
-          <small class="text-muted">Legajo 430086</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <div class="card text-center p-3 h-100">
-          <div class="avatar">BL</div>
-          <h6 class="mb-0">Brian Lonzari</h6>
-          <small class="text-muted">Legajo 430489</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <div class="card text-center p-3 h-100">
-          <div class="avatar">MM</div>
-          <h6 class="mb-0">Marcos Murua</h6>
-          <small class="text-muted">Legajo 421466</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <div class="card text-center p-3 h-100">
-          <div class="avatar">JD</div>
-          <h6 class="mb-0">Juan Dre</h6>
-          <small class="text-muted">Legajo 430091</small>
-        </div>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <div class="card text-center p-3 h-100">
-          <div class="avatar">FB</div>
-          <h6 class="mb-0">Francisco Berrotaran</h6>
-          <small class="text-muted">Legajo 430116</small>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
