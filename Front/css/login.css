@@ -36,7 +36,7 @@ main {
     /* Para usar una foto: colocá la imagen en assets/ y cambiá la ruta */
     background:
         linear-gradient(to bottom, rgba(10, 25, 45, 0) 35%, rgba(10, 25, 45, 0.85) 100%),
-        url('../assets/montanas.jpg') center / cover no-repeat,
+        url('../assets/montanas.avif') center / cover no-repeat,
         linear-gradient(to bottom, #e3e4e6 0%, #e3e4e6 22%, #4b5d4f 45%, #2d4234 70%, #14263a 100%);
 }
 
