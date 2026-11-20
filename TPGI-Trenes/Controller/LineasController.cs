@@ -21,11 +21,17 @@ namespace TPGI_Trenes.Controller
         public async Task<ActionResult<List<LineasDTO>>> GetLineasByIdAsync(int NroLinea)
         {
             List<LineasDTO> lineas = await services.GetLineasByIdAsync(NroLinea);
-            if(lineas == null)
-            {
-                return NoContent();
+            try{
+                if(lineas == null)
+                {
+                    return NoContent();
+                }
+                return Ok(lineas);
             }
-            return Ok(lineas);
+            catch(Exception ex)
+            {
+                throw new Exception(message: ex.Message);
+            }
         }
         
         [HttpGet("historial-cliente/{nroDoc}")]
