@@ -17,7 +17,8 @@ namespace TPGI_Trenes.Controller
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<LineasDTO>>> GetLineasByIdAsync([FromBody]int NroLinea)
+        [Route("{NroLinea}")]
+        public async Task<ActionResult<List<LineasDTO>>> GetLineasByIdAsync(int NroLinea)
         {
             List<LineasDTO> lineas = await services.GetLineasByIdAsync(NroLinea);
             if(lineas == null)
