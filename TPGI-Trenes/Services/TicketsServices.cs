@@ -24,7 +24,7 @@ namespace TPGI_Trenes.Services
         {
             return await repo.GetByDniCliente(dni);
         }
-        public async Task<List<Tickets>> GetAllCliente()
+        public async Task<List<HistorialCompraDTO>> GetAllCliente()
         {
             return await repo.GetAllCliente();
         }

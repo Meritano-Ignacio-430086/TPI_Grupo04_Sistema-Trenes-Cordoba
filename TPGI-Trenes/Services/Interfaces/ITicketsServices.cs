@@ -7,6 +7,6 @@ namespace TPGI_Trenes.Services.Interfaces
     {
         Task<bool> AddTicket(Tickets_CreateDTO ticket);
         Task<List<Tickets>> GetByClienteId(int? dni);
-        Task<List<Tickets>> GetAllCliente();
+        Task<List<HistorialCompraDTO>> GetAllCliente();
     }
 }

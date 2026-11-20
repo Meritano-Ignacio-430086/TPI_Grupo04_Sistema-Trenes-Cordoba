@@ -100,11 +100,11 @@ async function consultarHistorial() {
     try {
         let compras;
         if (hayDni) {
-            compras = claves(await apiGet(`/api/Lineas/historial-cliente/${dni}`));
+            compras = claves(await apiGet(`/api/Tickets/Clientes/${dni}`));
         } else {
             compras = claves(await apiGet("/api/Tickets/Clientes"))
-                .map(normalizarTicket)
-                .sort((a, b) => b.id_ticket - a.id_ticket); // los más nuevos primero
+                //.map(normalizarTicket)
+                //.sort((a, b) => b.id_ticket - a.id_ticket); // los más nuevos primero
         }
         if (compras.length === 0) {
             avisar(

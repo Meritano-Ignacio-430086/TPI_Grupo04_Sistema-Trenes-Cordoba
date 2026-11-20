@@ -83,28 +83,6 @@ namespace TPGI_Trenes.Repository
             return true;
         }
 
-        // public async Task<int> GetAsientosLibres(int nroLinea, string estacion, TimeOnly hora, string tipoVagon)
-        // {
-        //     var linea = await bd.TrenesRecorridosEstaciones.Include(r => r.IdTrenesVagonesNavigation).FirstOrDefaultAsync(r => r.NroLinea == nroLinea
-        //                                                                                                                     && r.IdEstacionNavigation.Nombre == estacion
-        //                                                                                                                     && r.HoraPartida == hora);
-        //     if(linea == null)
-        //     {
-        //         throw new ArgumentException("3");// Linea null
-        //     }
-        //     int idTren = linea.IdTrenesVagonesNavigation.IdTren;
-        //     int? Asiento = await bd.TrenesxVagones.Where(tv => tv.IdTren == idTren
-        //                                 && tv.IdVagonNavigation.IdTipoVagonNavigation.Descripcion == tipoVagon)
-        //                                 .Select(tv => tv.IdVagonNavigation.CantidadAsientos - bd.DetalleTickets.Count(dt => dt.IdTrenesVagones == tv.IdTrenesVagones
-        //                                                                                                                 && dt.IdTrenRecorridoEst == linea.IdTrenRecorridoEst)).FirstOrDefaultAsync();
-        //     if(Asiento == null)
-        //     {
-        //         throw new ArgumentException("4");// Asientos Libres null
-        //     }                                                                                                            
-
-        //     return (int)Asiento;
-        // }
-
         public async Task<List<Tickets>> GetByClienteId(int dni)
         {
             return await bd.Tickets.Include(t => t.IdClienteNavigation)
@@ -122,33 +100,48 @@ namespace TPGI_Trenes.Repository
             return await bd.Tickets.Where(t => t.IdClienteNavigation.NroDoc == dniCliente.Value).ToListAsync();
 
         }
-        public async Task<List<Tickets>> GetAllCliente()
+        public async Task<List<HistorialCompraDTO>> GetAllCliente()
         {
-            return await bd.Tickets.ToListAsync();
+            {
+            var filas = await bd.Tickets
+            .SelectMany(t => t.DetalleTickets.DefaultIfEmpty(), (t, dt) => new
+            {
+            IdCliente   = t.IdCliente,
+            NroDoc      = t.IdClienteNavigation.NroDoc,
+            TipoDoc     = t.IdClienteNavigation.IdTipoDocNavigation.Descripcion,
+            IdTicket    = t.IdTicket,
+            Fecha       = t.Fecha,
+            IdDetTicket = (int?)dt.IdDetTicket,
+            NroLinea    = (int?)dt.IdTrenRecorridoEstNavigation.NroLinea,
+            Recorrido   = dt.IdTrenRecorridoEstNavigation.NroLineaNavigation.Descripcion,
+            Estacion    = dt.IdTrenRecorridoEstNavigation.IdEstacionNavigation.Nombre,
+            Tren        = dt.IdTrenesVagonesNavigation.IdTrenNavigation.NroUnidad,
+            HoraPartida = dt.IdTrenRecorridoEstNavigation.HoraPartida,
+            HoraLlegada = dt.IdTrenRecorridoEstNavigation.HoraLlegada,
+            Precio      = dt.Precio
+        })
+        .OrderByDescending(x => x.Fecha)
+        .ToListAsync();
+
+    return filas.Select(f => new HistorialCompraDTO
+    {
+        Id_Cliente     = f.IdCliente ?? 0,
+        NroDoc         = f.NroDoc ?? 0,
+        Tipo_Documento = f.TipoDoc,
+        Id_Ticket      = f.IdTicket,
+        Fecha_Compra   = f.Fecha ?? default,
+        Id_Det_Ticket  = f.IdDetTicket,
+        Nro_Linea      = f.NroLinea,
+        Recorrido      = f.Recorrido,
+        Estacion       = f.Estacion,
+        Tren           = f.Tren,
+        Hora_Partida   = f.HoraPartida?.ToTimeSpan() ?? TimeSpan.Zero,
+        Hora_Llegada   = f.HoraLlegada?.ToTimeSpan() ?? TimeSpan.Zero,
+        Precio         = f.Precio ?? 0
+    }).ToList();
+}
         }
 
-        // public async Task<bool> GetByDniEmpleado(int dniEmpleado)
-        // {
-        //     if (dniEmpleado == null)
-        //     {
-        //         return await bd.Empleados.AnyAsync();
-        //     }
-        //     else
-        //     {
-        //         return await bd.Empleados.Where(e => e.NroDoc == dniEmpleado).AnyAsync();
-        //     }
-        // }
-
-        // public async Task<bool> GetByLineasFilter(int nroLinea, string estacion, TimeOnly hora)
-        // {
-        //     return await bd.TrenesRecorridosEstaciones.Where(r => r.NroLinea == nroLinea
-        //                                                         && r.IdEstacionNavigation.Nombre == estacion
-        //                                                         && r.HoraPartida == hora).AnyAsync();
-        // }
-
-        // public async Task<bool> GetDescFormaPago(string descripcion)
-        // {
-        //     return await bd.FormasPago.Where(f => f.Descripcion == descripcion).AnyAsync();
-        // }
+        
     }
 }
