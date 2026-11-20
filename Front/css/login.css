@@ -535,3 +535,15 @@ form button:disabled {
 .modal-aceptar:hover {
     background-color: #1679b3;
 }
+
+.link-invitado {
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-invitado:hover {
+    color: var(--azul);
+    text-decoration: underline;
+}
