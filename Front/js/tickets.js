@@ -69,10 +69,9 @@ function dibujarTabla(compras, dni) {
         tr.append(
             celda(id),
             celda(
-                bloque("riel-cell-main", c.nrodoc ? `${c.tipo_documento ?? "DNI"} ${c.nrodoc}` : "-"),
-                bloque("riel-cell-sub", c.id_cliente ? `Cliente #${c.id_cliente}` : "-")
-                //bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
-                //bloque("riel-cell-sub", hayDni ? `${c.tipo_doc ?? "DNI"} ${dni}` : (c.id_empleado ? `Empleado #${c.id_empleado}` : "-")),
+                bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
+                bloque("riel-cell-sub", `${c.tipo_documento ?? c.tipo_Documento ?? "DNI"} ${c.nrodoc ?? c.nroDoc ?? (dni || "-")}`),
+
             ),
             celda(fechaHora(c.fecha_compra)),
             celda((c.id_det_ticket ?? c.id_detalle) != null ? `#${c.id_det_ticket ?? c.id_detalle}` : "-"),
@@ -106,7 +105,7 @@ async function consultarHistorial() {
         } else {
             compras = claves(await apiGet("/api/Tickets/Clientes"))
                 //.map(normalizarTicket)
-                //.sort((a, b) => b.id_ticket - a.id_ticket); // los más nuevos primero
+                .sort((a, b) => b.id_ticket - a.id_ticket); // los más nuevos primero
         }
         if (compras.length === 0) {
             avisar(
