@@ -39,7 +39,19 @@ function hora(valor) {
     return valor ? String(valor).slice(0, 5) : "-";
 }
 
+// /api/Tickets/Clientes devuelve tickets "crudos" (idTicket, fecha, idCliente, idEmpleado).
+// Se pasan al mismo formato que usa la tabla; lo que ese endpoint no trae queda vacío.
+function normalizarTicket(t) {
+    return {
+        id_ticket: t.idticket,
+        id_cliente: t.idcliente,
+        id_empleado: t.idempleado,
+        fecha_compra: t.fecha,
+    };
+}
+
 function dibujarTabla(compras, dni) {
+    const hayDni = Number.isInteger(dni) && dni > 0;
     tablaHistorial.replaceChildren();
     for (const c of compras) {
         const tr = document.createElement("tr");
@@ -58,18 +70,18 @@ function dibujarTabla(compras, dni) {
             celda(id),
             celda(
                 bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
-                bloque("riel-cell-sub", `${c.tipo_doc ?? "DNI"} ${dni}`),
+                bloque("riel-cell-sub", hayDni ? `${c.tipo_doc ?? "DNI"} ${dni}` : (c.id_empleado ? `Empleado #${c.id_empleado}` : "-")),
             ),
             celda(fechaHora(c.fecha_compra)),
-            celda(`#${c.id_detalle ?? c.id_ticket}`),
+            celda((c.id_det_ticket ?? c.id_detalle) != null ? `#${c.id_det_ticket ?? c.id_detalle}` : "-"),
             celda(
-                bloque("riel-cell-main", `Línea ${c.nro_linea}`),
-                bloque("riel-cell-sub", c.recorrido),
+                bloque("riel-cell-main", c.nro_linea != null ? `Línea ${c.nro_linea}` : "-"),
+                bloque("riel-cell-sub", c.nro_linea != null ? c.recorrido : ""),
             ),
             celda(c.estacion ?? "-"),
             celda(tren),
-            celda(`${hora(c.hora_partida)} → ${hora(c.hora_llegada)}`),
-            celda(bloque("riel-price", moneda(c.precio))),
+            celda(c.hora_partida || c.hora_llegada ? `${hora(c.hora_partida)} → ${hora(c.hora_llegada)}` : "-"),
+            celda(bloque("riel-price", c.precio != null ? moneda(c.precio) : "-")),
         );
         tr.lastElementChild.classList.add("text-end");
         tablaHistorial.appendChild(tr);
@@ -82,15 +94,24 @@ async function consultarHistorial() {
     ticketsActuales = [];
     actualizarContador(0);
 
-    if (!Number.isInteger(dni) || dni < 1) {
-        avisar(mensajeHistorial, "Ingresá un número de documento válido.", "warning");
-        return;
-    }
+    // Con un DNI válido se busca el historial de ese cliente; sin DNI, se listan todos los tickets
+    const hayDni = Number.isInteger(dni) && dni > 0;
 
     try {
-        const compras = claves(await apiGet(`/api/Lineas/historial-cliente/${dni}`));
+        let compras;
+        if (hayDni) {
+            compras = claves(await apiGet(`/api/Lineas/historial-cliente/${dni}`));
+        } else {
+            compras = claves(await apiGet("/api/Tickets/Clientes"))
+                .map(normalizarTicket)
+                .sort((a, b) => b.id_ticket - a.id_ticket); // los más nuevos primero
+        }
         if (compras.length === 0) {
-            avisar(mensajeHistorial, `No se encontraron compras para el documento ${dni}.`, "info");
+            avisar(
+                mensajeHistorial,
+                hayDni ? `No se encontraron compras para el documento ${dni}.` : "Todavía no hay tickets cargados.",
+                "info"
+            );
             return;
         }
         avisar(mensajeHistorial, "", "");
@@ -131,13 +152,58 @@ const modalTicketEl = document.getElementById("modalTicket");
 const campo = (id) => document.getElementById(id);
 const btnCrearTicket = document.getElementById("btnCrearTicket");
 
+const selEstacion = campo("nuevoTicketEstacion");
+const selLinea = campo("nuevoTicketLinea");
+const selHora = campo("nuevoTicketHoraPartida");
+const mensajeNuevoTicket = campo("mensajeNuevoTicket");
+
+// Rellena un select con opciones; si no hay nada que mostrar, lo deja deshabilitado
+function llenarSelect(select, valores, textoInicial) {
+    select.replaceChildren(new Option(textoInicial, ""));
+    for (const v of valores) select.add(new Option(v, v));
+    select.disabled = valores.length === 0;
+}
+
+// Estación -> Línea -> Hora: cada select solo muestra lo que existe para lo elegido antes
+function cargarEstaciones() {
+    llenarSelect(selEstacion, Object.keys(SALIDAS).sort((a, b) => a.localeCompare(b, "es")), "Elegí una estación");
+    selLinea.replaceChildren(new Option("Primero elegí la estación", ""));
+    selLinea.disabled = true;
+    selHora.replaceChildren(new Option("Primero elegí la línea", ""));
+    selHora.disabled = true;
+}
+
+selEstacion.addEventListener("change", () => {
+    const lineas = Object.keys(SALIDAS[selEstacion.value] ?? {});
+    llenarSelect(selLinea, lineas, lineas.length ? "Elegí una línea" : "Primero elegí la estación");
+    selHora.replaceChildren(new Option("Primero elegí la línea", ""));
+    selHora.disabled = true;
+});
+
+selLinea.addEventListener("change", () => {
+    const horas = SALIDAS[selEstacion.value]?.[selLinea.value] ?? [];
+    llenarSelect(selHora, horas, horas.length ? "Elegí un horario" : "Primero elegí la línea");
+    // si hay un solo horario, queda elegido
+    if (horas.length === 1) selHora.value = horas[0];
+});
+
+// Al limpiar el formulario o cerrar el modal se vuelve al estado inicial
+formNuevoTicket.addEventListener("reset", () => setTimeout(cargarEstaciones));
+modalTicketEl.addEventListener("hidden.bs.modal", () => {
+    formNuevoTicket.reset();
+    avisar(mensajeNuevoTicket, "", "");
+});
+cargarEstaciones();
+
 formNuevoTicket.addEventListener("submit", async (e) => {
     e.preventDefault();
+    avisar(mensajeNuevoTicket, "", "");
 
-    const formasPago = campo("nuevoTicketFormasPago").value
-        .split(",")
-        .map((f) => f.trim())
-        .filter(Boolean);
+    const formasPago = [...campo("nuevoTicketFormasPago").querySelectorAll("input:checked")].map((c) => c.value);
+    if (formasPago.length === 0) {
+        avisar(mensajeNuevoTicket, "Elegí al menos una forma de pago.", "warning");
+        return;
+    }
 
     const dniCliente = parseInt(campo("nuevoTicketDniCliente").value, 10);
     const payload = {
@@ -165,7 +231,8 @@ formNuevoTicket.addEventListener("submit", async (e) => {
         avisar(mensajeHistorial, "Ticket emitido correctamente.", "success");
     } catch (error) {
         console.error(error);
-        avisar(mensajeHistorial, error.message, "danger");
+        // el modal sigue abierto: el error se muestra adentro para que se vea
+        avisar(mensajeNuevoTicket, error.message, "danger");
     } finally {
         btnCrearTicket.disabled = false;
     }

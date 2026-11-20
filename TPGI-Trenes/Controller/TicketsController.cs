@@ -18,16 +18,22 @@ namespace TPGI_Trenes.Controller
         }
 
         [HttpGet]
-        [Route("Clientes/{id}")]
-        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID(int id)
+        [Route("Clientes/{dni}")]
+        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID([FromRoute] int? dni)
         {
-            List<Tickets> tickets = await services.GetByClienteId(id);
-            if(tickets == null)
-            {
-                return NoContent();
-            }
+            List<Tickets> tickets = await services.GetByClienteId(dni);
             return Ok(tickets);
         }
+        [HttpGet]
+        [Route("Clientes")]
+        public async Task<ActionResult<List<Tickets>>> GetTicketsByClienteID()
+        {
+
+            List<Tickets> tickets = await services.GetAllCliente();
+            return Ok(tickets);
+
+        }
+
         [HttpPost]
         [Route("Ticket/Create")]
         public async Task<ActionResult<List<Tickets>>> CreateTicket([FromBody] Tickets_CreateDTO ticket)

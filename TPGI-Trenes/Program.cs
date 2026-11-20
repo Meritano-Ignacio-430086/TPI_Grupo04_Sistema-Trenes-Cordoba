@@ -60,9 +60,9 @@ namespace TPGI_Trenes
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection")
+                //builder.Configuration.GetConnectionString("DefaultConnection")
                 //builder.Configuration.GetConnectionString("Conneccion1")
-                //builder.Configuration.GetConnectionString("Caccioppoli")
+                builder.Configuration.GetConnectionString("Caccioppoli")
                 )
             );
 

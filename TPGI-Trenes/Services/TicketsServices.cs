@@ -20,40 +20,13 @@ namespace TPGI_Trenes.Services
             return await repo.AddTicket(ticket);
         }
 
-        public async Task<List<Tickets>> GetByClienteId(int id)
+        public async Task<List<Tickets>> GetByClienteId(int? dni)
         {
-            List<Tickets> list = await repo.GetByClienteId(id);
-            return list;
+            return await repo.GetByDniCliente(dni);
         }
-/*        private static List<DetalleTickets> MapToTicketsDTO(Tickets tickets)
+        public async Task<List<Tickets>> GetAllCliente()
         {
-            List<DetalleTicketsDTO> detalleTickets = new List<DetalleTicketsDTO>();
-            ClientesDTO clientes = new ClientesDTO();
-            EmpleadosDTO empleados = new EmpleadosDTO();
-            List<TicketsXFormapagoDTO> ticketsXFormapagos = new List<TicketsXFormapagoDTO>();
-
-            foreach (DetalleTickets detail in tickets.DetalleTickets)
-            {
-                detalleTickets.Add(MapDetalleTicketsToDTO(detail));
-            }
-
-            return new TicketsDTO
-            {
-                IdCliente = tickets.IdCliente,
-                IdTren = tickets.IdTren,
-                FechaCompra = tickets.Fecha,
-                Precio = tickets.Precio,
-                DetalleTickets = detalleTickets
-                IdClienteNavigation = clientes,
-                IdEmpleadoNavigation = empleados,
-                TicketsXFormapago = ticketsXFormapagos
-            };
+            return await repo.GetAllCliente();
         }
-
-        private static DetalleTicketsDTO MapDetalleTicketsToDTO(DetalleTickets detail)
-        {
-            throw new NotImplementedException();
-        }
- */    
- }
+    }
 }
