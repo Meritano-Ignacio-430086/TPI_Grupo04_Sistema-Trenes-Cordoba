@@ -131,13 +131,58 @@ const modalTicketEl = document.getElementById("modalTicket");
 const campo = (id) => document.getElementById(id);
 const btnCrearTicket = document.getElementById("btnCrearTicket");
 
+const selEstacion = campo("nuevoTicketEstacion");
+const selLinea = campo("nuevoTicketLinea");
+const selHora = campo("nuevoTicketHoraPartida");
+const mensajeNuevoTicket = campo("mensajeNuevoTicket");
+
+// Rellena un select con opciones; si no hay nada que mostrar, lo deja deshabilitado
+function llenarSelect(select, valores, textoInicial) {
+    select.replaceChildren(new Option(textoInicial, ""));
+    for (const v of valores) select.add(new Option(v, v));
+    select.disabled = valores.length === 0;
+}
+
+// Estación -> Línea -> Hora: cada select solo muestra lo que existe para lo elegido antes
+function cargarEstaciones() {
+    llenarSelect(selEstacion, Object.keys(SALIDAS).sort((a, b) => a.localeCompare(b, "es")), "Elegí una estación");
+    selLinea.replaceChildren(new Option("Primero elegí la estación", ""));
+    selLinea.disabled = true;
+    selHora.replaceChildren(new Option("Primero elegí la línea", ""));
+    selHora.disabled = true;
+}
+
+selEstacion.addEventListener("change", () => {
+    const lineas = Object.keys(SALIDAS[selEstacion.value] ?? {});
+    llenarSelect(selLinea, lineas, lineas.length ? "Elegí una línea" : "Primero elegí la estación");
+    selHora.replaceChildren(new Option("Primero elegí la línea", ""));
+    selHora.disabled = true;
+});
+
+selLinea.addEventListener("change", () => {
+    const horas = SALIDAS[selEstacion.value]?.[selLinea.value] ?? [];
+    llenarSelect(selHora, horas, horas.length ? "Elegí un horario" : "Primero elegí la línea");
+    // si hay un solo horario, queda elegido
+    if (horas.length === 1) selHora.value = horas[0];
+});
+
+// Al limpiar el formulario o cerrar el modal se vuelve al estado inicial
+formNuevoTicket.addEventListener("reset", () => setTimeout(cargarEstaciones));
+modalTicketEl.addEventListener("hidden.bs.modal", () => {
+    formNuevoTicket.reset();
+    avisar(mensajeNuevoTicket, "", "");
+});
+cargarEstaciones();
+
 formNuevoTicket.addEventListener("submit", async (e) => {
     e.preventDefault();
+    avisar(mensajeNuevoTicket, "", "");
 
-    const formasPago = campo("nuevoTicketFormasPago").value
-        .split(",")
-        .map((f) => f.trim())
-        .filter(Boolean);
+    const formasPago = [...campo("nuevoTicketFormasPago").querySelectorAll("input:checked")].map((c) => c.value);
+    if (formasPago.length === 0) {
+        avisar(mensajeNuevoTicket, "Elegí al menos una forma de pago.", "warning");
+        return;
+    }
 
     const dniCliente = parseInt(campo("nuevoTicketDniCliente").value, 10);
     const payload = {
@@ -165,7 +210,8 @@ formNuevoTicket.addEventListener("submit", async (e) => {
         avisar(mensajeHistorial, "Ticket emitido correctamente.", "success");
     } catch (error) {
         console.error(error);
-        avisar(mensajeHistorial, error.message, "danger");
+        // el modal sigue abierto: el error se muestra adentro para que se vea
+        avisar(mensajeNuevoTicket, error.message, "danger");
     } finally {
         btnCrearTicket.disabled = false;
     }
