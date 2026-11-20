@@ -69,8 +69,10 @@ function dibujarTabla(compras, dni) {
         tr.append(
             celda(id),
             celda(
-                bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
-                bloque("riel-cell-sub", hayDni ? `${c.tipo_doc ?? "DNI"} ${dni}` : (c.id_empleado ? `Empleado #${c.id_empleado}` : "-")),
+                bloque("riel-cell-main", c.nrodoc ? `${c.tipo_documento ?? "DNI"} ${c.nrodoc}` : "-"),
+                bloque("riel-cell-sub", c.id_cliente ? `Cliente #${c.id_cliente}` : "-")
+                //bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
+                //bloque("riel-cell-sub", hayDni ? `${c.tipo_doc ?? "DNI"} ${dni}` : (c.id_empleado ? `Empleado #${c.id_empleado}` : "-")),
             ),
             celda(fechaHora(c.fecha_compra)),
             celda((c.id_det_ticket ?? c.id_detalle) != null ? `#${c.id_det_ticket ?? c.id_detalle}` : "-"),

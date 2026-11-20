@@ -20,7 +20,7 @@ namespace TPGI_Trenes.Services
             return await repo.AddTicket(ticket);
         }
 
-        public async Task<List<Tickets>> GetByClienteId(int? dni)
+        public async Task<List<HistorialCompraDTO>> GetByClienteId(int? dni)
         {
             return await repo.GetByDniCliente(dni);
         }

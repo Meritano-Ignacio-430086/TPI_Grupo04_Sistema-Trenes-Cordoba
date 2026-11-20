@@ -95,9 +95,47 @@ namespace TPGI_Trenes.Repository
                                             .ThenInclude(v => v.IdTipoVagonNavigation).ToListAsync();
         }
 
-        public async Task<List<Tickets>> GetByDniCliente(int? dniCliente)
+        public async Task<List<HistorialCompraDTO>> GetByDniCliente(int? dniCliente)
         {
-            return await bd.Tickets.Where(t => t.IdClienteNavigation.NroDoc == dniCliente.Value).ToListAsync();
+            {
+                if(dniCliente == null){throw new ArgumentException("1");}
+            var filas = await bd.Tickets.Where(t => t.IdClienteNavigation.NroDoc == dniCliente.Value)
+            .SelectMany(t => t.DetalleTickets.DefaultIfEmpty(), (t, dt) => new
+            {
+            IdCliente   = t.IdCliente,
+            NroDoc      = dniCliente,
+            TipoDoc     = t.IdClienteNavigation.IdTipoDocNavigation.Descripcion,
+            IdTicket    = t.IdTicket,
+            Fecha       = t.Fecha,
+            IdDetTicket = (int?)dt.IdDetTicket,
+            NroLinea    = (int?)dt.IdTrenRecorridoEstNavigation.NroLinea,
+            Recorrido   = dt.IdTrenRecorridoEstNavigation.NroLineaNavigation.Descripcion,
+            Estacion    = dt.IdTrenRecorridoEstNavigation.IdEstacionNavigation.Nombre,
+            Tren        = dt.IdTrenesVagonesNavigation.IdTrenNavigation.NroUnidad,
+            HoraPartida = dt.IdTrenRecorridoEstNavigation.HoraPartida,
+            HoraLlegada = dt.IdTrenRecorridoEstNavigation.HoraLlegada,
+            Precio      = dt.Precio
+        })
+        .OrderByDescending(x => x.Fecha)
+        .ToListAsync();
+
+        return filas.Select(f => new HistorialCompraDTO
+        {
+        Id_Cliente     = f.IdCliente ?? 0,
+        NroDoc         = (int)dniCliente,
+        Tipo_Documento = f.TipoDoc,
+        Id_Ticket      = f.IdTicket,
+        Fecha_Compra   = f.Fecha ?? default,
+        Id_Det_Ticket  = f.IdDetTicket,
+        Nro_Linea      = f.NroLinea,
+        Recorrido      = f.Recorrido,
+        Estacion       = f.Estacion,
+        Tren           = f.Tren,
+        Hora_Partida   = f.HoraPartida?.ToTimeSpan() ?? TimeSpan.Zero,
+        Hora_Llegada   = f.HoraLlegada?.ToTimeSpan() ?? TimeSpan.Zero,
+        Precio         = f.Precio ?? 0
+        }).ToList();
+        }       
 
         }
         public async Task<List<HistorialCompraDTO>> GetAllCliente()
@@ -123,8 +161,8 @@ namespace TPGI_Trenes.Repository
         .OrderByDescending(x => x.Fecha)
         .ToListAsync();
 
-    return filas.Select(f => new HistorialCompraDTO
-    {
+        return filas.Select(f => new HistorialCompraDTO
+        {
         Id_Cliente     = f.IdCliente ?? 0,
         NroDoc         = f.NroDoc ?? 0,
         Tipo_Documento = f.TipoDoc,
@@ -138,8 +176,8 @@ namespace TPGI_Trenes.Repository
         Hora_Partida   = f.HoraPartida?.ToTimeSpan() ?? TimeSpan.Zero,
         Hora_Llegada   = f.HoraLlegada?.ToTimeSpan() ?? TimeSpan.Zero,
         Precio         = f.Precio ?? 0
-    }).ToList();
-}
+        }).ToList();
+        }       
         }
 
         

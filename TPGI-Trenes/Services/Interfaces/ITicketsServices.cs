@@ -6,7 +6,7 @@ namespace TPGI_Trenes.Services.Interfaces
     public interface ITicketsServices
     {
         Task<bool> AddTicket(Tickets_CreateDTO ticket);
-        Task<List<Tickets>> GetByClienteId(int? dni);
+        Task<List<HistorialCompraDTO>> GetByClienteId(int? dni);
         Task<List<HistorialCompraDTO>> GetAllCliente();
     }
 }
