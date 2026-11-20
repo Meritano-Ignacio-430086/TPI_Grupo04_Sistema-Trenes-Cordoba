@@ -1,94 +1,172 @@
-var myModal = document.getElementById('exampleModal')
-var myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
-
-// Historial de compra por DNI
+// Historial de compras por documento
 const inputDni = document.getElementById("dniTicket");
 const tablaHistorial = document.getElementById("tablaHistorial");
 const mensajeHistorial = document.getElementById("mensajeHistorial");
+const contadorTickets = document.getElementById("contadorTickets");
+const btnExportar = document.getElementById("btnExportarTickets");
+const formNuevoTicket = document.getElementById("formNuevoTicket");
 
-document.getElementById("btnHistorial").addEventListener("click", async () => {
+let ticketsActuales = [];
+
+function actualizarContador(cantidad) {
+    const strong = document.createElement("strong");
+    strong.textContent = cantidad;
+    contadorTickets.replaceChildren(strong, ` ${cantidad === 1 ? "ticket encontrado" : "tickets encontrados"}`);
+}
+
+function celda(...hijos) {
+    const td = document.createElement("td");
+    td.append(...hijos);
+    return td;
+}
+
+function bloque(clase, texto) {
+    const span = document.createElement("span");
+    span.className = clase;
+    span.textContent = texto ?? "-";
+    return span;
+}
+
+function fechaHora(fecha) {
+    if (!fecha) return "-";
+    const f = new Date(fecha);
+    const dia = f.toLocaleDateString("es-AR", { day: "2-digit", month: "short", year: "numeric" }).replace(/\./g, "").replace(/ de /g, " ").replace(/\b[a-záéíóú]/g, (m, i) => (i > 2 ? m.toUpperCase() : m));
+    const hora = f.toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", hour12: false });
+    return `${dia} · ${hora}`;
+}
+
+function hora(valor) {
+    return valor ? String(valor).slice(0, 5) : "-";
+}
+
+function dibujarTabla(compras, dni) {
+    tablaHistorial.replaceChildren();
+    for (const c of compras) {
+        const tr = document.createElement("tr");
+
+        const id = document.createElement("a");
+        id.className = "riel-id-link";
+        id.href = "#";
+        id.textContent = `#${c.id_ticket}`;
+
+        const tren = document.createElement("a");
+        tren.className = "riel-id-link";
+        tren.href = "#";
+        tren.textContent = c.tren ?? "-";
+
+        tr.append(
+            celda(id),
+            celda(
+                bloque("riel-cell-main", c.nombre_cliente ?? (c.id_cliente ? `Cliente #${c.id_cliente}` : "Cliente")),
+                bloque("riel-cell-sub", `${c.tipo_doc ?? "DNI"} ${dni}`),
+            ),
+            celda(fechaHora(c.fecha_compra)),
+            celda(`#${c.id_detalle ?? c.id_ticket}`),
+            celda(
+                bloque("riel-cell-main", `Línea ${c.nro_linea}`),
+                bloque("riel-cell-sub", c.recorrido),
+            ),
+            celda(c.estacion ?? "-"),
+            celda(tren),
+            celda(`${hora(c.hora_partida)} → ${hora(c.hora_llegada)}`),
+            celda(bloque("riel-price", moneda(c.precio))),
+        );
+        tr.lastElementChild.classList.add("text-end");
+        tablaHistorial.appendChild(tr);
+    }
+}
+
+async function consultarHistorial() {
     const dni = parseInt(inputDni.value, 10);
     tablaHistorial.replaceChildren();
+    ticketsActuales = [];
+    actualizarContador(0);
+
     if (!Number.isInteger(dni) || dni < 1) {
-        avisar(mensajeHistorial, "Ingresá un DNI válido.", "warning");
+        avisar(mensajeHistorial, "Ingresá un número de documento válido.", "warning");
         return;
     }
 
     try {
         const compras = claves(await apiGet(`/api/Lineas/historial-cliente/${dni}`));
         if (compras.length === 0) {
-            avisar(mensajeHistorial, `No se encontraron compras para el DNI ${dni}.`, "info");
+            avisar(mensajeHistorial, `No se encontraron compras para el documento ${dni}.`, "info");
             return;
         }
         avisar(mensajeHistorial, "", "");
-        llenarTabla(tablaHistorial, compras, (c) => [
-            c.id_ticket, fechaCorta(c.fecha_compra), c.nro_linea, c.recorrido,
-            c.estacion, c.tren, c.hora_partida, c.hora_llegada, moneda(c.precio),
-        ]);
+        ticketsActuales = compras;
+        actualizarContador(compras.length);
+        dibujarTabla(compras, dni);
     } catch (error) {
         console.error(error);
         avisar(mensajeHistorial, error.message, "danger");
     }
-});
-
-// Facturas: el selector filtra entre importantes (vista vw_Compras_Importantes)
-// y erróneas (facturas con varios pagos que tienen diferencia o forma de pago repetida).
-// Si no se elige ninguna, se muestran todas.
-const tablaFacturas = document.getElementById("tablaFacturas");
-const mensajeFacturas = document.getElementById("mensajeFacturas");
-const selectTipoFactura = document.getElementById("tipoFactura");
-
-async function cargarFacturas() {
-    const tipo = selectTipoFactura.value;
-    tablaFacturas.replaceChildren();
-    try {
-        const [importantes, erroneas] = await Promise.all([
-            tipo === "erroneas" ? [] : apiGet("/api/Lineas/compras-importantes"),
-            tipo === "importantes" ? [] : apiGet("/api/Lineas/facturas"),
-        ]);
-
-        // Una misma factura puede ser importante y errónea a la vez.
-        const porNumero = new Map();
-        const agregar = (nro, datos, etiqueta) => {
-            const actual = porNumero.get(nro) ?? { nro, tipos: [], observacion: "-" };
-            Object.assign(actual, datos);
-            actual.tipos.push(etiqueta);
-            porNumero.set(nro, actual);
-        };
-
-        for (const f of claves(importantes)) {
-            agregar(f.nro_factura, {
-                proveedor: f.proveedor, fecha: f.fecha, monto: f.total,
-            }, "Importante");
-        }
-        for (const f of claves(erroneas)) {
-            const conError = Math.abs(f.diferencia ?? 0) > 0 || /error/i.test(f.observacion ?? "");
-            if (!conError) continue;
-            agregar(f.nro_factura, {
-                proveedor: f.proveedor, fecha: f.fecha, monto: f.montodelafactura,
-                observacion: f.observacion,
-            }, "Errónea");
-        }
-
-        const filas = [...porNumero.values()].sort((a, b) => a.nro - b.nro);
-        if (filas.length === 0) {
-            avisar(mensajeFacturas, "No hay facturas para mostrar.", "info");
-            return;
-        }
-        avisar(mensajeFacturas, "", "");
-        llenarTabla(tablaFacturas, filas, (f) => [
-            f.nro, f.proveedor, fechaCorta(f.fecha), moneda(f.monto),
-            f.tipos.join(" / "), f.observacion,
-        ]);
-    } catch (error) {
-        console.error(error);
-        avisar(mensajeFacturas, error.message, "danger");
-    }
 }
 
-document.getElementById("btnFacturas").addEventListener("click", cargarFacturas);
-selectTipoFactura.addEventListener("change", cargarFacturas);
+document.getElementById("btnHistorial").addEventListener("click", consultarHistorial);
+inputDni.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") consultarHistorial();
+});
+
+// Exportar el listado actual a CSV
+btnExportar.addEventListener("click", () => {
+    if (ticketsActuales.length === 0) {
+        avisar(mensajeHistorial, "No hay tickets para exportar.", "info");
+        return;
+    }
+    const columnas = ["id_ticket", "fecha_compra", "nro_linea", "recorrido", "estacion", "tren", "hora_partida", "hora_llegada", "precio"];
+    const filas = ticketsActuales.map((c) =>
+        columnas.map((k) => `"${String(c[k] ?? "").replace(/"/g, '""')}"`).join(",")
+    );
+    const blob = new Blob([[columnas.join(","), ...filas].join("\n")], { type: "text/csv;charset=utf-8" });
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "tickets.csv";
+    enlace.click();
+    URL.revokeObjectURL(enlace.href);
+});
+
+// Nuevo ticket: POST /api/Tickets/Ticket/Create
+const modalTicketEl = document.getElementById("modalTicket");
+const campo = (id) => document.getElementById(id);
+const btnCrearTicket = document.getElementById("btnCrearTicket");
+
+formNuevoTicket.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formasPago = campo("nuevoTicketFormasPago").value
+        .split(",")
+        .map((f) => f.trim())
+        .filter(Boolean);
+
+    const dniCliente = parseInt(campo("nuevoTicketDniCliente").value, 10);
+    const payload = {
+        dniEmpleado: parseInt(campo("nuevoTicketDniEmpleado").value, 10),
+        dniCliente,
+        detalleTickets: [
+            {
+                nroLinea: parseInt(campo("nuevoTicketLinea").value, 10),
+                estacion: campo("nuevoTicketEstacion").value.trim(),
+                horaPartida: campo("nuevoTicketHoraPartida").value.trim(),
+                tipoVagon: campo("nuevoTicketTipoVagon").value.trim(),
+            },
+        ],
+        formasPago,
+    };
+
+    btnCrearTicket.disabled = true;
+    try {
+        await apiPost("/api/Tickets/Ticket/Create", payload);
+        formNuevoTicket.reset();
+        bootstrap.Modal.getInstance(modalTicketEl)?.hide();
+        // Muestra el historial del cliente al que se le emitió el ticket
+        inputDni.value = dniCliente;
+        await consultarHistorial();
+        avisar(mensajeHistorial, "Ticket emitido correctamente.", "success");
+    } catch (error) {
+        console.error(error);
+        avisar(mensajeHistorial, error.message, "danger");
+    } finally {
+        btnCrearTicket.disabled = false;
+    }
+});

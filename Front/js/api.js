@@ -20,6 +20,27 @@ async function apiGet(ruta) {
     throw new Error("No se pudo conectar con la API. Verificá que el backend esté corriendo.");
 }
 
+// POST con cuerpo JSON; devuelve true si la API respondió OK
+async function apiPost(ruta, cuerpo) {
+    for (const base of API_URLS) {
+        let respuesta;
+        try {
+            respuesta = await fetch(base + ruta, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(cuerpo),
+            });
+        } catch {
+            continue;
+        }
+
+        if (respuesta.status === 204) throw new Error("No se pudo crear el ticket (la API devolvió 204 NoContent).");
+        if (!respuesta.ok) throw new Error(`La API devolvió un error (${respuesta.status}).`);
+        return true;
+    }
+    throw new Error("No se pudo conectar con la API. Verificá que el backend esté corriendo.");
+}
+
 function claves(lista) {
     return (lista ?? []).map((item) =>
         Object.fromEntries(Object.entries(item).map(([k, v]) => [k.toLowerCase(), v]))

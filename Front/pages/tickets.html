@@ -20,6 +20,7 @@
       rel="stylesheet"
     />
     <link href="../css/estilos.css" rel="stylesheet" />
+    <link href="../css/riel.css" rel="stylesheet" />
   </head>
   <body class="d-flex flex-column min-vh-100">
     <header class="riel-header sticky-top">
@@ -165,7 +166,6 @@
         </small>
       </div>
     </footer>
-
     <div class="modal fade riel-modal-backdrop" id="modalTicket" tabindex="-1" aria-labelledby="modalTicketLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered riel-modal-dialog">
         <div class="modal-content riel-modal">
@@ -178,29 +178,85 @@
 
           <form id="formNuevoTicket">
             <div class="modal-body pt-2 pb-3">
-              <div class="mb-3">
-                <label for="nuevoTicketNroDoc" class="form-label riel-label">NroDoc del cliente</label>
-                <input
-                  type="text"
-                  class="form-control riel-control"
-                  id="nuevoTicketNroDoc"
-                  placeholder="Ej. 40123456"
-                  required
-                />
-              </div>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="nuevoTicketDniCliente" class="form-label riel-label">DNI del cliente</label>
+                  <input
+                    type="number"
+                    class="form-control riel-control"
+                    id="nuevoTicketDniCliente"
+                    placeholder="Ej. 40123456"
+                    min="1"
+                    required
+                  />
+                </div>
 
-              <div class="mb-3">
-                <label for="nuevoTicketTipoDoc" class="form-label riel-label">Tipo de documento</label>
-                <select class="form-select riel-control" id="nuevoTicketTipoDoc" required>
-                  <option value="" selected disabled>Seleccioná un tipo de documento...</option>
-                </select>
-              </div>
+                <div class="col-sm-6">
+                  <label for="nuevoTicketDniEmpleado" class="form-label riel-label">DNI del empleado</label>
+                  <input
+                    type="number"
+                    class="form-control riel-control"
+                    id="nuevoTicketDniEmpleado"
+                    placeholder="Ej. 35111222"
+                    min="1"
+                    required
+                  />
+                </div>
 
-              <div class="mb-1">
-                <label for="nuevoTicketLinea" class="form-label riel-label">NroLinea</label>
-                <select class="form-select riel-control" id="nuevoTicketLinea" required>
-                  <option value="" selected disabled>Seleccioná una línea...</option>
-                </select>
+                <div class="col-sm-6">
+                  <label for="nuevoTicketLinea" class="form-label riel-label">NroLinea</label>
+                  <input
+                    type="number"
+                    class="form-control riel-control"
+                    id="nuevoTicketLinea"
+                    placeholder="Ej. 23"
+                    min="1"
+                    required
+                  />
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="nuevoTicketHoraPartida" class="form-label riel-label">Hora de partida</label>
+                  <input
+                    type="time"
+                    class="form-control riel-control"
+                    id="nuevoTicketHoraPartida"
+                    required
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label for="nuevoTicketEstacion" class="form-label riel-label">Estación</label>
+                  <input
+                    type="text"
+                    class="form-control riel-control"
+                    id="nuevoTicketEstacion"
+                    placeholder="Ej. Estación Córdoba Mitre"
+                    required
+                  />
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="nuevoTicketTipoVagon" class="form-label riel-label">Tipo de vagón</label>
+                  <input
+                    type="text"
+                    class="form-control riel-control"
+                    id="nuevoTicketTipoVagon"
+                    placeholder="Ej. Turista"
+                    required
+                  />
+                </div>
+
+                <div class="col-sm-6">
+                  <label for="nuevoTicketFormasPago" class="form-label riel-label">Forma(s) de pago</label>
+                  <input
+                    type="text"
+                    class="form-control riel-control"
+                    id="nuevoTicketFormasPago"
+                    placeholder="Ej. Efectivo, Débito"
+                    required
+                  />
+                </div>
               </div>
             </div>
 
@@ -212,6 +268,7 @@
         </div>
       </div>
     </div>
+
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content riel-modal">
