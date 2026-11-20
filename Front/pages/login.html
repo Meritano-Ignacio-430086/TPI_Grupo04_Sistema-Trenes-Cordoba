@@ -1,42 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar - Sistema Trenes</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/Front/css/estilos.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <title>Login | RielCBA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
-<body class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="">
-        <div class="text-center m-4">
-            <i class="bi bi-train-freight-front text-primary fs-1"></i>
-            <h3>Sistema de Trenes</h3>
-        </div>
-        <div class="card p-4 shadow">
-            <form>
-            <div class="text-center">
-                <h5>Iniciar Sesión</h5>
+<body>
+    <main>
+        <section class="login-izq">
+            <div class="hero-text">
+                <span class="span-gestion">Gestión ferroviaria de Córdoba</span>
+                <h1>Toda la red, en una sola plataforma.</h1>
+                <p>Información operativa, pasajeros y mantenimiento para tomar mejores decisiones en cada recorrido.</p>
             </div>
+            <span class="utn-text">UTN Facultad Regional Córdoba · Programación II</span>
+        </section>
 
-            <div class="p-2">
-                <h6>Usuario</h6>
-                <input type="text" class="form-control" required>
-            </div>
-            <div class="p-2">
-                <h6>Contraseña</h6>
-                <input type="password" class="form-control" required>
-            </div>
-            <div class="p-2">
-                <button class="btn btn-primary rounded-3 p-2 w-100">Ingresar</button>
-            </div>
+        <section class="login-der">
+            <form action="dashboard.html" method="GET">
+                <div class="brand">
+                    <div class="brand-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="5" y="3" width="14" height="14" rx="3"></rect>
+                            <path d="M5 11h14"></path>
+                            <path d="M8 21l2-4"></path>
+                            <path d="M16 21l-2-4"></path>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <strong>RielCBA</strong>
+                        <span>Centro de operaciones</span>
+                    </div>
+                </div>
+
+                <div class="form-text">
+                    <h1>Bienvenido de nuevo</h1>
+                    <p>Ingresá para acceder al panel de gestión ferroviaria.</p>
+                </div>
+
+                <div class="field">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" value="operaciones@rielcba.com.ar" autocomplete="username">
+                </div>
+
+                <div class="field">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresá tu contraseña" autocomplete="current-password">
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" name="remember">
+                        <span>Recordarme</span>
+                    </label>
+                    <a href="#">¿Olvidaste tu clave?</a>
+                </div>
+
+                <button type="submit">
+                    Ingresar
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                    </svg>
+                </button>
+
+                <p class="demo-note">Vista de demostración: podés ingresar sin contraseña.</p>
             </form>
-            <p class="text-center mt-3"><a href="index.html">Volver al inicio</a></p>
-        </div>
-    </div>
-
+        </section>
+    </main>
 </body>
 </html>
