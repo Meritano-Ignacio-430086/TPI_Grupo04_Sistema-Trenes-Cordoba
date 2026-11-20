@@ -281,3 +281,20 @@ form button:active {
         padding: 2rem 1.5rem;
     }
 }
+
+/* Mensaje de error del login */
+.login-error {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a12b31;
+    background-color: #fdf1f1;
+    border: 1px solid #f3cfd1;
+    border-radius: 14px;
+}
+
+form button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
