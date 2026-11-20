@@ -30,7 +30,11 @@ namespace TPGI_Trenes.Controller
             }
             catch(Exception ex)
             {
-                throw new Exception(message: ex.Message);
+                if(ex.Message == "1")
+                {
+                return BadRequest(new{error = ex.Message});
+                }
+                throw;
             }
         }
         
