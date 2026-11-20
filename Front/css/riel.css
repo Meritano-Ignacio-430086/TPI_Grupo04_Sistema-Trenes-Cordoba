@@ -148,7 +148,7 @@ body.riel-body, .riel-header ~ main { font-family: "DM Sans", Arial, sans-serif;
       rgba(11, 29, 43, 0.82) 52%,
       rgba(11, 29, 43, 0.45) 100%
     ),
-    url("../img/hero-tren-cordoba.jpg");
+    url("../img/hero-tren-cordoba.avif");
   background-color: var(--riel-navy-950);
   background-size: cover;
   background-position: center;
