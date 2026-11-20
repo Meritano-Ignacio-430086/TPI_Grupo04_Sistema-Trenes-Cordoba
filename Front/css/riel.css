@@ -1,0 +1,553 @@
+/* Estilos de las pantallas rediseñadas (tickets, acerca). Solo clases riel-*, no pisa estilos.css */
+/* =========================================
+   DESIGN TOKENS · RIELCBA v1.0
+   ========================================= */
+:root {
+  /* Marca */
+  --riel-navy-950: #0b1d2b;
+  --riel-navy-900: #102334;
+  --riel-ink: #122838;
+
+  --riel-sky-700: #0f7fb5;
+  --riel-sky-600: #168fc8;
+  --riel-sky-500: #239bd5;
+  --riel-sky-400: #45afe6;
+  --riel-sky-100: #eaf7fc;
+
+  --riel-red-600: #cf4248;
+
+  /* Superficies y texto */
+  --riel-background: #f4f8fb;
+  --riel-surface: #ffffff;
+  --riel-text-primary: #122838;
+  --riel-text-secondary: #637586;
+  --riel-text-muted: #84949e;
+
+  /* Bordes, radios y sombras */
+  --riel-border: #dfe9ee;
+  --riel-radius-sm: 8px;
+  --riel-radius-md: 12px;
+  --riel-radius-lg: 16px;
+  --riel-shadow-card: 0 12px 35px rgb(30 71 92 / 5%);
+  --riel-shadow-action: 0 10px 25px rgb(35 155 213 / 22%);
+  --riel-shadow-brand: 0 8px 24px rgb(69 175 230 / 28%);
+}
+
+
+.riel-container { max-width: 1140px; }
+body.riel-body, .riel-header ~ main { font-family: "DM Sans", Arial, sans-serif; }
+
+/* =========================================
+   HEADER, NAVBAR Y FOOTER
+   ========================================= */
+.riel-navbar {
+  background-color: var(--riel-navy-950);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.riel-brand-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background-color: var(--riel-sky-400);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  box-shadow: var(--riel-shadow-brand);
+}
+
+.riel-brand-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.riel-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 150ms ease;
+}
+
+.riel-navbar .nav-link:hover,
+.riel-navbar .nav-link.active {
+  color: #ffffff;
+}
+
+.riel-status {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.riel-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #2ecc71;
+}
+
+.riel-btn-logout {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--riel-radius-sm);
+  padding: 0.38rem 0.9rem;
+  font-weight: 500;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.riel-btn-logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.riel-tricolor {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #cf4248 0% 33.33%,
+    #ffffff 33.33% 66.66%,
+    #56b9e8 66.66% 100%
+  );
+}
+
+.riel-footer {
+  background-color: var(--riel-navy-950);
+  padding: 1.25rem 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.riel-footer-brand {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.02em;
+}
+
+.riel-footer-meta {
+  font-size: 0.78rem;
+  color: var(--riel-text-muted);
+}
+
+/* =========================================
+   ACERCA DE (Hero y Equipo)
+   ========================================= */
+.riel-hero {
+  position: relative;
+  padding: 5.5rem 0 5rem;
+  color: #ffffff;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(11, 29, 43, 0.94) 0%,
+      rgba(11, 29, 43, 0.82) 52%,
+      rgba(11, 29, 43, 0.45) 100%
+    ),
+    url("../img/hero-tren-cordoba.jpg");
+  background-color: var(--riel-navy-950);
+  background-size: cover;
+  background-position: center;
+}
+
+.riel-hero-content {
+  max-width: 580px;
+}
+
+.riel-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--riel-sky-400);
+  margin-bottom: 1rem;
+}
+
+.riel-hero-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  margin-bottom: 1.25rem;
+}
+
+.riel-hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 460px;
+}
+
+.riel-team-section {
+  padding: 4.5rem 0 5rem;
+  background-color: var(--riel-surface);
+}
+
+.riel-section-title {
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  color: var(--riel-navy-900);
+}
+
+.riel-section-desc {
+  color: var(--riel-text-secondary);
+  font-size: 0.975rem;
+  line-height: 1.65;
+  max-width: 580px;
+}
+
+.riel-course-meta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--riel-sky-600);
+}
+
+.riel-member-card {
+  background-color: var(--riel-surface);
+  border: 1px solid var(--riel-border);
+  border-radius: var(--riel-radius-lg);
+  padding: 1.35rem;
+  box-shadow: var(--riel-shadow-card);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.riel-member-card:hover {
+  transform: translateY(-4px);
+  border-color: #c5dde8;
+  box-shadow: 0 16px 38px rgb(30 71 92 / 9%);
+}
+
+.riel-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: var(--riel-sky-100);
+  color: var(--riel-sky-600);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.riel-card-icon {
+  color: var(--riel-text-muted);
+  font-size: 0.85rem;
+  opacity: 0.55;
+}
+
+.riel-member-role {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--riel-sky-600);
+  margin-bottom: 0.3rem;
+}
+
+.riel-member-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--riel-navy-900);
+  margin-bottom: 0.25rem;
+}
+
+.riel-member-id {
+  font-size: 0.8rem;
+  color: var(--riel-text-muted);
+}
+
+/* =========================================
+   PÁGINAS INTERNAS (Tickets, Líneas, etc.)
+   ========================================= */
+.riel-page-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--riel-sky-600);
+  margin-bottom: 0.45rem;
+}
+
+.riel-page-title {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: var(--riel-navy-900);
+}
+
+.riel-page-subtitle {
+  color: var(--riel-text-secondary);
+  font-size: 0.975rem;
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.riel-btn-primary {
+  height: 48px;
+  padding: 0 1.25rem;
+  border-radius: var(--riel-radius-md);
+  background-color: var(--riel-sky-700);
+  border: 1px solid var(--riel-sky-700);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.925rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--riel-shadow-action);
+  transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+.riel-btn-primary:hover {
+  background-color: var(--riel-sky-600);
+  border-color: var(--riel-sky-600);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.riel-btn-secondary {
+  height: 44px;
+  padding: 0 1.1rem;
+  border-radius: var(--riel-radius-md);
+  background-color: var(--riel-surface);
+  border: 1px solid #d7e3e9;
+  color: var(--riel-navy-900);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.riel-btn-secondary:hover {
+  background-color: #f0f9fc;
+  border-color: #c5dde8;
+  color: var(--riel-navy-900);
+}
+
+.riel-filter-card {
+  background-color: var(--riel-surface);
+  border: 1px solid var(--riel-border);
+  border-radius: var(--riel-radius-lg);
+  padding: 1rem;
+  box-shadow: var(--riel-shadow-card);
+}
+
+.riel-control {
+  height: 48px;
+  background-color: #fbfdfe;
+  border: 1px solid #d7e3e9;
+  border-radius: var(--riel-radius-md);
+  color: var(--riel-text-primary);
+  font-size: 0.925rem;
+  padding-left: 0.95rem;
+  padding-right: 0.95rem;
+}
+
+.riel-control::placeholder {
+  color: #a2b0b8;
+}
+
+.riel-control:focus {
+  background-color: #ffffff;
+  border-color: #45aee0;
+  box-shadow: 0 0 0 4px rgb(69 174 224 / 10%);
+}
+
+.riel-input-icon {
+  position: relative;
+}
+
+.riel-input-icon i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a2b0b8;
+  pointer-events: none;
+}
+
+.riel-input-icon .riel-control {
+  padding-left: 2.65rem;
+}
+
+.riel-results-count {
+  font-size: 0.875rem;
+  color: var(--riel-text-secondary);
+}
+
+.riel-results-count strong {
+  color: var(--riel-navy-900);
+}
+
+.riel-link-action {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #218fc6;
+  text-decoration: none;
+}
+
+.riel-link-action:hover {
+  color: var(--riel-sky-700);
+  text-decoration: underline;
+}
+
+.riel-table-card {
+  background-color: var(--riel-surface);
+  border: 1px solid var(--riel-border);
+  border-radius: var(--riel-radius-lg);
+  box-shadow: var(--riel-shadow-card);
+  overflow: hidden;
+}
+
+.riel-table thead th {
+  background-color: #f0f9fc;
+  color: var(--riel-text-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid var(--riel-border);
+  white-space: nowrap;
+}
+
+.riel-table tbody td {
+  padding: 1rem;
+  font-size: 0.88rem;
+  color: var(--riel-text-primary);
+  border-bottom: 1px solid var(--riel-border);
+  white-space: nowrap;
+}
+
+.riel-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.riel-table tbody tr:hover td {
+  background-color: #f8fbfc;
+}
+
+.riel-id-link {
+  color: #218fc6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.riel-cell-main {
+  font-weight: 600;
+  color: var(--riel-navy-900);
+  display: block;
+}
+
+.riel-cell-sub {
+  font-size: 0.78rem;
+  color: var(--riel-text-muted);
+  display: block;
+}
+
+.riel-price {
+  font-weight: 700;
+  color: var(--riel-navy-900);
+}
+
+.modal-backdrop.show {
+  background-color: var(--riel-navy-950);
+  opacity: 0.65;
+}
+
+.riel-modal {
+  border: 1px solid var(--riel-border);
+  border-radius: 24px;
+  padding: 0.5rem;
+  box-shadow: 0 24px 60px rgb(11 29 43 / 22%);
+}
+
+.riel-modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--riel-navy-900);
+}
+
+/* Ajustes del modal "Emitir nuevo ticket" */
+.riel-modal-backdrop {
+  backdrop-filter: blur(4px);
+}
+
+.riel-modal-dialog {
+  max-width: 512px;
+}
+
+.riel-modal {
+  padding: 0.75rem;
+}
+
+.riel-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 0;
+  background-color: #f4f8fb;
+  color: var(--riel-text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.riel-modal-close:hover {
+  background-color: #e6f0f5;
+  color: var(--riel-navy-900);
+}
+
+.riel-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--riel-navy-900);
+  margin-bottom: 0.4rem;
+}
+
+.riel-btn-ghost {
+  height: 44px;
+  padding: 0 1rem;
+  border: 0;
+  background-color: transparent;
+  color: var(--riel-text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: var(--riel-radius-md);
+}
+
+.riel-btn-ghost:hover {
+  background-color: #f0f9fc;
+  color: var(--riel-navy-900);
+}
+
+/* =========================================
+   ACCESIBILIDAD: REDUCCIÓN DE MOVIMIENTO
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .riel-member-card,
+  .riel-navbar .nav-link,
+  .riel-btn-logout,
+  .riel-btn-primary {
+    transition: none;
+  }
+
+  .riel-member-card:hover,
+  .riel-btn-primary:hover {
+    transform: none;
+  }
+}
