@@ -74,7 +74,7 @@ form.addEventListener("submit", async (e) => {
 
 // Nro de Linea
 async function buscarLinea(nroLinea) {
-    const datos = await apiGet(`/api/Lineas?NroLinea=${nroLinea}`);
+    const datos = await apiGet(`/api/Lineas/${nroLinea}`);
     return datos ?? [];
 }
 

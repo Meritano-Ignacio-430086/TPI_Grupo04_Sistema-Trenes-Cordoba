@@ -29,7 +29,7 @@ namespace TPGI_Trenes
             });
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>() 
-                    ?? throw new InvalidOperationException("No esta configurado el JwwtSettings"); 
+                    ?? throw new InvalidOperationException("No esta configurado el JWTSettings"); 
             builder.Services.AddSingleton(jwtSettings);
 
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -60,9 +60,9 @@ namespace TPGI_Trenes
 
             builder.Services.AddDbContext<TrenesContext>(
                 options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection")
+                //builder.Configuration.GetConnectionString("DefaultConnection")
                 //builder.Configuration.GetConnectionString("Conneccion1")
-                //builder.Configuration.GetConnectionString("Caccioppoli")
+                builder.Configuration.GetConnectionString("Caccioppoli")
                 )
             );
 
